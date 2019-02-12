@@ -1,0 +1,45 @@
+#tileControls {
+    border:solid 2px black;
+    padding: 10px;
+    max-width:180px;
+    font-size:12px;
+    font-family:arial;
+    user-select: none;
+    position:relative;
+    top:-108px;
+    left:10px;
+    background-color:white;
+}
+
+div {
+    margin-top:8px;
+}
+
+.bulletsAndon {
+   display:inline-block;
+   margin-right:10px;
+   background-color:purple;
+   color:white;
+   padding:4px;
+   cursor:pointer;
+}
+
+.bulletsOee {
+    display:inline-block;
+   margin-right:10px;
+   background-color: green;
+   color:white;
+   padding:4px;
+   cursor:pointer;
+
+}
+
+.bulletsNone {
+   display:inline-block;
+   margin-right:10px;
+   background-color:white;
+   border:solid 1px black;
+   color:black;
+   padding:4px;
+   cursor:pointer;
+}

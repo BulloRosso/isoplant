@@ -1,0 +1,12 @@
+<div id="tileControls">
+  <b>CONTROLS</b>
+  <br/>
+  <a (click)="tiledCoreService.incrementZoom()">Zoom (+)</a>
+  {{ tiledCoreService.zoomLevel }}
+  <a (click)="tiledCoreService.decrementZoom()">(-)</a>
+  <div>
+    <span class="bulletsAndon" (click)="showBullets('andon')">Andon</span>
+    <span class="bulletsOee" (click)="showBullets('oee')">OEE</span>
+    <span class="bulletsNone" (click)="showBullets('none')">None</span>
+  </div>
+</div>

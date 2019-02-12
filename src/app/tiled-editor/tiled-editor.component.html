@@ -1,0 +1,6 @@
+<div id="tileEditor">
+  <b>EDITOR</b>
+  <br/>
+  Selected tile: <span class="selTile">{{ tiledCoreService.selectedTile }}</span>
+  &nbsp;&nbsp;&nbsp;<a href="#" *ngIf="tiledCoreService.getTileData(tiledCoreService.selectedTile)" (click)="clearTile()">Remove</a>
+</div>
