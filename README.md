@@ -1,6 +1,14 @@
 # TileEditor
 
-This project contains the technical artifacts and "how to" for a simple isometric plant view canvas and editor.
+This project contains the technical artifacts and "how to"s for a simple isometric plant view canvas and editor.
+
+There are three UI components:
+
+* the CANVAS which draws the tiles and handles selection
+* the CONTROLS which can be used to change zoomlevel and detail overlays
+* the EDITOR pane which is only used during creating the plant view
+
+All screen components are connected to a SERVICE which holds the data and state.
 
 ![Demo screen](https://raw.githubusercontent.com/bullorosso/isoplant/master/screenshot.PNG)
 
