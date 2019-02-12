@@ -1,4 +1,4 @@
-# TileEditor
+# Isometric Plant View & Editor
 
 This project contains the technical artifacts and "how to"s for a simple isometric plant view canvas and editor.
 
