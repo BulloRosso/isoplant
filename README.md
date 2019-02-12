@@ -1,5 +1,10 @@
 # TileEditor
 
+This project contains the technical artifacts and "how to" for a simple isometric plant view canvas and editor.
+
+![Demo screen](https://raw.githubusercontent.com/bullorosso/plantview/master/src/assets/img.png)
+
+## Angular 7
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
 ## Development server
