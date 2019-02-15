@@ -1,5 +1,21 @@
-#tileCanvas {
+canvas {
+    display:block;
     width:800px;
     height:400px;
     background-color:#efefef;
+}
+
+div {
+    display:block;
+    width: 500px; 
+    height: 250px; 
+    border:dotted 1px #ccc;
+    overflow: hidden
+}
+
+p {   
+   position:relative;
+   top:100 px; 
+   font-family:Arial;
+   color:#ccc;
 }

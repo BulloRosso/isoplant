@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, Renderer, ViewChild, Renderer2, AfterViewInit, ViewChildren, ContentChild } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { TiledCoreService } from '../tiled-core.service';
 // 
 //   Simple Isometric Renderer inspired by http://nick-aschenbach.github.io/assets/2015-02-25-isometric-tile-engine/isometric02/js/isometric.js
 //
-export class TiledCanvasComponent implements OnInit, OnDestroy {
+export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   
   private grid = {
     Xtiles: 10,
@@ -26,16 +26,24 @@ export class TiledCanvasComponent implements OnInit, OnDestroy {
  };
 
  event: MouseEvent;
-
+ @ViewChildren('tileCanvas') canvasRef:ElementRef;
+ @ViewChildren('tileViewport') viewportRef:ElementRef;
  private canvas; 
  private context; 
  private tileSubscription;
  private bulletSubscription;
 
- constructor(private tiledCoreService : TiledCoreService) { 
+ // stuff for moving the canvas inside the outer div (viewport)
+ private dragging :boolean;
+ private lastX = 0;
+ private lastY = 0;
+ private marginTop = 0;
+ private marginLeft = 0;
+
+ constructor(private tiledCoreService : TiledCoreService, private elementRef: ElementRef, private renderer: Renderer2) { 
 
     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
-      if (document.getElementById("tileCanvas")) {
+      if (this.canvasRef) {
         console.log("REDRAW tiles");
         this.grid.tileMap = retMap;
         this.redrawTiles(this.grid.tileMap);
@@ -44,7 +52,7 @@ export class TiledCanvasComponent implements OnInit, OnDestroy {
 
     this.bulletSubscription = this.tiledCoreService.bulletData().subscribe(retBullets => {
       
-       if (document.getElementById("tileCanvas")) {
+       if (this.canvasRef) {
           this.grid.bulletColor = retBullets["color"];
           console.log("BULLET redraw " + retBullets["color"]);
           this.redrawTiles(this.grid.tileMap);
@@ -52,9 +60,64 @@ export class TiledCanvasComponent implements OnInit, OnDestroy {
     })
  }
 
+ // initialize drag & move listeners here on canvas and window-object
+ //
+ ngAfterViewInit() {
+
+  this.renderer.listen(this.canvasRef["first"].nativeElement, 'mousedown', (event) => {
+    
+    var evt = event;
+    this.dragging = true;
+    this.lastX = evt.clientX;
+    this.lastY = evt.clientY;
+
+    evt.preventDefault()
+  });
+
+  // handles the movement of canvas inside the viewport div
+  //
+  this.renderer.listen('window', 'mousemove', (event) => {
+    
+      var canvas = this.canvasRef["first"].nativeElement;
+      var viewport = this.viewportRef["first"].nativeElement; 
+
+      var canvasWidth = canvas.width;
+      var canvasHeight = canvas.height;
+      var viewportWidth = viewport.width; // ?? null
+      var viewportHeight = viewport.style.height; // ?? null
+      // console.log(canvasWidth +"/" + canvasHeight + ":" + viewportWidth + "/" + viewportHeight);
+
+      var evt = event;
+      if (this.dragging) {
+
+          var deltaX = evt.clientX - this.lastX;
+          var deltaY = evt.clientY - this.lastY;
+         
+          var dragWithinBoundaries = true; //() && ();
+
+          if (dragWithinBoundaries) {
+            this.lastX = evt.clientX;
+            this.lastY = evt.clientY;
+
+            this.marginLeft += deltaX;
+            this.marginTop += deltaY;
+            canvas.style.marginLeft = this.marginLeft + "px";
+            canvas.style.marginTop = this.marginTop + "px";
+          }
+      }
+      evt.preventDefault();
+  });
+
+  this.renderer.listen('window', 'mouseup', (event) => {
+      this.dragging = false;
+  });
+
+  this.redrawTiles( this.tiledCoreService.allTileData());
+ }
+
  ngOnInit() {
 
-   this.redrawTiles( this.tiledCoreService.allTileData());
+   
 
  }
 
@@ -85,7 +148,11 @@ export class TiledCanvasComponent implements OnInit, OnDestroy {
 
  redrawTiles(tileData: Map<string,string>) {
 
-   this.canvas = <HTMLCanvasElement>document.getElementById("tileCanvas");
+   if (!this.canvasRef) {
+     return;
+   }
+
+   this.canvas = this.canvasRef["first"].nativeElement;
    this.context =  this.canvas.getContext("2d");
 
    var width = 800;
