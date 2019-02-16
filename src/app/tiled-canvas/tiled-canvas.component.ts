@@ -38,6 +38,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  private dragging :boolean;
  private lastX = 0;
  private lastY = 0;
+ private storedX = 0;
+ private storedY = 0;
  private marginTop = 0;
  private marginLeft = 0;
 
@@ -71,7 +73,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.dragging = true;
     this.lastX = evt.clientX;
     this.lastY = evt.clientY;
-
+    this.storedX = this.lastX;
+    this.storedY = this.lastY;
     evt.preventDefault()
   });
 
@@ -109,12 +112,16 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
             canvas.style.marginLeft = this.marginLeft + "px";
             canvas.style.marginTop = this.marginTop + "px";
           } 
-      }
+      } 
       evt.preventDefault();
   });
 
   this.renderer.listen('window', 'mouseup', (event) => {
-      this.dragging = false;
+    // distinguish between drag and click
+    if (this.storedX == this.lastX && this.storedY == this.lastY) {
+      this.onClickEvent(event);
+    }  
+    this.dragging = false;
   });
   // --- end of canvas drag & drop
 
@@ -141,7 +148,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.bulletSubscription.unsubscribe();
  }
 
- onEvent(event: MouseEvent): void {
+ onClickEvent(event: MouseEvent): void {
 
    var canvas = this.canvasRef.nativeElement; // adjust position according scroll position
    console.log(canvas.style.marginLeft.replace("px",""));
