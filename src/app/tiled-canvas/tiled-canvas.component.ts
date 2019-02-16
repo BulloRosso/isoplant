@@ -19,6 +19,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     selectedTileX: -1,
     selectedTileY: -1,
     showCoordinates: false,
+    showOutlines: false,
     originY: 0,
     originX: 0,
     bulletColor: null,
@@ -26,8 +27,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  };
 
  event: MouseEvent;
- @ViewChildren('tileCanvas') canvasRef:ElementRef;
- @ViewChildren('tileViewport') viewportRef:ElementRef;
+ @ViewChild('tileCanvas') canvasRef:ElementRef;
+ @ViewChild('tileViewport') viewportRef:ElementRef;
  private canvas; 
  private context; 
  private tileSubscription;
@@ -64,7 +65,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  //
  ngAfterViewInit() {
 
-  this.renderer.listen(this.canvasRef["first"].nativeElement, 'mousedown', (event) => {
+  this.renderer.listen(this.canvasRef.nativeElement, 'mousedown', (event) => {
     
     var evt = event;
     this.dragging = true;
@@ -74,18 +75,19 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     evt.preventDefault()
   });
 
-  // handles the movement of canvas inside the viewport div
+  // -- Start: Handle the movement of canvas element inside the viewport div
   //
   this.renderer.listen('window', 'mousemove', (event) => {
     
-      var canvas = this.canvasRef["first"].nativeElement;
-      var viewport = this.viewportRef["first"].nativeElement; 
+      var canvas = this.canvasRef.nativeElement;
+      var viewport = this.viewportRef.nativeElement; 
 
-      var canvasWidth = canvas.width;
-      var canvasHeight = canvas.height;
-      var viewportWidth = viewport.width; // ?? null
-      var viewportHeight = viewport.style.height; // ?? null
+      var canvasWidth = canvas.clientWidth;
+      var canvasHeight = canvas.clientHeight;
+      var viewportWidth = viewport.clientWidth; 
+      var viewportHeight = viewport.clientHeight; 
       // console.log(canvasWidth +"/" + canvasHeight + ":" + viewportWidth + "/" + viewportHeight);
+      // console.log(canvas.style.marginLeft + "/" + canvas.style.marginTop);
 
       var evt = event;
       if (this.dragging) {
@@ -93,23 +95,36 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           var deltaX = evt.clientX - this.lastX;
           var deltaY = evt.clientY - this.lastY;
          
-          var dragWithinBoundaries = true; //() && ();
+          var dragWithinBoundaries = (this.marginLeft + deltaX <= 0) && (this.marginTop + deltaY <= 0)
+                                   && ((this.marginLeft + deltaX) >= -(canvasWidth - viewportWidth))
+                                   && ((this.marginTop + deltaY) >= -(canvasHeight - viewportHeight)); 
 
-          if (dragWithinBoundaries) {
+          if (dragWithinBoundaries) {                         
             this.lastX = evt.clientX;
             this.lastY = evt.clientY;
 
             this.marginLeft += deltaX;
             this.marginTop += deltaY;
+      
             canvas.style.marginLeft = this.marginLeft + "px";
             canvas.style.marginTop = this.marginTop + "px";
-          }
+          } 
       }
       evt.preventDefault();
   });
 
   this.renderer.listen('window', 'mouseup', (event) => {
       this.dragging = false;
+  });
+  // --- end of canvas drag & drop
+
+  // listen to mouse wheel for zoom in/out)
+  this.renderer.listen(this.canvasRef.nativeElement,'wheel', (event) => {
+      if (event.deltaY > 0) {
+        this.tiledCoreService.decrementZoom();
+      } else {
+        this.tiledCoreService.incrementZoom();
+      }
   });
 
   this.redrawTiles( this.tiledCoreService.allTileData());
@@ -128,8 +143,11 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
  onEvent(event: MouseEvent): void {
 
-   var pageX = event.pageX - this.grid.tileColumnOffset / 2 - this.grid.originX;
-   var pageY = event.pageY - this.grid.tileRowOffset / 2 - this.grid.originY;
+   var canvas = this.canvasRef.nativeElement; // adjust position according scroll position
+   console.log(canvas.style.marginLeft.replace("px",""));
+
+   var pageX = (event.pageX - this.canvas.style.marginLeft.replace("px","")) - this.grid.tileColumnOffset / 2 - this.grid.originX;
+   var pageY = (event.pageY - this.canvas.style.marginTop.replace("px","")) - this.grid.tileRowOffset / 2 - this.grid.originY;
 
    var tileX = Math.round(pageX / this.grid.tileColumnOffset - pageY / this.grid.tileRowOffset);
    var tileY = Math.round(pageX / this.grid.tileColumnOffset + pageY / this.grid.tileRowOffset);
@@ -152,17 +170,17 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
      return;
    }
 
-   this.canvas = this.canvasRef["first"].nativeElement;
+   this.canvas = this.canvasRef.nativeElement;
    this.context =  this.canvas.getContext("2d");
-
+   
    var width = 800;
    var height = 400;
 
    this.context.canvas.width  = width;
    this.context.canvas.height = height;
 
-   this.grid.originX = width / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2;
-   this.grid.originY = height / 2;
+   this.grid.originX = width / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2 + 1;
+   this.grid.originY = height / 2 - this.grid.tileRowOffset / 2 + 1;
 
    for(var Xi = (this.grid.Xtiles - 1); Xi >= 0; Xi--) {
      for(var Yi = 0; Yi < this.grid.Ytiles; Yi++) {
@@ -171,7 +189,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    }
 
    // TEST
-   this.drawText("ISOMETRIC PLANT VIEW",560,-90);
+   this.drawText("ISOMETRIC PLANT VIEW",550,-110);
 
  }
 
@@ -200,11 +218,14 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.context.closePath();
 
    // Draw tile outline
-   var color = '#999';
-   this.drawLine(offX, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY, color);
-   this.drawLine(offX + this.grid.tileColumnOffset / 2, offY, offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, color);
-   this.drawLine(offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, color);
-   this.drawLine(offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, offX, offY + this.grid.tileRowOffset / 2, color);
+   if(this.grid.showOutlines) {
+     console.log("SHOW OUTLINES");
+      var color = '#999';
+      this.drawLine(offX, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY, color);
+      this.drawLine(offX + this.grid.tileColumnOffset / 2, offY, offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, color);
+      this.drawLine(offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, color);
+      this.drawLine(offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, offX, offY + this.grid.tileRowOffset / 2, color);
+   }
 
    if(this.grid.showCoordinates) {
      this.context.fillStyle = 'orange';
