@@ -1,6 +1,6 @@
 
 <div #tileViewport>
-    <canvas #tileCanvas ></canvas>
+    <canvas #tileCanvas (click)="onClick($event)"></canvas>
 </div>
 <p>
 Hint: You can drag the view around like Google maps!
