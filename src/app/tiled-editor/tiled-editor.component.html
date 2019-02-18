@@ -2,5 +2,24 @@
   <b>EDITOR</b>
   <br/>
   Selected tile: <span class="selTile">{{ tiledCoreService.selectedTile }}</span>
-  &nbsp;&nbsp;&nbsp;<a href="#" *ngIf="tiledCoreService.getTileData(tiledCoreService.selectedTile)" (click)="clearTile()">Remove</a>
+  &nbsp;&nbsp;&nbsp;
+  <button mat-flat-button color="accent" *ngIf="tiledCoreService.getTileData(tiledCoreService.selectedTile)" (click)="clearTile()">Remove</button>
+  
+  <form>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Label Text" value="">
+    </mat-form-field>
+<br/>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Image Name" value="">
+    </mat-form-field>
+<br/>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Background Color" value="">
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <button mat-flat-button color="primary">Save</button>
+
+  </form>
 </div>

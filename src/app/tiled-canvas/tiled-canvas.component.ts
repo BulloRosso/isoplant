@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ElementRef, Renderer, ViewChild, Renderer2, AfterViewInit, ViewChildren, ContentChild } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
+import { TileData } from '../model/tile-data';
 
 @Component({
   selector: 'tiled-canvas',
@@ -23,7 +24,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     originY: 0,
     originX: 0,
     bulletColor: null,
-    tileMap: new Map<string,string>() 
+    tileMap: new Map<string,TileData>() 
  };
 
  event: MouseEvent;
@@ -164,16 +165,25 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.grid.selectedTileX = tileX;
    this.grid.selectedTileY = tileY;
 
+   var newTile;
    // über Funktion im Core-Service setzen (nicht wie hier direkt)
+   if (!this.tiledCoreService.getTileData(tileX + "," + tileY)) {
+     newTile = new TileData();
+     newTile.coordinate = tileX + "," + tileY;
+     this.tiledCoreService.setTileData(tileX + "," + tileY, newTile);
+   } else {
+     newTile = this.tiledCoreService.getTileData(tileX + "," + tileY);
+   }
    this.tiledCoreService.selectedTile = tileX + "," + tileY;
 
    // hier nur als Beispiel, setzt eigenlich der Editor
-   this.tiledCoreService.setTileData(this.tiledCoreService.selectedTile, "cube-outline");
+   newTile.imgName = "cube-outline";
+   this.tiledCoreService.setTileData(this.tiledCoreService.selectedTile, newTile);
 
    //this.redrawTiles();
  }
 
- redrawTiles(tileData: Map<string,string>) {
+ redrawTiles(tileData: Map<string, TileData>) {
 
    if (!this.canvasRef) {
      return;
@@ -242,17 +252,18 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    }
 
    if (tileData) {
-      var imgSrc = tileData; // normalerweise wäre tileData ein großes JSON-Objekt, das die Eigenschaften beschreibt
-      this.drawImage(offX, offY, imgSrc);
-
-      if (this.grid.bulletColor) {
+      if (tileData.imgName) {
+        this.drawImage(offX, offY, tileData.imgName);
     
-        this.context.fillStyle = this.grid.bulletColor;
-        this.context.beginPath();
-        this.context.arc(offX +60, offY + 10, 8, 0, 2 * Math.PI, true);
-        this.context.closePath(); 
-        this.context.fill();
-       }
+        if (this.grid.bulletColor) {
+      
+          this.context.fillStyle = this.grid.bulletColor;
+          this.context.beginPath();
+          this.context.arc(offX +60, offY + 10, 8, 0, 2 * Math.PI, true);
+          this.context.closePath(); 
+          this.context.fill();
+        }
+      }
    }
 
  }

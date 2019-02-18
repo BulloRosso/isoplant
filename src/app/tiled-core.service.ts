@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { TileData } from './model/tile-data';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class TiledCoreService {
   public selectedTile : string = null;
   
   private _bulletData : BehaviorSubject<any> = new BehaviorSubject({});
-  private _tileData :  BehaviorSubject<Map<string,string>> = new BehaviorSubject(new Map<string,string>());
+  private _tileData :  BehaviorSubject<Map<string,TileData>> = new BehaviorSubject(new Map<string,TileData>());
   
   public tileData(): Observable<any> {
       return this._tileData.asObservable();
@@ -40,7 +41,7 @@ export class TiledCoreService {
     }
   }
 
-  public setTileData(key : string, val : string) {
+  public setTileData(key : string, val : TileData) {
      this._tileData.value.set(key, val);
      this._tileData.next(this._tileData.value);
   }
