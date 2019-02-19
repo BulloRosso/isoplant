@@ -5,21 +5,26 @@
   &nbsp;&nbsp;&nbsp;
   <button mat-flat-button color="accent" *ngIf="tiledCoreService.getTileData(tiledCoreService.selectedTile)" (click)="clearTile()">Remove</button>
   
-  <form>
-
+ 
+<div></div>
+<div *ngIf="tiledCoreService.getTileData(tiledCoreService.selectedTile)">
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Label Text" value="">
     </mat-form-field>
 <br/>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Image Name" value="">
-    </mat-form-field>
+<mat-form-field>
+  <mat-select placeholder="Tile Image" [(ngModel)]="imageName">
+    <mat-option *ngFor="let tileType of tileTypes" [value]="tileType">
+      {{tileType}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 <br/>
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Background Color" value="">
     </mat-form-field>
     &nbsp;&nbsp;
-    <button mat-flat-button color="primary">Save</button>
-
-  </form>
+    <button mat-flat-button color="primary" (click)="saveTile()">Save</button>
+</div>
+ 
 </div>

@@ -166,7 +166,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.grid.selectedTileY = tileY;
 
    var newTile;
-   // über Funktion im Core-Service setzen (nicht wie hier direkt)
+   
    if (!this.tiledCoreService.getTileData(tileX + "," + tileY)) {
      newTile = new TileData();
      newTile.coordinate = tileX + "," + tileY;
@@ -176,11 +176,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    }
    this.tiledCoreService.selectedTile = tileX + "," + tileY;
 
-   // hier nur als Beispiel, setzt eigenlich der Editor
-   newTile.imgName = "cube-outline";
-   this.tiledCoreService.setTileData(this.tiledCoreService.selectedTile, newTile);
-
-   //this.redrawTiles();
+   this.redrawTiles(this.tiledCoreService.allTileData());
  }
 
  redrawTiles(tileData: Map<string, TileData>) {
@@ -232,19 +228,19 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.context.lineTo(offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset);
    this.context.lineTo(offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset);
    this.context.lineTo(offX, offY + this.grid.tileRowOffset / 2);
-   this.context.stroke();
+   //this.context.stroke();
    this.context.fill();
    this.context.closePath();
 
    // Draw tile outline
+   var color = "#ccc";
    if(this.grid.showOutlines) {
-     console.log("SHOW OUTLINES");
       var color = '#999';
-      this.drawLine(offX, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY, color);
-      this.drawLine(offX + this.grid.tileColumnOffset / 2, offY, offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, color);
-      this.drawLine(offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, color);
-      this.drawLine(offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, offX, offY + this.grid.tileRowOffset / 2, color);
-   }
+   } 
+   this.drawLine(offX, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY, color);
+   this.drawLine(offX + this.grid.tileColumnOffset / 2, offY, offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, color);
+   this.drawLine(offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, color);
+   this.drawLine(offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, offX, offY + this.grid.tileRowOffset / 2, color);
 
    if(this.grid.showCoordinates) {
      this.context.fillStyle = 'orange';
@@ -302,8 +298,9 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
  drawImage(x:number, y:number, imgName: string) {
    var drawing = new Image() 
-   drawing.src = "assets/" + imgName + ".svg"; 
-   this.context.drawImage(drawing,x +28,y +8);
+   drawing.src = "assets/tiles/" + imgName + ".svg";
+   this.context.drawImage(drawing, x ,y - this.grid.tileRowOffset/2, 
+                                   this.grid.tileColumnOffset, this.grid.tileColumnOffset -16);
  }
 
 }
