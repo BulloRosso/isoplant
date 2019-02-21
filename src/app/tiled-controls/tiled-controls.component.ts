@@ -14,11 +14,17 @@ export class TiledControlsComponent implements OnInit {
   }
 
   zoomIn() {
+    if (this.tiledCoreService.zoomLevel == 4) {
+      return;
+    } 
     this.tiledCoreService.incrementZoom();
     this.tiledCoreService.broadcastRefresh();
   }
 
   zoomOut() {
+    if (this.tiledCoreService.zoomLevel == 1) {
+      return;
+    } 
     this.tiledCoreService.decrementZoom();
     this.tiledCoreService.broadcastRefresh();
   }
