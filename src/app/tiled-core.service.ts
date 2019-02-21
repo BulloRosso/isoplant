@@ -17,22 +17,33 @@ export class TiledCoreService  {
 
       // Let's create some test data
       //
-      const m1: TileData = new TileData();
-      m1.coordinate = "1,0";
-      m1.imgName = "machine";
-      this._tileData.value.set("0,0", m1);
+      var testDataArr = [
+        { coordinate: "1,1", imgName: "machine", labelText: "U7110" },
+        { coordinate: "3,1", imgName: "warehouse", labelText: "WAREHOUSE" },
+        { coordinate: "5,1", imgName: "conveyor", labelText: "U7120" },
+        { coordinate: "0,0", imgName: "wall_left", labelText: null },
+        { coordinate: "1,0", imgName: "wall_left", labelText: null },
+        { coordinate: "2,0", imgName: "wall_left", labelText: null },
+        { coordinate: "3,0", imgName: "wall_left", labelText: null },
+        { coordinate: "4,0", imgName: "wall_left", labelText: null },
+        { coordinate: "5,0", imgName: "wall_left", labelText: null },
+        { coordinate: "6,0", imgName: "wall_left", labelText: null },
+        { coordinate: "7,0", imgName: "wall_left", labelText: null },
+        { coordinate: "8,0", imgName: "wall_left", labelText: null },
+        { coordinate: "9,0", imgName: "wall_left", labelText: null },
+        { coordinate: "7,1", imgName: "paletts", labelText: "FINISHED GOODS" },
+        { coordinate: "8,1", imgName: "paletts", labelText: null },
+        { coordinate: "7,2", imgName: "paletts", labelText: null },
+        { coordinate: "8,2", imgName: "paletts", labelText: null },
+      ];
 
-      const m2: TileData = new TileData();
-      m2.coordinate = "2,0";
-      m2.imgName = "warehouse";
-      m2.labelText = "U7110";
-      this._tileData.value.set("2,0", m2);
-
-      const m3: TileData = new TileData();
-      m3.coordinate = "4,0";
-      m3.imgName = "conveyor";
-      this._tileData.value.set("4,0", m3);
-
+      testDataArr.forEach(itm => {
+        const tile: TileData = new TileData();
+        tile.coordinate = itm.coordinate;
+        tile.imgName = itm.imgName;
+        tile.labelText = itm.labelText;
+        this._tileData.value.set(itm.coordinate, tile);
+      });
     
   }
 
