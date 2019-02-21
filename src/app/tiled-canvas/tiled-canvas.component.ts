@@ -233,12 +233,14 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.grid.originX = width / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2 + 1;
    this.grid.originY = height / 2 - this.grid.tileRowOffset / 2 + 1;
 
+   // first pass: Images
    for(var Xi = (this.grid.Xtiles - 1); Xi >= 0; Xi--) {
      for(var Yi = 0; Yi < this.grid.Ytiles; Yi++) {
        this.drawTile(Xi, Yi, tileData.get(Xi + "," + Yi));
      }
    }
 
+   // second pass: text & bullets
    for(var Xi = (this.grid.Xtiles - 1); Xi >= 0; Xi--) {
     for(var Yi = 0; Yi < this.grid.Ytiles; Yi++) {
       this.drawTileText(Xi, Yi, tileData.get(Xi + "," + Yi));
@@ -260,7 +262,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       if (tileData.imgName) {
         this.drawImage(offX, offY, tileData.imgName);
     
-        if (tileData.labelText) {
+        if (tileData.labelText && this.tiledCoreService.zoomLevel > 1) {
           this.drawText(tileData.labelText, 
                         offX + this.grid.tileColumnOffset / 3.2, 
                         offY + this.grid.tileRowOffset / 1.4, 
