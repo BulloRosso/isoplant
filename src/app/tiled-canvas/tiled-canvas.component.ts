@@ -267,13 +267,25 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
                         8 * this.tiledCoreService.zoomLevel);
         }
 
-        if (this.grid.bulletColor) {
-      
-          this.context.fillStyle = this.grid.bulletColor;
-          this.context.beginPath();
-          this.context.arc(offX +60, offY + 10, 8, 0, 2 * Math.PI, true);
-          this.context.closePath(); 
-          this.context.fill();
+        if (tileData.mapKpis && this.grid.bulletColor) {
+
+          const kpiVal = tileData.mapKpis.get("oee");
+
+          if (kpiVal) {
+            // Circle
+            this.context.fillStyle = this.grid.bulletColor;
+            this.context.beginPath();
+            this.context.arc(offX + 70 * this.tiledCoreService.zoomLevel, offY + 10 * this.tiledCoreService.zoomLevel, 
+              8 * this.tiledCoreService.zoomLevel, 0, 2 * Math.PI, true);
+            this.context.closePath(); 
+            this.context.fill();
+
+            // Text
+            this.context.font = 8 * this.tiledCoreService.zoomLevel + "px Verdana";
+            this.context.fillStyle = "white";
+            this.context.textAlign = 'center';
+            this.context.fillText(kpiVal, offX + 70 * this.tiledCoreService.zoomLevel, offY + 13 * this.tiledCoreService.zoomLevel);
+          }
         }
       }
    }
@@ -356,10 +368,19 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  }
 
  drawImage(x:number, y:number, imgName: string) {
-   var drawing = new Image() 
-   drawing.src = "assets/tiles/" + imgName + ".svg";
-   this.context.drawImage(drawing, x ,y - this.grid.tileRowOffset * 0.6, 
-                                   this.grid.tileColumnOffset, this.grid.tileRowOffset * 1.6);
+
+   if (imgName.indexOf(",") > -1) {
+      // stacked complex images
+      imgName.split(",").forEach(imgName => {
+          this.drawImage(x,y,imgName);
+      })
+   } else {
+      // simple single image
+      var drawing = new Image() 
+      drawing.src = "assets/tiles/" + imgName + ".svg";
+      this.context.drawImage(drawing, x ,y - this.grid.tileRowOffset * 0.6, 
+                                      this.grid.tileColumnOffset, this.grid.tileRowOffset * 1.6);
+   }
  }
 
 }

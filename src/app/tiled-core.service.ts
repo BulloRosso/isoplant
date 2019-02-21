@@ -18,12 +18,18 @@ export class TiledCoreService  {
       // Let's create some test data
       //
       var testDataArr = [
-        { coordinate: "1,1", imgName: "machine", labelText: "U7110" },
+        { coordinate: "1,1", imgName: "machine", labelText: "U7110", mapKpis: new Map([
+          ["andon", "19"],
+          ["oee", "5"]
+        ]) },
         { coordinate: "3,1", imgName: "warehouse", labelText: "WAREHOUSE" },
-        { coordinate: "5,1", imgName: "conveyor", labelText: "U7120" },
+        { coordinate: "5,1", imgName: "conveyor", labelText: "U7120", mapKpis: new Map([
+          ["andon", "8"],
+          ["oee", "1"]
+        ]) },
         { coordinate: "0,0", imgName: "wall_left", labelText: null },
-        { coordinate: "1,0", imgName: "wall_left", labelText: null },
-        { coordinate: "2,0", imgName: "wall_left", labelText: null },
+        { coordinate: "1,0", imgName: "wall_left,road_right", labelText: null },
+        { coordinate: "2,0", imgName: "wall_left,road_right,paletts", labelText: null },
         { coordinate: "3,0", imgName: "wall_left", labelText: null },
         { coordinate: "4,0", imgName: "wall_left", labelText: null },
         { coordinate: "5,0", imgName: "wall_left", labelText: null },
@@ -42,6 +48,11 @@ export class TiledCoreService  {
         tile.coordinate = itm.coordinate;
         tile.imgName = itm.imgName;
         tile.labelText = itm.labelText;
+        if (itm.mapKpis) {
+          tile.mapKpis = itm.mapKpis;
+        } else {
+          tile.mapKpis = null;
+        }
         this._tileData.value.set(itm.coordinate, tile);
       });
     
