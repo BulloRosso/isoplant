@@ -7,10 +7,10 @@ canvas {
 
 div {
     display:block;
-    width: 500px; 
-    height: 250px; 
+    width: 1000px; 
+    height: 600px; 
     border:dotted 1px #ccc;
-    overflow: hidden
+    overflow: scroll;
 }
 
 p {   

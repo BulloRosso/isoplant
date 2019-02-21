@@ -74,6 +74,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  //
  ngAfterViewInit() {
 
+  this.redrawTiles( this.tiledCoreService.allTileData());
+
   this.renderer.listen(this.canvasRef.nativeElement, 'mousedown', (event) => {
     
     var evt = event;
@@ -144,10 +146,14 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         this.tiledCoreService.incrementZoom();
       }
       
+      this.context.scale(this.tiledCoreService.zoomLevel, this.tiledCoreService.zoomLevel);
       this.redrawTiles(this.tiledCoreService.allTileData());
+
+      this.lastX = 0;
+      this.lastY = 0;
   });
 
-  this.redrawTiles( this.tiledCoreService.allTileData());
+  
  }
 
  ngOnInit() {
@@ -204,14 +210,17 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.context =  this.canvas.getContext("2d");
    
    this.context.save();
-
-   this.context.scale(this.tiledCoreService.zoomLevel, this.tiledCoreService.zoomLevel);
-
-   var width = 800  * this.tiledCoreService.zoomLevel;
-   var height = 400  * this.tiledCoreService.zoomLevel;
-  
+   
+   var width = 800 * this.tiledCoreService.zoomLevel;
+   var height = 400 * this.tiledCoreService.zoomLevel;
+   
    this.context.canvas.width  = width;
+   this.canvas.style.width = width + "px";
    this.context.canvas.height = height;
+   this.canvas.style.height = height + "px";
+
+   this.grid.tileColumnOffset = 80 * this.tiledCoreService.zoomLevel;
+   this.grid.tileRowOffset = 40 * this.tiledCoreService.zoomLevel;
 
    this.grid.originX = width / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2 + 1;
    this.grid.originY = height / 2 - this.grid.tileRowOffset / 2 + 1;
@@ -229,7 +238,6 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  }
 
  drawTile(Xi, Yi, tileData) {
-
 
    var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX;
    var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY;
@@ -318,8 +326,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  drawImage(x:number, y:number, imgName: string) {
    var drawing = new Image() 
    drawing.src = "assets/tiles/" + imgName + ".svg";
-   this.context.drawImage(drawing, x ,y - this.grid.tileRowOffset/2, 
-                                   this.grid.tileColumnOffset, this.grid.tileColumnOffset -16);
+   this.context.drawImage(drawing, x ,y - this.grid.tileRowOffset * 0.6, 
+                                   this.grid.tileColumnOffset, this.grid.tileRowOffset * 1.6);
  }
 
 }

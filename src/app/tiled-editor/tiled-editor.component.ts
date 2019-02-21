@@ -14,6 +14,7 @@ export class TiledEditorComponent implements OnInit {
   private tileTypes = [
       "conveyor",
       "machine",
+      "machine_green",
       "paletts",
       "road_crossroad",
       "road_crossroad_e_s_w",

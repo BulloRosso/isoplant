@@ -13,6 +13,26 @@ export class TiledCoreService {
   private _bulletData : BehaviorSubject<any> = new BehaviorSubject({});
   private _tileData :  BehaviorSubject<Map<string,TileData>> = new BehaviorSubject(new Map<string,TileData>());
   
+  constructor() {
+
+      const m1: TileData = new TileData();
+      m1.coordinate = "1,0";
+      m1.imgName = "machine";
+      this._tileData.value.set("1,0", m1);
+
+      const m2: TileData = new TileData();
+      m1.coordinate = "2,0";
+      m1.imgName = "warehouse";
+      this._tileData.value.set("2,0", m2);
+
+      const m3: TileData = new TileData();
+      m1.coordinate = "4,0";
+      m1.imgName = "conveyor";
+      this._tileData.value.set("4,0", m3);
+
+      console.log(this._tileData.value);
+   }
+
   public tileData(): Observable<any> {
       return this._tileData.asObservable();
   }
@@ -51,7 +71,7 @@ export class TiledCoreService {
     this._tileData.next(this._tileData.value);
  }
 
-  constructor() { }
+  
 
   public incrementZoom() {
      this.zoomLevel++;
