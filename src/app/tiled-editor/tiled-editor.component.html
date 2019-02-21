@@ -9,7 +9,7 @@
 <div></div>
 <div *ngIf="tiledCoreService.getTileData(tiledCoreService.selectedTile)">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Label Text" value="">
+      <input matInput [(ngModel)]="labelText" placeholder="Label Text" value="">
     </mat-form-field>
 <br/>
 <mat-form-field>

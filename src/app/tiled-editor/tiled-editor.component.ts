@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { TiledCoreService } from '../tiled-core.service';
   templateUrl: './tiled-editor.component.html',
   styleUrls: ['./tiled-editor.component.css']
 })
-export class TiledEditorComponent implements OnInit {
+export class TiledEditorComponent implements OnInit, OnDestroy {
 
   imageName: string;
   labelText: string;
@@ -35,9 +35,17 @@ export class TiledEditorComponent implements OnInit {
       "warehouse"
   ];
 
-  constructor(public tiledCoreService : TiledCoreService) {
-    
-   }
+  private tileSubscription;
+
+  constructor(public tiledCoreService : TiledCoreService, private change: ChangeDetectorRef) {
+     
+  }
+
+ 
+
+  ngOnDestroy() {
+    this.tileSubscription.unsubscribe();
+  }
 
   saveTile() {
     var selData = this.tiledCoreService.getTileData(this.tiledCoreService.selectedTile);
@@ -49,6 +57,16 @@ export class TiledEditorComponent implements OnInit {
   }
 
   ngOnInit() {
+     // subscribe to selection of tile
+     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
+       
+      var currentTile = this.tiledCoreService.getTileData(this.tiledCoreService.selectedTile);
+      if (currentTile) {
+        this.labelText = currentTile.labelText;
+        this.imageName = currentTile.imgName;
+        this.change.markForCheck();
+      }
+   });
   }
 
   clearTile() {

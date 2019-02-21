@@ -22,8 +22,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     selectedTileX: -1,
     selectedTileY: -1,
    
-    showCoordinates: false,
-    showOutlines: true,
+    showCoordinates: false, // only to learn how axis values are set
+    showOutlines: false, // show borders - helps to align svs and debug
    
     originY: 0,
     originX: 0,
@@ -232,7 +232,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    }
 
    // TEST
-   this.drawText("ISOMETRIC PLANT VIEW",550,-110);
+   // this.drawText("ISOMETRIC PLANT VIEW",550,-110);
 
    this.context.restore();
  }
@@ -278,6 +278,13 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       if (tileData.imgName) {
         this.drawImage(offX, offY, tileData.imgName);
     
+        if (tileData.labelText) {
+          this.drawText(tileData.labelText, 
+                        offX + this.grid.tileColumnOffset / 3.2, 
+                        offY + this.grid.tileRowOffset / 1.4, 
+                        8 * this.tiledCoreService.zoomLevel);
+        }
+
         if (this.grid.bulletColor) {
       
           this.context.fillStyle = this.grid.bulletColor;
@@ -292,22 +299,27 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  }
 
  // draw isometric text
- drawText(str,xpos,ypos) {
+ drawText(str,xpos,ypos, size) {
     
     var angle = -0.72;
 
     this.context.save();
 
     // 30 Grad Drehung
-    this.context.translate(0,-100);
+    this.context.translate(xpos,ypos);
     this.context.rotate(27 * (Math.PI / 180));
     // perspektivische Verzerrung
     this.context.transform(1, 0, angle, 1, 0, 0);
     // Text zentriert zur Koordinate
-    this.context.font = "26px Verdana";
+    if (size) {
+      this.context.font = size + "px Verdana";
+    } else{
+      this.context.font = "26px Verdana";
+    }
+    
     this.context.fillStyle = "black";
     this.context.textAlign = 'center';
-    this.context.fillText(str, xpos, ypos);
+    this.context.fillText(str, 0, 0);
     
     this.context.restore();
     //this.context.resetTransform();

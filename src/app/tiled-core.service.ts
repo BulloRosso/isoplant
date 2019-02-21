@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { TileData } from './model/tile-data';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TiledCoreService {
+export class TiledCoreService implements OnDestroy {
 
   public zoomLevel : number = 1;
   public selectedTile : string = null;
@@ -15,23 +15,26 @@ export class TiledCoreService {
   
   constructor() {
 
+      // Let's create some test data
+      //
       const m1: TileData = new TileData();
       m1.coordinate = "1,0";
       m1.imgName = "machine";
-      this._tileData.value.set("1,0", m1);
+      this._tileData.value.set("0,0", m1);
 
       const m2: TileData = new TileData();
-      m1.coordinate = "2,0";
-      m1.imgName = "warehouse";
+      m2.coordinate = "2,0";
+      m2.imgName = "warehouse";
+      m2.labelText = "U7110";
       this._tileData.value.set("2,0", m2);
 
       const m3: TileData = new TileData();
-      m1.coordinate = "4,0";
-      m1.imgName = "conveyor";
+      m3.coordinate = "4,0";
+      m3.imgName = "conveyor";
       this._tileData.value.set("4,0", m3);
 
-      console.log(this._tileData.value);
-   }
+    
+  }
 
   public tileData(): Observable<any> {
       return this._tileData.asObservable();
