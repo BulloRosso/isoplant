@@ -1,9 +1,9 @@
 <div id="tileControls">
   <b>CONTROLS</b>
   <br/>
-  <a (click)="tiledCoreService.incrementZoom()" class="mdi mdi-magnify-plus-outline mdi-24px"></a>
+  <a (click)="zoomIn()" class="mdi mdi-magnify-plus-outline mdi-24px"></a>
   {{ tiledCoreService.zoomLevel }}
-  <a (click)="tiledCoreService.decrementZoom()" class="mdi mdi-magnify-minus-outline mdi-24px"></a>
+  <a (click)="zoomOut()" class="mdi mdi-magnify-minus-outline mdi-24px"></a>
   <div>
     <span class="bulletsAndon" (click)="showBullets('andon')">Andon</span>
     <span class="bulletsOee" (click)="showBullets('oee')">OEE</span>

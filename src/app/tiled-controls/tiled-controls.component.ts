@@ -13,6 +13,16 @@ export class TiledControlsComponent implements OnInit {
   ngOnInit() {
   }
 
+  zoomIn() {
+    this.tiledCoreService.incrementZoom();
+    this.tiledCoreService.broadcastRefresh();
+  }
+
+  zoomOut() {
+    this.tiledCoreService.decrementZoom();
+    this.tiledCoreService.broadcastRefresh();
+  }
+
   showBullets(val) {
     if (val == "andon") {
       this.tiledCoreService.setBulletData({ color: "purple"});

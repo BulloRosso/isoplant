@@ -15,14 +15,19 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   private grid = {
     Xtiles: 10,
     Ytiles: 10,
+   
     tileColumnOffset: 80, // pixels
     tileRowOffset: 40,    // pixels
+   
     selectedTileX: -1,
     selectedTileY: -1,
+   
     showCoordinates: false,
-    showOutlines: false,
+    showOutlines: true,
+   
     originY: 0,
     originX: 0,
+   
     bulletColor: null,
     tileMap: new Map<string,TileData>() 
  };
@@ -62,6 +67,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           this.redrawTiles(this.grid.tileMap);
        }
     })
+
  }
 
  // initialize drag & move listeners here on canvas and window-object
@@ -125,11 +131,20 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // listen to mouse wheel for zoom in/out)
   this.renderer.listen(this.canvasRef.nativeElement,'wheel', (event) => {
-      if (event.deltaY > 0) {
+      if (event.deltaY > 0) {  
+        if (this.tiledCoreService.zoomLevel == 1) {
+          return; 
+        }
         this.tiledCoreService.decrementZoom();
+        
       } else {
+        if (this.tiledCoreService.zoomLevel == 4) {
+          return; 
+        }
         this.tiledCoreService.incrementZoom();
       }
+      
+      this.redrawTiles(this.tiledCoreService.allTileData());
   });
 
   this.redrawTiles( this.tiledCoreService.allTileData());
@@ -188,9 +203,13 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.canvas = this.canvasRef.nativeElement;
    this.context =  this.canvas.getContext("2d");
    
-   var width = 800;
-   var height = 400;
+   this.context.save();
 
+   this.context.scale(this.tiledCoreService.zoomLevel, this.tiledCoreService.zoomLevel);
+
+   var width = 800  * this.tiledCoreService.zoomLevel;
+   var height = 400  * this.tiledCoreService.zoomLevel;
+  
    this.context.canvas.width  = width;
    this.context.canvas.height = height;
 
@@ -206,6 +225,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    // TEST
    this.drawText("ISOMETRIC PLANT VIEW",550,-110);
 
+   this.context.restore();
  }
 
  drawTile(Xi, Yi, tileData) {
@@ -228,7 +248,6 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.context.lineTo(offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset);
    this.context.lineTo(offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset);
    this.context.lineTo(offX, offY + this.grid.tileRowOffset / 2);
-   //this.context.stroke();
    this.context.fill();
    this.context.closePath();
 
@@ -283,7 +302,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.context.fillText(str, xpos, ypos);
     
     this.context.restore();
-    this.context.resetTransform();
+    //this.context.resetTransform();
  }
 
  drawLine(x1:any, y1:any, x2:any, y2:any, color) {
