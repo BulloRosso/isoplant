@@ -5,7 +5,7 @@ import { TileData } from './model/tile-data';
 @Injectable({
   providedIn: 'root'
 })
-export class TiledCoreService implements OnDestroy {
+export class TiledCoreService  {
 
   public zoomLevel : number = 1;
   public selectedTile : string = null;

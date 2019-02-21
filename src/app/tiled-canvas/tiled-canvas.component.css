@@ -5,7 +5,16 @@ canvas {
     background-color:#efefef;
 }
 
-div {
+#tileToolbar {
+    display:block;
+    width:980px;
+    background-color:#555;
+    color:white;
+    padding:10px;
+    font-family:Arial;
+}
+
+#tileViewport {
     display:block;
     width: 1000px; 
     height: 600px; 
@@ -14,8 +23,9 @@ div {
 }
 
 p {   
-   position:relative;
+   
    top:100 px; 
    font-family:Arial;
    color:#ccc;
 }
+

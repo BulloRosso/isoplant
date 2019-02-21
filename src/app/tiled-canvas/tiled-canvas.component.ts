@@ -49,13 +49,15 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  private marginTop = 0;
  private marginLeft = 0;
 
+ public selectUnitTypes: string;
+ public unitTypes = [ "Line", "Workcenter", "Machine" ];
+
  constructor(private tiledCoreService : TiledCoreService, private elementRef: ElementRef, private renderer: Renderer2) { 
 
     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
       if (this.canvasRef) {
         console.log("REDRAW tiles");
-        this.grid.tileMap = retMap;
-        this.redrawTiles(this.grid.tileMap);
+        this.redrawTiles(this.tiledCoreService.allTileData());
       }
     });
 
@@ -64,18 +66,24 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
        if (this.canvasRef) {
           this.grid.bulletColor = retBullets["color"];
           console.log("BULLET redraw " + retBullets["color"]);
-          this.redrawTiles(this.grid.tileMap);
+          this.redrawTiles(this.tiledCoreService.allTileData());
        }
-    })
+    });
 
+
+
+ }
+
+ imagesReady() {
+    // preloading finished by browser
+    this.redrawTiles(this.tiledCoreService.allTileData());
  }
 
  // initialize drag & move listeners here on canvas and window-object
  //
  ngAfterViewInit() {
 
-  this.redrawTiles( this.tiledCoreService.allTileData());
-
+  
   this.renderer.listen(this.canvasRef.nativeElement, 'mousedown', (event) => {
     
     var evt = event;
@@ -158,7 +166,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
  ngOnInit() {
 
-   
+  this.redrawTiles( this.tiledCoreService.allTileData());
 
  }
 
