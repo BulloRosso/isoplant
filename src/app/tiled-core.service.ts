@@ -29,10 +29,10 @@ export class TiledCoreService  {
         ]) },
         { coordinate: "0,0", imgName: "wall_left", labelText: null },
         { coordinate: "1,0", imgName: "wall_left,road_right", labelText: null },
-        { coordinate: "2,0", imgName: "wall_left,road_right,paletts", labelText: null },
-        { coordinate: "3,0", imgName: "wall_left", labelText: null },
-        { coordinate: "4,0", imgName: "wall_left", labelText: null },
-        { coordinate: "5,0", imgName: "wall_left", labelText: null },
+        { coordinate: "2,0", imgName: "wall_left,road_crossroad_e_s_w,paletts", labelText: null },
+        { coordinate: "3,0", imgName: "wall_left,road_right", labelText: null },
+        { coordinate: "4,0", imgName: "wall_left,road_right", labelText: null },
+        { coordinate: "5,0", imgName: "wall_left,road_right", labelText: null },
         { coordinate: "6,0", imgName: "wall_left", labelText: null },
         { coordinate: "7,0", imgName: "wall_left", labelText: null },
         { coordinate: "8,0", imgName: "wall_left", labelText: null },
@@ -41,6 +41,8 @@ export class TiledCoreService  {
         { coordinate: "8,1", imgName: "paletts", labelText: null },
         { coordinate: "7,2", imgName: "paletts", labelText: null },
         { coordinate: "8,2", imgName: "paletts", labelText: null },
+        { coordinate: "2,1", imgName: "road_left", labelText: null },
+        { coordinate: "2,2", imgName: "road_left", labelText: null },
       ];
 
       testDataArr.forEach(itm => {
