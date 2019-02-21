@@ -231,10 +231,44 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
      }
    }
 
+   for(var Xi = (this.grid.Xtiles - 1); Xi >= 0; Xi--) {
+    for(var Yi = 0; Yi < this.grid.Ytiles; Yi++) {
+      this.drawTileText(Xi, Yi, tileData.get(Xi + "," + Yi));
+    }
+  }
+
    // TEST
    // this.drawText("ISOMETRIC PLANT VIEW",550,-110);
 
    this.context.restore();
+ }
+
+ drawTileText(Xi, Yi, tileData) {
+
+    var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX;
+    var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY;
+
+    if (tileData) {
+      if (tileData.imgName) {
+        this.drawImage(offX, offY, tileData.imgName);
+    
+        if (tileData.labelText) {
+          this.drawText(tileData.labelText, 
+                        offX + this.grid.tileColumnOffset / 3.2, 
+                        offY + this.grid.tileRowOffset / 1.4, 
+                        8 * this.tiledCoreService.zoomLevel);
+        }
+
+        if (this.grid.bulletColor) {
+      
+          this.context.fillStyle = this.grid.bulletColor;
+          this.context.beginPath();
+          this.context.arc(offX +60, offY + 10, 8, 0, 2 * Math.PI, true);
+          this.context.closePath(); 
+          this.context.fill();
+        }
+      }
+   }
  }
 
  drawTile(Xi, Yi, tileData) {
@@ -272,28 +306,6 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    if(this.grid.showCoordinates) {
      this.context.fillStyle = 'orange';
      this.context.fillText(Xi + ", " + Yi, offX + this.grid.tileColumnOffset/2 - 9, offY + this.grid.tileRowOffset/2 + 3);
-   }
-
-   if (tileData) {
-      if (tileData.imgName) {
-        this.drawImage(offX, offY, tileData.imgName);
-    
-        if (tileData.labelText) {
-          this.drawText(tileData.labelText, 
-                        offX + this.grid.tileColumnOffset / 3.2, 
-                        offY + this.grid.tileRowOffset / 1.4, 
-                        8 * this.tiledCoreService.zoomLevel);
-        }
-
-        if (this.grid.bulletColor) {
-      
-          this.context.fillStyle = this.grid.bulletColor;
-          this.context.beginPath();
-          this.context.arc(offX +60, offY + 10, 8, 0, 2 * Math.PI, true);
-          this.context.closePath(); 
-          this.context.fill();
-        }
-      }
    }
 
  }
