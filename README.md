@@ -10,7 +10,7 @@ There are three UI components:
 
 All screen components are connected to a SERVICE which holds the data and state.
 
-![Demo screen](https://raw.githubusercontent.com/bullorosso/isoplant/master/screenshot.PNG)
+![Demo screen](https://github.com/BulloRosso/isoplant/blob/master/screenshot.PNG?raw=true)
 
 ## Angular 7
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
