@@ -28,6 +28,10 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     originY: 0,
     originX: 0,
    
+    style: {
+      tileColor: "#ccc"
+    },
+
     bulletColor: null,
     tileMap: new Map<string,TileData>() 
  };
@@ -293,16 +297,24 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    }
  }
 
- drawTile(Xi, Yi, tileData) {
+ drawTile(Xi, Yi, tileData: TileData) {
 
    var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX;
    var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY;
 
    // Draw tile interior
-   if( Xi == this.grid.selectedTileX && Yi == this.grid.selectedTileY)
+   if( Xi == this.grid.selectedTileX && Yi == this.grid.selectedTileY) {
+     // selected state
      this.context.fillStyle = 'yellow';
-   else
-     this.context.fillStyle = '#ccc';
+   } else {
+     if (tileData && tileData.backgroundColor) {
+        // custom background
+        this.context.fillStyle = tileData.backgroundColor;
+     } else {
+        // regular background
+        this.context.fillStyle = this.grid.style.tileColor;
+     }
+   }
    
    this.context.beginPath();
    this.context.moveTo(offX, offY + this.grid.tileRowOffset / 2);
@@ -317,8 +329,12 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
    // Draw tile outline
    var color = "#ccc";
+   if (tileData && tileData.backgroundColor) {
+     // avoid background bleeding through
+     color = tileData.backgroundColor;
+   }
    if(this.grid.showOutlines) {
-      var color = '#999';
+     color = '#999';
    } 
    this.drawLine(offX, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY, color);
    this.drawLine(offX + this.grid.tileColumnOffset / 2, offY, offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, color);

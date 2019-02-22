@@ -21,7 +21,7 @@
 </mat-form-field>
 <br/>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Background Color" value="">
+      <input matInput [(ngModel)]="backgroundColor" placeholder="Background Color" value="">
     </mat-form-field>
     &nbsp;&nbsp;
     <button mat-flat-button color="primary" (click)="saveTile()">Save</button>

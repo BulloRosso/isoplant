@@ -8,9 +8,12 @@ import { TiledCoreService } from '../tiled-core.service';
 })
 export class TiledEditorComponent implements OnInit, OnDestroy {
 
+  // editor pane controls
   imageName: string;
   labelText: string;
+  backgroundColor: string;
 
+  // values for dropdown
   private tileTypes = [
       "conveyor",
       "machine",
@@ -52,6 +55,7 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
     // modify
     selData.imgName = this.imageName;
     selData.labelText = this.labelText;
+    selData.backgroundColor = this.backgroundColor;
     // update & trigger redraw
     this.tiledCoreService.setTileData(this.tiledCoreService.selectedTile, selData);
   }
@@ -64,6 +68,7 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
       if (currentTile) {
         this.labelText = currentTile.labelText;
         this.imageName = currentTile.imgName;
+        this.backgroundColor = currentTile.backgroundColor;
         this.change.markForCheck();
       }
    });
