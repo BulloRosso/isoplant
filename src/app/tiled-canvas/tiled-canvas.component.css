@@ -22,6 +22,10 @@ canvas {
     overflow: scroll;
 }
 
+#tileCanvas {
+    width:1000px;
+}
+
 p {   
    
    top:100 px; 

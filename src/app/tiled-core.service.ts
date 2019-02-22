@@ -21,7 +21,7 @@ export class TiledCoreService  {
         { coordinate: "1,1", imgName: "machine", labelText: "U7110", mapKpis: new Map([
           ["andon", "19"],
           ["oee", "5"]
-        ]) },
+        ]), mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-1"] ]) },
         { coordinate: "3,1", imgName: "warehouse", labelText: "WAREHOUSE" },
         { coordinate: "5,1", imgName: "conveyor", labelText: "U7120", mapKpis: new Map([
           ["andon", "8"],
@@ -29,20 +29,29 @@ export class TiledCoreService  {
         ]) },
         { coordinate: "0,0", imgName: "wall_left", labelText: null },
         { coordinate: "1,0", imgName: "wall_left,road_right", labelText: null },
-        { coordinate: "2,0", imgName: "wall_left,road_crossroad_e_s_w,paletts", labelText: null },
+        { coordinate: "2,0", imgName: "wall_left,road_crossroad_e_s_w,paletts,door_north_south", labelText: null },
         { coordinate: "3,0", imgName: "wall_left,road_right", labelText: null },
         { coordinate: "4,0", imgName: "wall_left,road_right", labelText: null },
         { coordinate: "5,0", imgName: "wall_left,road_right", labelText: null },
-        { coordinate: "6,0", imgName: "wall_left", labelText: null },
-        { coordinate: "7,0", imgName: "wall_left", labelText: null },
-        { coordinate: "8,0", imgName: "wall_left", labelText: null },
+        { coordinate: "6,0", imgName: "wall_left,road_crossroad_e_s_w", labelText: null },
+        { coordinate: "7,0", imgName: "wall_left,road_right,agv_west", labelText: null },
+        { coordinate: "8,0", imgName: "wall_left,road_right,door_north_south", labelText: null },
         { coordinate: "9,0", imgName: "wall_left", labelText: null },
-        { coordinate: "7,1", imgName: "paletts", labelText: "FINISHED GOODS" },
-        { coordinate: "8,1", imgName: "paletts", labelText: null },
-        { coordinate: "7,2", imgName: "paletts", labelText: null },
+        { coordinate: "7,1", imgName: "paletts_big", labelText: "FINISHED GOODS" },
+        { coordinate: "8,1", imgName: "paletts_big", labelText: null },
+        { coordinate: "7,2", imgName: "paletts_big", labelText: null },
         { coordinate: "8,2", imgName: "paletts", labelText: null },
         { coordinate: "2,1", imgName: "road_left", labelText: null },
         { coordinate: "2,2", imgName: "road_left", labelText: null },
+        { coordinate: "1,2", imgName: "machine", statusColor: "red",
+          mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-3"] ])
+        },
+        { coordinate: "0,9", backgroundColor: "white"},
+        { coordinate: "0,8", backgroundColor: "white"},
+        { coordinate: "0,7", backgroundColor: "white"},
+        { coordinate: "1,9", backgroundColor: "white"},
+        { coordinate: "1,8", backgroundColor: "white", labelText: "MILLING AREA"},
+        { coordinate: "1,7", backgroundColor: "white"},
       ];
 
       testDataArr.forEach(itm => {
@@ -50,6 +59,13 @@ export class TiledCoreService  {
         tile.coordinate = itm.coordinate;
         tile.imgName = itm.imgName;
         tile.labelText = itm.labelText;
+        tile.backgroundColor = itm.backgroundColor;
+        tile.statusColor = itm.statusColor;
+        if (itm.mapSelectionPath) {
+          tile.mapSelectionPath = itm.mapSelectionPath;
+        } else {
+          tile.mapSelectionPath = null;
+        }
         if (itm.mapKpis) {
           tile.mapKpis = itm.mapKpis;
         } else {

@@ -9,7 +9,8 @@ import { TiledEditorComponent } from './tiled-editor/tiled-editor.component';
 import { TiledControlsComponent } from './tiled-controls/tiled-controls.component';
 import { TiledCanvasComponent } from './tiled-canvas/tiled-canvas.component';
 import { MatOptionModule } from '@angular/material/core';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

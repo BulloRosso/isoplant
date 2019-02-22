@@ -53,7 +53,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  private marginTop = 0;
  private marginLeft = 0;
 
- public selectUnitTypes: string;
+ public selectUnitType: string = "Line";
  public unitTypes = [ "Line", "Workcenter", "Machine" ];
 
  constructor(private tiledCoreService : TiledCoreService, private elementRef: ElementRef, private renderer: Renderer2) { 
@@ -257,20 +257,26 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.context.restore();
  }
 
- drawTileText(Xi, Yi, tileData) {
+ drawTileText(Xi, Yi, tileData: TileData) {
 
     var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX;
     var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY;
 
     if (tileData) {
+
+      if (tileData.labelText && this.tiledCoreService.zoomLevel > 1) {
+        this.drawText(tileData.labelText, 
+                      offX + this.grid.tileColumnOffset / 3.2, 
+                      offY + this.grid.tileRowOffset / 1.4, 
+                      6 * this.tiledCoreService.zoomLevel);
+      }
+
       if (tileData.imgName) {
-        this.drawImage(offX, offY, tileData.imgName);
-    
-        if (tileData.labelText && this.tiledCoreService.zoomLevel > 1) {
-          this.drawText(tileData.labelText, 
-                        offX + this.grid.tileColumnOffset / 3.2, 
-                        offY + this.grid.tileRowOffset / 1.4, 
-                        8 * this.tiledCoreService.zoomLevel);
+        
+        if (tileData.statusColor) {
+          this.drawImage(offX, offY, tileData.imgName + "_" + tileData.statusColor);
+        } else {
+          this.drawImage(offX, offY, tileData.imgName);
         }
 
         if (tileData.mapKpis && this.grid.bulletColor) {
