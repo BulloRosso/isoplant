@@ -44,7 +44,11 @@ export class TiledCoreService  {
         { coordinate: "2,1", imgName: "road_left", labelText: null },
         { coordinate: "2,2", imgName: "road_left", labelText: null },
         { coordinate: "1,2", imgName: "machine", statusColor: "red",
-          mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-3"] ])
+          mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-3"] ]),
+          mapKpis: new Map([
+            ["andon", "0"],
+            ["oee", "0"]
+          ])
         },
         { coordinate: "0,9", backgroundColor: "white"},
         { coordinate: "0,8", backgroundColor: "white"},
