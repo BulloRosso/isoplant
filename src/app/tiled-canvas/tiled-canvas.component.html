@@ -4,7 +4,7 @@
     <mat-toolbar color="primary">
         <mat-toolbar-row>
                 
-                <span class="mdi mdi-floor-plan space-right"></span>
+                <span class="mdi mdi-eye-outline space-right"></span>
 
                 <mat-select class="toolbarSelect" placeholder="Select object" [(ngModel)]="selectArea">
                     <mat-option *ngFor="let areaType of areaTypes" [value]="areaType">
@@ -19,6 +19,8 @@
                     {{unitType}}
                     </mat-option>
                 </mat-select>
+
+                <span class="space-left">{{ selectedObjectName }}</span>
            
         </mat-toolbar-row>
     </mat-toolbar>

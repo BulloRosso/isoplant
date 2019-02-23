@@ -59,6 +59,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  public selectArea: string = "Plant";
  public areaTypes = [ "Plant", "Milling area", "Drilling area", "Spilling area" ];
 
+ public selectedObjectName = "";
+
  constructor(private tiledCoreService : TiledCoreService, private elementRef: ElementRef, private renderer: Renderer2) { 
 
     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
@@ -198,6 +200,10 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    var tileX = Math.round(pageX / this.grid.tileColumnOffset - pageY / this.grid.tileRowOffset);
    var tileY = Math.round(pageX / this.grid.tileColumnOffset + pageY / this.grid.tileRowOffset);
 
+   if (tileX < 0 || tileY < 0) {
+     return; 
+   }
+
    this.grid.selectedTileX = tileX;
    this.grid.selectedTileY = tileY;
 
@@ -211,6 +217,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
      newTile = this.tiledCoreService.getTileData(tileX + "," + tileY);
    }
    this.tiledCoreService.selectedTile = tileX + "," + tileY;
+
+   this.selectedObjectName = this.tiledCoreService.getTileData(this.tiledCoreService.selectedTile).labelText;
 
    this.redrawTiles(this.tiledCoreService.allTileData());
  }
