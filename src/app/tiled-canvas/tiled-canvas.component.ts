@@ -56,6 +56,9 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  public selectUnitType: string = "Line";
  public unitTypes = [ "Line", "Workcenter", "Machine" ];
 
+ public selectArea: string = "Plant";
+ public areaTypes = [ "Plant", "Milling area", "Drilling area", "Spilling area" ];
+
  constructor(private tiledCoreService : TiledCoreService, private elementRef: ElementRef, private renderer: Renderer2) { 
 
     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 

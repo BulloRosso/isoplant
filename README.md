@@ -12,7 +12,17 @@ All screen components are connected to a SERVICE which holds the data and state.
 
 ![Demo screen](https://github.com/BulloRosso/isoplant/blob/master/screenshot.PNG?raw=true)
 
-## Angular 7
+## Use Cases
+This project is useful for facility management:
+
+* Visualizing the position of sensors in IoT scenarios on a floor plan
+* Selecting and zooming different areas 
+* Visualizing the status of certain assets (e. g. error on machines)
+* Overlaying the plan with indicators (e. g. sensort data or alerting information)
+
+In order to create and edit a floorplan a rudimentary editor pane is included as control.
+
+## Dependencies: Angular 7 + Material Design
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
 ## Development server
