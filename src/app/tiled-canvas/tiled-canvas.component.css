@@ -7,7 +7,7 @@ canvas {
 
 #tileToolbar {
     display:block;
-    width:980px;
+    width:780px;
     background-color:#555;
     color:white;
     padding:10px;
@@ -16,14 +16,14 @@ canvas {
 
 #tileViewport {
     display:block;
-    width: 1000px; 
-    height: 600px; 
+    width: 800px; 
+    height: 400px; 
     border:dotted 1px #ccc;
     overflow: scroll;
 }
 
 #tileCanvas {
-    width:1000px;
+    width:803px;
 }
 
 p {   

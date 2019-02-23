@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
 
 @Component({
@@ -7,6 +7,18 @@ import { TiledCoreService } from '../tiled-core.service';
   styleUrls: ['./tiled-controls.component.css']
 })
 export class TiledControlsComponent implements OnInit {
+
+  private _selectedKpi : string = "[Off]";
+
+  get selectedKpi (): string {
+    return this._selectedKpi;
+  }
+
+  @Input()
+  set selectedKpi (val: string) {
+      this._selectedKpi = val;
+      this.showBullets(val);
+  }
 
   constructor(public tiledCoreService : TiledCoreService) { }
 
@@ -30,13 +42,14 @@ export class TiledControlsComponent implements OnInit {
   }
 
   showBullets(val) {
-    if (val == "andon") {
+    
+    if (val.toLowerCase() == "andon") {
       this.tiledCoreService.setBulletData({ color: "purple"});
     }
-    if (val == "none") {
+    if (val.toLowerCase() == "none") {
       this.tiledCoreService.setBulletData({ color: null });
     }
-    if (val == "oee") {
+    if (val.toLowerCase() == "oee") {
       this.tiledCoreService.setBulletData({ color: "green" });
     }
     

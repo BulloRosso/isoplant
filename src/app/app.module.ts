@@ -10,8 +10,10 @@ import { TiledControlsComponent } from './tiled-controls/tiled-controls.componen
 import { TiledCanvasComponent } from './tiled-canvas/tiled-canvas.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
+import { MatButtonToggleModule, } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatOptionModule,
     MatSelectModule,
-    MatToolbarModule
+    MatButtonToggleModule,
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
