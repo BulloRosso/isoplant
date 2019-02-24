@@ -22,6 +22,15 @@ This project is useful for facility management:
 
 In order to create and edit a floorplan a rudimentary editor pane is included as control.
 
+## To Dos
+The following features need to be implemented
+* Areas: scroll into view a specified location in the toolbar
+* Snap to object: select a group of tiles specified in the toolbar
+* pan (scroll) according to zoom
+* select does not work when panned
+* load and save tile configuration (currently hardcoded in service init)
+* make all current features editable in the editor pane
+
 ## Dependencies: Angular 7 + Material Design
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
