@@ -31,8 +31,10 @@ The following features need to be implemented
 * load and save tile configuration (currently hardcoded in service init)
 * make all current features editable in the editor pane
 
-## Dependencies: Angular 7 + Material Design
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+## Dependencies
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1 and uses Angular Material.
+
+Panning and zooming is done with the help of panzoom.js
 
 ## Development server
 
