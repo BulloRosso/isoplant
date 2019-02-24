@@ -210,8 +210,9 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  }
 
  onModelChanged(model: PanZoomModel): void {
-   console.log(model);
-  // do something after receiving your model update here
+   // console.log(model);
+   this.lastX = model.pan.x;
+   this.lastY = model.pan.y;
 }
 
  onClick(event: MouseEvent): void {
@@ -226,8 +227,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log(canvas.style.marginLeft.replace("px",""));
    }
 
-   var pageX = event.pageX - this.grid.tileColumnOffset / 2 - this.grid.originX;
-   var pageY = event.pageY - this.grid.tileRowOffset / 2 - this.grid.originY;
+   var pageX = event.pageX  - this.lastX - this.grid.tileColumnOffset / 2 - this.grid.originX;
+   var pageY = event.pageY - this.lastY - this.grid.tileRowOffset / 2 - this.grid.originY;
 
    var tileX = Math.round(pageX / this.grid.tileColumnOffset - pageY / this.grid.tileRowOffset);
    var tileY = Math.round(pageX / this.grid.tileColumnOffset + pageY / this.grid.tileRowOffset);

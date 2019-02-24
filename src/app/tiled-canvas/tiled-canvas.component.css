@@ -19,7 +19,8 @@ canvas {
     width: 800px; 
     height: 400px; 
     border:dotted 1px #ccc;
-    overflow: scroll;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #tileCanvas {
