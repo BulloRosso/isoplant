@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, ElementRef, Renderer, ViewChild, Renderer2, AfterViewInit, ViewChildren, ContentChild } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
 import { TileData } from '../model/tile-data';
+import { PanZoomConfig, PanZoomAPI, PanZoomModel } from 'ng2-panzoom';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'tiled-canvas',
@@ -36,6 +38,11 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     tileMap: new Map<string,TileData>() 
  };
 
+ private panZoomConfig: PanZoomConfig = new PanZoomConfig();
+ private panZoomAPI: PanZoomAPI;
+ private modelChangedSubscription: Subscription;
+ private apiSubscription: Subscription;
+
  event: MouseEvent;
  @ViewChild('tileCanvas') canvasRef:ElementRef;
  @ViewChild('tileViewport') viewportRef:ElementRef;
@@ -62,6 +69,15 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  public selectedObjectName = "";
 
  constructor(private tiledCoreService : TiledCoreService, private elementRef: ElementRef, private renderer: Renderer2) { 
+
+    // panzoom konfigurieren https://www.npmjs.com/package/jquery.panzoom#disable
+    //
+    //this.panZoomConfig.zoomOnMouseWheel = true;
+    //this.panZoomConfig.keepInBounds = true;
+    //this.panZoomConfig.zoomToFitZoomLevelFactor = 1;
+    //this.panZoomConfig.neutralZoomLevel = 4;
+    this.panZoomConfig.zoomOnDoubleClick = false;
+    this.panZoomConfig.initialZoomLevel = 0;
 
     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
       if (this.canvasRef) {
@@ -92,83 +108,88 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  //
  ngAfterViewInit() {
 
-  
-  this.renderer.listen(this.canvasRef.nativeElement, 'mousedown', (event) => {
-    
-    var evt = event;
-    this.dragging = true;
-    this.lastX = evt.clientX;
-    this.lastY = evt.clientY;
-    this.storedX = this.lastX;
-    this.storedY = this.lastY;
-    evt.preventDefault()
-  });
 
-  // -- Start: Handle the movement of canvas element inside the viewport div
+   // -- Start: Handle the movement of canvas element inside the viewport div
   //
-  this.renderer.listen('window', 'mousemove', (event) => {
-    
-      var canvas = this.canvasRef.nativeElement;
-      var viewport = this.viewportRef.nativeElement; 
+  if (false) {  // panzoom handles this now
 
-      var canvasWidth = canvas.clientWidth;
-      var canvasHeight = canvas.clientHeight;
-      var viewportWidth = viewport.clientWidth; 
-      var viewportHeight = viewport.clientHeight; 
-      // console.log(canvasWidth +"/" + canvasHeight + ":" + viewportWidth + "/" + viewportHeight);
-      // console.log(canvas.style.marginLeft + "/" + canvas.style.marginTop);
-
-      var evt = event;
-      if (this.dragging) {
-
-          var deltaX = evt.clientX - this.lastX;
-          var deltaY = evt.clientY - this.lastY;
-         
-          var dragWithinBoundaries = (this.marginLeft + deltaX <= 0) && (this.marginTop + deltaY <= 0)
-                                   && ((this.marginLeft + deltaX) >= -(canvasWidth - viewportWidth))
-                                   && ((this.marginTop + deltaY) >= -(canvasHeight - viewportHeight)); 
-
-          if (dragWithinBoundaries) {                         
-            this.lastX = evt.clientX;
-            this.lastY = evt.clientY;
-
-            this.marginLeft += deltaX;
-            this.marginTop += deltaY;
+    this.renderer.listen(this.canvasRef.nativeElement, 'mousedown', (event) => {
       
-            canvas.style.marginLeft = this.marginLeft + "px";
-            canvas.style.marginTop = this.marginTop + "px";
-          } 
-      } 
-      evt.preventDefault();
-  });
+      var evt = event;
+      this.dragging = true;
+      this.lastX = evt.clientX;
+      this.lastY = evt.clientY;
+      this.storedX = this.lastX;
+      this.storedY = this.lastY;
+      evt.preventDefault()
+    });
 
-  this.renderer.listen('window', 'mouseup', (event) => {
-     
-    this.dragging = false;
-  });
+    this.renderer.listen('window', 'mousemove', (event) => {
+      
+        var canvas = this.canvasRef.nativeElement;
+        var viewport = this.viewportRef.nativeElement; 
+
+        var canvasWidth = canvas.clientWidth;
+        var canvasHeight = canvas.clientHeight;
+        var viewportWidth = viewport.clientWidth; 
+        var viewportHeight = viewport.clientHeight; 
+        // console.log(canvasWidth +"/" + canvasHeight + ":" + viewportWidth + "/" + viewportHeight);
+        // console.log(canvas.style.marginLeft + "/" + canvas.style.marginTop);
+
+        var evt = event;
+        if (this.dragging) {
+
+            var deltaX = evt.clientX - this.lastX;
+            var deltaY = evt.clientY - this.lastY;
+          
+            var dragWithinBoundaries = (this.marginLeft + deltaX <= 0) && (this.marginTop + deltaY <= 0)
+                                    && ((this.marginLeft + deltaX) >= -(canvasWidth - viewportWidth))
+                                    && ((this.marginTop + deltaY) >= -(canvasHeight - viewportHeight)); 
+
+            if (dragWithinBoundaries) {                         
+              this.lastX = evt.clientX;
+              this.lastY = evt.clientY;
+
+              this.marginLeft += deltaX;
+              this.marginTop += deltaY;
+        
+              canvas.style.marginLeft = this.marginLeft + "px";
+              canvas.style.marginTop = this.marginTop + "px";
+            } 
+        } 
+        evt.preventDefault();
+    });
+
+    this.renderer.listen('window', 'mouseup', (event) => {
+      
+      this.dragging = false;
+    });
+  }
   // --- end of canvas drag & drop
 
   // listen to mouse wheel for zoom in/out)
-  this.renderer.listen(this.canvasRef.nativeElement,'wheel', (event) => {
-      if (event.deltaY > 0) {  
-        if (this.tiledCoreService.zoomLevel == 1) {
-          return; 
+  if (false) { // now handeled by panzoom
+    this.renderer.listen(this.canvasRef.nativeElement,'wheel', (event) => {
+        if (event.deltaY > 0) {  
+          if (this.tiledCoreService.zoomLevel == 1) {
+            return; 
+          }
+          this.tiledCoreService.decrementZoom();
+          
+        } else {
+          if (this.tiledCoreService.zoomLevel == 4) {
+            return; 
+          }
+          this.tiledCoreService.incrementZoom();
         }
-        this.tiledCoreService.decrementZoom();
         
-      } else {
-        if (this.tiledCoreService.zoomLevel == 4) {
-          return; 
-        }
-        this.tiledCoreService.incrementZoom();
-      }
-      
-      this.context.scale(this.tiledCoreService.zoomLevel, this.tiledCoreService.zoomLevel);
-      this.redrawTiles(this.tiledCoreService.allTileData());
+        this.context.scale(this.tiledCoreService.zoomLevel, this.tiledCoreService.zoomLevel);
+        this.redrawTiles(this.tiledCoreService.allTileData());
 
-      this.lastX = 0;
-      this.lastY = 0;
-  });
+        this.lastX = 0;
+        this.lastY = 0;
+    });
+  }
 
   
  }
@@ -177,25 +198,36 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   this.redrawTiles( this.tiledCoreService.allTileData());
 
+  this.apiSubscription = this.panZoomConfig.api.subscribe( (api: PanZoomAPI) => this.panZoomAPI = api );
+  this.modelChangedSubscription = this.panZoomConfig.modelChanged.subscribe( (model: PanZoomModel) => this.onModelChanged(model) );
  }
 
  ngOnDestroy() {
    this.tileSubscription.unsubscribe();
    this.bulletSubscription.unsubscribe();
+   this.apiSubscription.unsubscribe();  // don't forget to unsubscribe.  you don't want a memory leak!
+   this.modelChangedSubscription.unsubscribe();  // don't forget to unsubscribe.  you don't want a memory leak!
  }
+
+ onModelChanged(model: PanZoomModel): void {
+   console.log(model);
+  // do something after receiving your model update here
+}
 
  onClick(event: MouseEvent): void {
    
   // distinguish between drag and click
-  if (this.storedX != this.lastX || this.storedY != this.lastY) {
-    return;
-  } 
+  if (false) {  // now handled by panzoom
+    if (this.storedX != this.lastX || this.storedY != this.lastY) {
+      return;
+    } 
 
-   var canvas = this.canvasRef.nativeElement; // adjust position according scroll position
-   console.log(canvas.style.marginLeft.replace("px",""));
+    var canvas = this.canvasRef.nativeElement; // adjust position according scroll position
+    console.log(canvas.style.marginLeft.replace("px",""));
+   }
 
-   var pageX = (event.pageX - this.canvas.style.marginLeft.replace("px","")) - this.grid.tileColumnOffset / 2 - this.grid.originX;
-   var pageY = (event.pageY - this.canvas.style.marginTop.replace("px","")) - this.grid.tileRowOffset / 2 - this.grid.originY;
+   var pageX = event.pageX - this.grid.tileColumnOffset / 2 - this.grid.originX;
+   var pageY = event.pageY - this.grid.tileRowOffset / 2 - this.grid.originY;
 
    var tileX = Math.round(pageX / this.grid.tileColumnOffset - pageY / this.grid.tileRowOffset);
    var tileY = Math.round(pageX / this.grid.tileColumnOffset + pageY / this.grid.tileRowOffset);
@@ -234,8 +266,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    
    this.context.save();
    
-   var width = 800 * this.tiledCoreService.zoomLevel;
-   var height = 400 * this.tiledCoreService.zoomLevel;
+   var width = 80 * this.grid.Xtiles * this.tiledCoreService.zoomLevel;
+   var height = 40 * this.grid.Ytiles * this.tiledCoreService.zoomLevel;
    
    this.context.canvas.width  = width;
    this.canvas.style.width = width + "px";

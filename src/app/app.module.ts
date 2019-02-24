@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule, } from '@angular/material/button-toggle';
+import { Ng2PanZoomModule } from 'ng2-panzoom';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatButtonToggleModule, } from '@angular/material/button-toggle';
     MatSelectModule,
     MatButtonToggleModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    Ng2PanZoomModule
   ],
   providers: [],
   bootstrap: [AppComponent]

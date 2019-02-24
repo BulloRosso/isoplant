@@ -25,7 +25,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@kensingtontech/hamsterjs/hamster.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

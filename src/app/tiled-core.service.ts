@@ -7,7 +7,7 @@ import { TileData } from './model/tile-data';
 })
 export class TiledCoreService  {
 
-  public zoomLevel : number = 1;
+  public zoomLevel : number = 4;
   public selectedTile : string = null;
   
   private _bulletData : BehaviorSubject<any> = new BehaviorSubject({});
