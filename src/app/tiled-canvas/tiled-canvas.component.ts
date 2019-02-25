@@ -2,8 +2,9 @@ import { Component, OnInit, OnDestroy, ElementRef, Renderer, ViewChild, Renderer
 import { TiledCoreService } from '../tiled-core.service';
 import { TileData } from '../model/tile-data';
 import { PanZoomConfig, PanZoomAPI, PanZoomModel } from 'ng2-panzoom';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { IsoMapItem } from '../model/iso-map-item';
 
 @Component({
   selector: 'tiled-canvas',
@@ -53,13 +54,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  private bulletSubscription;
 
  // stuff for moving the canvas inside the outer div (viewport)
- private dragging :boolean;
  private lastX = 0;
  private lastY = 0;
- private storedX = 0;
- private storedY = 0;
- private marginTop = 0;
- private marginLeft = 0;
  private currentPanZoomFactor = 0;
 
  public selectUnitType: string = "Line";
@@ -68,9 +64,17 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  public selectArea: string = "Plant";
  public areaTypes = [ "Plant", "Milling area", "Drilling area", "Spilling area" ];
 
- // make observable
- public selectedObjectName = "";
- public selectedObjectType = "";
+ // make observable (THIS IS FOR THE HOST PAGE)
+ private _selectedItem = new Subject<IsoMapItem>();
+ public selectedItem: Observable<IsoMapItem> = this._selectedItem.asObservable();
+
+// make observable (THIS IS FOR THE EDITOR COMPONENT)
+private _selectedCell = new Subject<TileData>();
+public selectedCell: Observable<TileData> = this._selectedCell.asObservable();
+
+ // internal state
+ private selectedObjectName = "";
+ private selectedObjectType = "";
 
  constructor(private tiledCoreService : TiledCoreService, private elementRef: ElementRef, private renderer: Renderer2) { 
 
@@ -167,20 +171,30 @@ onClick(event: MouseEvent): void {
    } else {
      newTile = this.tiledCoreService.getTileData(tileX + "," + tileY);
    }
+
+   this._selectedCell.next(newTile); // signal to editor (if present)
+
    this.tiledCoreService.selectedTile = tileX + "," + tileY;
 
    let selTileData =  this.tiledCoreService.getTileData(this.tiledCoreService.selectedTile);
    
-   // Default: the name of the object
-   this.selectedObjectName = selTileData.labelText;
+   // Default: the cell that was hit
+   //
+   this.selectedObjectName = "[" + tileX + "," + tileY + "]";
    
-   if (selTileData.mapSelectionPath) {
+   if (selTileData.mapSelectionPath && this.selectUnitType != "Cell") {
       // look for object type to select
       let hit = selTileData.mapSelectionPath.get(this.selectUnitType);
       if (hit) {
         // this property is the real result of the component
         this.selectedObjectName = hit;
         this.selectedObjectType = this.selectUnitType;
+
+        // notify client subscribers (e. g. host page)
+        let itm : IsoMapItem = new IsoMapItem();
+        itm.name = this.selectedObjectName;
+        itm.type = this.selectedObjectType;
+        this._selectedItem.next(itm); // signal to host page
       } 
    }
    

@@ -1,10 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, ViewChild, ElementRef,  AfterViewInit } from '@angular/core';
+import { IsoMapItem } from './model/iso-map-item';
+import { TiledCanvasComponent } from './tiled-canvas/tiled-canvas.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'tile-editor';
+
+
+// this is an example host page containing different components of the tile editor
+//
+export class AppComponent implements AfterViewInit, OnDestroy {
+  
+  title = 'Tile Editor Sample Host Page';
+
+  @ViewChild(TiledCanvasComponent) childCanvas: TiledCanvasComponent;
+  selectedItem: IsoMapItem;
+ 
+  itmSubscription;
+
+  constructor() {
+     
+  }
+
+  ngAfterViewInit() {
+
+    this.itmSubscription = this.childCanvas.selectedItem.subscribe(itm => {
+      console.log("HOST PAGE: received SELECTION FROM CANVAS: " + itm.type + " --> " + itm.name);
+      this.selectedItem = itm;
+    });
+
+  }
+
+  ngOnDestroy() {
+    this.itmSubscription.unsubscribe();
+  }
 }
