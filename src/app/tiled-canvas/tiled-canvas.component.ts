@@ -3,6 +3,7 @@ import { TiledCoreService } from '../tiled-core.service';
 import { TileData } from '../model/tile-data';
 import { PanZoomConfig, PanZoomAPI, PanZoomModel } from 'ng2-panzoom';
 import { Subscription } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'tiled-canvas',
@@ -59,14 +60,17 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  private storedY = 0;
  private marginTop = 0;
  private marginLeft = 0;
+ private currentPanZoomFactor = 0;
 
  public selectUnitType: string = "Line";
- public unitTypes = [ "Line", "Workcenter", "Machine" ];
+ public unitTypes = [ "Line", "Workcenter", "Machine", "Cell" ];
 
  public selectArea: string = "Plant";
  public areaTypes = [ "Plant", "Milling area", "Drilling area", "Spilling area" ];
 
+ // make observable
  public selectedObjectName = "";
+ public selectedObjectType = "";
 
  constructor(private tiledCoreService : TiledCoreService, private elementRef: ElementRef, private renderer: Renderer2) { 
 
@@ -104,93 +108,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.redrawTiles(this.tiledCoreService.allTileData());
  }
 
- // initialize drag & move listeners here on canvas and window-object
- //
+ 
  ngAfterViewInit() {
-
-
-   // -- Start: Handle the movement of canvas element inside the viewport div
-  //
-  if (false) {  // panzoom handles this now
-
-    this.renderer.listen(this.canvasRef.nativeElement, 'mousedown', (event) => {
-      
-      var evt = event;
-      this.dragging = true;
-      this.lastX = evt.clientX;
-      this.lastY = evt.clientY;
-      this.storedX = this.lastX;
-      this.storedY = this.lastY;
-      evt.preventDefault()
-    });
-
-    this.renderer.listen('window', 'mousemove', (event) => {
-      
-        var canvas = this.canvasRef.nativeElement;
-        var viewport = this.viewportRef.nativeElement; 
-
-        var canvasWidth = canvas.clientWidth;
-        var canvasHeight = canvas.clientHeight;
-        var viewportWidth = viewport.clientWidth; 
-        var viewportHeight = viewport.clientHeight; 
-        // console.log(canvasWidth +"/" + canvasHeight + ":" + viewportWidth + "/" + viewportHeight);
-        // console.log(canvas.style.marginLeft + "/" + canvas.style.marginTop);
-
-        var evt = event;
-        if (this.dragging) {
-
-            var deltaX = evt.clientX - this.lastX;
-            var deltaY = evt.clientY - this.lastY;
-          
-            var dragWithinBoundaries = (this.marginLeft + deltaX <= 0) && (this.marginTop + deltaY <= 0)
-                                    && ((this.marginLeft + deltaX) >= -(canvasWidth - viewportWidth))
-                                    && ((this.marginTop + deltaY) >= -(canvasHeight - viewportHeight)); 
-
-            if (dragWithinBoundaries) {                         
-              this.lastX = evt.clientX;
-              this.lastY = evt.clientY;
-
-              this.marginLeft += deltaX;
-              this.marginTop += deltaY;
-        
-              canvas.style.marginLeft = this.marginLeft + "px";
-              canvas.style.marginTop = this.marginTop + "px";
-            } 
-        } 
-        evt.preventDefault();
-    });
-
-    this.renderer.listen('window', 'mouseup', (event) => {
-      
-      this.dragging = false;
-    });
-  }
-  // --- end of canvas drag & drop
-
-  // listen to mouse wheel for zoom in/out)
-  if (false) { // now handeled by panzoom
-    this.renderer.listen(this.canvasRef.nativeElement,'wheel', (event) => {
-        if (event.deltaY > 0) {  
-          if (this.tiledCoreService.zoomLevel == 1) {
-            return; 
-          }
-          this.tiledCoreService.decrementZoom();
-          
-        } else {
-          if (this.tiledCoreService.zoomLevel == 4) {
-            return; 
-          }
-          this.tiledCoreService.incrementZoom();
-        }
-        
-        this.context.scale(this.tiledCoreService.zoomLevel, this.tiledCoreService.zoomLevel);
-        this.redrawTiles(this.tiledCoreService.allTileData());
-
-        this.lastX = 0;
-        this.lastY = 0;
-    });
-  }
-
   
  }
 
@@ -209,26 +128,25 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    this.modelChangedSubscription.unsubscribe();  // don't forget to unsubscribe.  you don't want a memory leak!
  }
 
+ // receive live data from panZoom plugin
+ //
  onModelChanged(model: PanZoomModel): void {
-   // console.log(model);
+   // console.log(model.zoomLevel);
+   this.currentPanZoomFactor = model.zoomLevel; // 2 = 100%
    this.lastX = model.pan.x;
    this.lastY = model.pan.y;
 }
 
- onClick(event: MouseEvent): void {
+// select a tile AND an object according toe the header preferences
+//
+onClick(event: MouseEvent): void {
    
-  // distinguish between drag and click
-  if (false) {  // now handled by panzoom
-    if (this.storedX != this.lastX || this.storedY != this.lastY) {
-      return;
-    } 
+   // position of mouse-pointer: click-location 
+   var pageX = event.clientX - 10 - this.lastX - this.grid.tileColumnOffset / 2 - this.grid.originX;
+   var pageY = event.clientY - 10 - this.lastY - this.grid.tileRowOffset / 2 - this.grid.originY;
 
-    var canvas = this.canvasRef.nativeElement; // adjust position according scroll position
-    console.log(canvas.style.marginLeft.replace("px",""));
-   }
-
-   var pageX = event.pageX  - this.lastX - this.grid.tileColumnOffset / 2 - this.grid.originX;
-   var pageY = event.pageY - this.lastY - this.grid.tileRowOffset / 2 - this.grid.originY;
+   console.log(event.clientX + "/" + event.clientX + " bei " + this.currentPanZoomFactor);
+   console.log(this.lastX + "-" + this.lastY);
 
    var tileX = Math.round(pageX / this.grid.tileColumnOffset - pageY / this.grid.tileRowOffset);
    var tileY = Math.round(pageX / this.grid.tileColumnOffset + pageY / this.grid.tileRowOffset);
@@ -251,7 +169,23 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
    }
    this.tiledCoreService.selectedTile = tileX + "," + tileY;
 
-   this.selectedObjectName = this.tiledCoreService.getTileData(this.tiledCoreService.selectedTile).labelText;
+   let selTileData =  this.tiledCoreService.getTileData(this.tiledCoreService.selectedTile);
+   
+   // Default: the name of the object
+   this.selectedObjectName = selTileData.labelText;
+   
+   if (selTileData.mapSelectionPath) {
+      // look for object type to select
+      let hit = selTileData.mapSelectionPath.get(this.selectUnitType);
+      if (hit) {
+        // this property is the real result of the component
+        this.selectedObjectName = hit;
+        this.selectedObjectType = this.selectUnitType;
+      } 
+   }
+   
+
+   
 
    this.redrawTiles(this.tiledCoreService.allTileData());
  }
