@@ -25,9 +25,7 @@ In order to create and edit a floorplan a rudimentary editor pane is included as
 ## To Dos
 The following features need to be implemented
 * Areas: scroll into view a specified location in the toolbar
-* Snap to object: select a group of tiles specified in the toolbar
-* pan (scroll) according to zoom
-* select does not work when panned
+* Bug: slight offset when selecting a tile (you must aim a little bit lower)
 * load and save tile configuration (currently hardcoded in service init)
 * make all current features editable in the editor pane
 
@@ -35,6 +33,13 @@ The following features need to be implemented
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1 and uses Angular Material.
 
 Panning and zooming is done with the help of panzoom.js
+
+## Layered rendering of a tile
+Different images can be layered on a tile - to do this, imgName is a list of comma separated names.
+
+![Layering of elements](https://github.com/BulloRosso/isoplant/blob/master/tile-layers.PNG?raw=true)
+
+The example above would have imgName: "road,door,boxes" (attention: avoid spaces here!).
 
 ## Development server
 
