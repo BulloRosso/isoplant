@@ -18,7 +18,7 @@ export class TiledCoreService  {
       // Let's create some test data
       //
       var testDataArr = [
-        { coordinate: "1,1", imgName: "machine", labelText: "U7110", mapKpis: new Map([
+        { coordinate: "1,1", imgName: "machine", labelText: "L100-1", mapKpis: new Map([
           ["andon", "19"],
           ["oee", "5"]
         ]), mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-1"] ]) },
@@ -27,6 +27,8 @@ export class TiledCoreService  {
           ["andon", "8"],
           ["oee", "1"]
         ]) },
+        { coordinate: "0,1", mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L200"], ["Machine", "L200-1"] ]) },
+        { coordinate: "0,2", mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L200"], ["Machine", "L200-2"] ]) },
         { coordinate: "0,0", imgName: "wall_left", labelText: null },
         { coordinate: "1,0", imgName: "wall_left,road_right", labelText: null },
         { coordinate: "2,0", imgName: "wall_left,road_crossroad_e_s_w,paletts,door_north_south", labelText: null },
@@ -43,7 +45,7 @@ export class TiledCoreService  {
         { coordinate: "8,2", imgName: "paletts", labelText: null },
         { coordinate: "2,1", imgName: "road_left", labelText: null },
         { coordinate: "2,2", imgName: "road_left", labelText: null },
-        { coordinate: "1,2", imgName: "machine", statusColor: "red",
+        { coordinate: "1,2", imgName: "machine", statusColor: "red", labelText: "L100-3",
           mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-3"] ]),
           mapKpis: new Map([
             ["andon", "0"],

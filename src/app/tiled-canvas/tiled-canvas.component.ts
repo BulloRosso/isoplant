@@ -67,7 +67,9 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   // make observable (THIS IS FOR THE HOST PAGE)
   private _selectedItem = new Subject<IsoMapItem>();
   public selectedItem: Observable<IsoMapItem> = this._selectedItem.asObservable();
-  
+  private ownSelectedItemSubscription;
+  private ownSelectedItem: IsoMapItem;
+
   // make observable (THIS IS FOR THE EDITOR COMPONENT)
   private _selectedCell = new Subject<TileData>();
   public selectedCell: Observable<TileData> = this._selectedCell.asObservable();
@@ -117,13 +119,16 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     
     this.redrawTiles( this.tiledCoreService.allTileData());
-    
+    this.ownSelectedItemSubscription = this.selectedItem.subscribe(itm => {
+        this.ownSelectedItem = itm;
+    });
     this.apiSubscription = this.panZoomConfig.api.subscribe( (api: PanZoomAPI) => this.panZoomAPI = api );
     this.modelChangedSubscription = this.panZoomConfig.modelChanged.subscribe( (model: PanZoomModel) => this.onModelChanged(model) );
   }
   
   ngOnDestroy() {
     this.tileSubscription.unsubscribe();
+    this.ownSelectedItemSubscription.unsubscribe();
     this.bulletSubscription.unsubscribe();
     this.apiSubscription.unsubscribe();  // don't forget to unsubscribe.  you don't want a memory leak!
     this.modelChangedSubscription.unsubscribe();  // don't forget to unsubscribe.  you don't want a memory leak!
@@ -142,6 +147,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   //
   onClick(event: MouseEvent): void {
     
+    this.ownSelectedItem = null; // clear previous selection
+
     const clickXforCanvas = event.clientX - 10; // TODO determine canvas offset
     const clickYforCanvas = event.clientY - 70; // TODO determine canvas offset
 
@@ -308,19 +315,35 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX;
         var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY;
         
+        let indirectHit = false;
+
         // Draw tile interior
         if( Xi == this.grid.selectedTileX && Yi == this.grid.selectedTileY) {
-          // selected state
+          // selected state (direct hit)
           this.context.fillStyle = 'yellow';
         } else {
-          if (tileData && tileData.backgroundColor) {
-            // custom background
-            this.context.fillStyle = tileData.backgroundColor;
-          } else {
-            // regular background
-            this.context.fillStyle = this.grid.style.tileColor;
+
+          if (tileData && tileData.mapSelectionPath && this.ownSelectedItem) {
+            // part of type-based-selection?
+            if (tileData.mapSelectionPath.get(this.selectUnitType)) {
+               if (tileData.mapSelectionPath.get(this.selectUnitType) == this.ownSelectedItem.name) {
+                  // selected state (indirect hit)
+                  this.context.fillStyle = '#FFFFCC'; // light yellow
+                  indirectHit = true;
+               }
+            }
+          } 
+          if (!indirectHit) {
+            if (tileData && tileData.backgroundColor) {
+              // custom background
+              this.context.fillStyle = tileData.backgroundColor;
+            } else {
+              // regular background
+              this.context.fillStyle = this.grid.style.tileColor;
+            }
           }
-        }
+
+        } // direct hit
         
         this.context.beginPath();
         this.context.moveTo(offX, offY + this.grid.tileRowOffset / 2);
@@ -339,9 +362,12 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           // avoid background bleeding through
           color = tileData.backgroundColor;
         }
-        if(this.grid.showOutlines) {
+        if (this.grid.showOutlines) {
           color = '#999';
         } 
+        if (indirectHit) {
+          color = "#FFFFCC"; // light yellow
+        }
         this.drawLine(offX, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY, color);
         this.drawLine(offX + this.grid.tileColumnOffset / 2, offY, offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, color);
         this.drawLine(offX + this.grid.tileColumnOffset, offY + this.grid.tileRowOffset / 2, offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, color);
