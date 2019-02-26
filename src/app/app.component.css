@@ -1,7 +1,6 @@
-.mat-select, .mat-select-placeholder, .mat-select-value {
-    color:white !important;
-}
-
-#controlBox {
-   
-}
+.hint {   
+    max-width: 980px;
+    font-family:Roboto,Arial;
+    color:#ccc;
+    padding-left:30px;
+ }

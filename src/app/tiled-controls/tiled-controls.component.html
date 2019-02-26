@@ -1,24 +1,6 @@
-<mat-card id="tileControls">
+<div id="tileControls">
   
   <table>
-    <tr >
-        <td>
-            <span class="mdi mdi-magnify mdi-24px"></span>
-        </td>
-        <td>
-            <mat-button-toggle-group style="width:100%">
-                <button mat-button (click)="zoomIn()" style="width:30px">
-                    <span class="mdi mdi-plus mdi-18px"></span>
-                </button>
-                <span style="padding-top:12px" >
-                    {{ tiledCoreService.zoomLevel }}00%
-                </span>
-                <button mat-button (click)="zoomOut()">
-                    <span class="mdi mdi-minus mdi-18px"></span>
-                </button>
-              </mat-button-toggle-group>
-        </td>
-    </tr>
     <tr style="vertical-align: middle">
       <td>
         <span class="mdi mdi-information mdi-24px" style="color:darkgreen"></span>
@@ -39,4 +21,4 @@
     </tr>
   </table>
  
-</mat-card>
+</div>

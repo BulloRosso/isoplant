@@ -110,7 +110,6 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.redrawTiles(this.tiledCoreService.allTileData());
   }
   
-  
   ngAfterViewInit() {
     
   }
@@ -205,9 +204,6 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         this._selectedItem.next(itm); // signal to host page
       } 
     }
-    
-    
-    
     
     this.redrawTiles(this.tiledCoreService.allTileData());
   }

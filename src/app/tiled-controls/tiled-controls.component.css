@@ -1,14 +1,11 @@
 #tileControls {
-    padding: 10px;
+    padding: 0;
     font-size:12px;
     font-family:arial;
     user-select: none;
     margin-bottom: 20px;
-     max-width: 200px;
+    max-width: 790px;
     background-color:white;
-    position:absolute;
-    left:20px;
-    top:84px;
 }
 
 div {
