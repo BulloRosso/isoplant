@@ -17,16 +17,20 @@
         </mat-form-field>
         <br/>
         <mat-form-field>
-          <mat-select placeholder="Tile Image" [(ngModel)]="imageName">
+          <mat-select placeholder="Single tile Image" [(ngModel)]="imageName">
             <mat-option *ngFor="let tileType of tileTypes" [value]="tileType">
               {{tileType}}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <br/>
-            <mat-form-field class="example-full-width">
-              <input matInput [(ngModel)]="backgroundColor" placeholder="Background Color" value="">
-            </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="layeredTileImages" placeholder="Layered tile images (optional)" value="">
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="backgroundColor" placeholder="Background Color" value="">
+        </mat-form-field>
         <br/>
         <mat-form-field class="example-full-width">
           <input matInput [(ngModel)]="statusColor" placeholder="Status" value="">

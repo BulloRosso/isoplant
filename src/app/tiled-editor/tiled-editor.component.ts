@@ -19,6 +19,7 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
   selLine:string;
   selWorkcenter:string;
   selMachine:string;
+  layeredTileImages:string;
 
   cellIndex:string;
 
@@ -28,6 +29,9 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
       "machine",
       "machine_green",
       "paletts",
+      "agv_south",
+      "agv_west",
+      "paletts_big",
       "road_crossroad",
       "road_crossroad_e_s_w",
       "road_crossroad_east",
@@ -69,7 +73,13 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
           var currentTile = this.tiledCoreService.getTileData(this.cellIndex);
           if (currentTile) {
             this.labelText = currentTile.labelText;
-            this.imageName = currentTile.imgName;
+            if (currentTile.imgName && currentTile.imgName.indexOf(',') > -1) {
+              this.layeredTileImages = currentTile.imgName;
+              this.imageName = null;
+            } else {
+              this.imageName = currentTile.imgName;
+              this.layeredTileImages = "";
+            }
             this.backgroundColor = currentTile.backgroundColor;
             this.statusColor = currentTile.statusColor;
             if (currentTile.mapSelectionPath) {
@@ -97,7 +107,6 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
   saveTile() {
     var selData = this.tiledCoreService.getTileData(this.cellIndex);
     // modify
-    selData.imgName = this.imageName;
     selData.labelText = this.labelText;
     selData.backgroundColor = this.backgroundColor;
     selData.statusColor = this.statusColor;
@@ -109,6 +118,11 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
       selPath.set("Workcenter", this.selWorkcenter);
       selPath.set("Machine", this.selMachine);
       selData.mapSelectionPath = selPath;
+    }
+    if (this.layeredTileImages) {
+      selData.imgName = this.layeredTileImages;
+    } else {
+      selData.imgName = this.imageName;
     }
     // update & trigger redraw
     this.tiledCoreService.setTileData(this.cellIndex, selData);
