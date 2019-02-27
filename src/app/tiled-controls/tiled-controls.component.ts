@@ -29,7 +29,7 @@ export class TiledControlsComponent implements OnInit {
   }
 
   resetMap() {
-    this.eventService.dispatchEvent({ eventName: "resetMap "});
+    this.eventService.dispatchEvent({ eventName: "resetMap"});
   }
 
   showBullets(val) {

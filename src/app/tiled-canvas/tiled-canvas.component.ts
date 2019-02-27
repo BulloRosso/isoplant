@@ -109,8 +109,9 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.eventService.events.subscribe(evt => {
 
-        console.log(evt);
-        this.panZoomAPI.resetView();
+        if (evt && evt["eventName"] && evt["eventName"] === "resetMap") {
+          this.panZoomAPI.resetView();
+        }
 
     });
 

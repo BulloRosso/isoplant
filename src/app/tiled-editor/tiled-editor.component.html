@@ -1,34 +1,60 @@
 <div id="tileEditor">
-  <b>EDITOR</b>
-  <br/>
-  Selected tile: <span class="selTile">{{ tiledCoreService.selectedTile }}</span>
-  &nbsp;&nbsp;&nbsp;
-  <button mat-flat-button color="accent" *ngIf="tiledCoreService.getTileData(tiledCoreService.selectedTile)" (click)="clearTile()">Remove</button>
-  
- 
-<div></div>
-<div *ngIf="tiledCoreService.getTileData(tiledCoreService.selectedTile)">
-    <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="labelText" placeholder="Label Text" value="">
-    </mat-form-field>
-<br/>
-<mat-form-field>
-  <mat-select placeholder="Tile Image" [(ngModel)]="imageName">
-    <mat-option *ngFor="let tileType of tileTypes" [value]="tileType">
-      {{tileType}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<br/>
-    <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="backgroundColor" placeholder="Background Color" value="">
-    </mat-form-field>
-<br/>
-    <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="statusColor" placeholder="Status" value="">
-    </mat-form-field>
-    &nbsp;&nbsp;
-    <button mat-flat-button color="primary" (click)="saveTile()">Save</button>
-</div>
+  <table style="border-collapse: collapse;width:100%">
+    <tr>
+      <td colspan="2">
+        <span *ngIf="!cellIndex">
+          Please click a tile in the map to edit.
+        </span>
+        <div *ngIf="cellIndex" style="font-family:Roboto,Arial;margin-bottom:20px;font-size:16px;">
+          Selected tile: <span class="selTile">{{ tiledCoreService.selectedTile }}</span>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="cellIndex" style="vertical-align: top">
+      <td style="width:50%;padding-right:40px;">
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="labelText" placeholder="Label Text" value="">
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <mat-select placeholder="Tile Image" [(ngModel)]="imageName">
+            <mat-option *ngFor="let tileType of tileTypes" [value]="tileType">
+              {{tileType}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br/>
+            <mat-form-field class="example-full-width">
+              <input matInput [(ngModel)]="backgroundColor" placeholder="Background Color" value="">
+            </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="statusColor" placeholder="Status" value="">
+        </mat-form-field>
+      </td>
+      <td style="width:50%">
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="selLine" placeholder="Line" value="">
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="selWorkcenter" placeholder="Workcenter" value="">
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="selMachine" placeholder="Machine" value="">
+        </mat-form-field>
+        <br/>
+      </td>
+    </tr>
+    <tr *ngIf="cellIndex">
+      <td>
+        <button mat-flat-button color="accent" (click)="clearTile()">Delete</button>
+      </td>
+      <td style="text-align: right">
+        <button mat-flat-button color="primary" (click)="saveTile()">Save</button>
+      </td>
+    </tr>
+  </table>
  
 </div>

@@ -9,3 +9,7 @@
 .selTile {
     background-color: yellow;
 }
+
+.example-full-width {
+    width:100%;
+}

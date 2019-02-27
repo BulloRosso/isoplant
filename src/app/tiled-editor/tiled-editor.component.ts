@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
 import { EventService } from '../event-service';
+import { stringify } from 'querystring';
+import { stripGeneratedFileSuffix } from '@angular/compiler/src/aot/util';
 
 @Component({
   selector: 'tiled-editor',
@@ -14,6 +16,9 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
   labelText: string;
   backgroundColor: string;
   statusColor:string;
+  selLine:string;
+  selWorkcenter:string;
+  selMachine:string;
 
   cellIndex:string;
 
@@ -45,8 +50,7 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
   private tileSubscription;
 
   constructor(public tiledCoreService : TiledCoreService, 
-              private eventService: EventService<any>,
-              private change: ChangeDetectorRef) {
+              private eventService: EventService<any>) {
      
   }
 
@@ -68,7 +72,15 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
             this.imageName = currentTile.imgName;
             this.backgroundColor = currentTile.backgroundColor;
             this.statusColor = currentTile.statusColor;
-            this.change.markForCheck();
+            if (currentTile.mapSelectionPath) {
+              this.selLine = currentTile.mapSelectionPath.get("Line");
+              this.selWorkcenter = currentTile.mapSelectionPath.get("Workcenter");
+              this.selMachine = currentTile.mapSelectionPath.get("Machine");
+            } else {
+              this.selLine = "";
+              this.selWorkcenter = "";
+              this.selMachine = "";
+            }
           }
         }
     }); 
@@ -89,6 +101,15 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
     selData.labelText = this.labelText;
     selData.backgroundColor = this.backgroundColor;
     selData.statusColor = this.statusColor;
+    if (!this.selLine && !this.selWorkcenter && !this.selMachine) {
+      selData.mapSelectionPath = null;
+    } else {
+      let selPath = new Map<string,string>();
+      selPath.set("Line", this.selLine);
+      selPath.set("Workcenter", this.selWorkcenter);
+      selPath.set("Machine", this.selMachine);
+      selData.mapSelectionPath = selPath;
+    }
     // update & trigger redraw
     this.tiledCoreService.setTileData(this.cellIndex, selData);
   }
