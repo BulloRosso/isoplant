@@ -1,9 +1,7 @@
 #tileEditor {
     background: #efefef;
     padding:20px;
-    max-width:750px;
-    font-size:12px;
-    font-family:arial;
+    max-width:760px;
 }
 
 .selTile {

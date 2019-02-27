@@ -18,7 +18,11 @@ export class TiledControlsComponent implements OnInit {
   @Input()
   set selectedKpi (val: string) {
       this._selectedKpi = val;
-      this.showBullets(val);
+      if (val == "none") {
+        this.eventService.dispatchEvent({eventName: "selectedBadgeType", value: null});
+      } else {
+        this.eventService.dispatchEvent({eventName: "selectedBadgeType", value: val});
+      }
   }
 
 
@@ -30,21 +34,6 @@ export class TiledControlsComponent implements OnInit {
 
   resetMap() {
     this.eventService.dispatchEvent({ eventName: "resetMap"});
-  }
-
-  showBullets(val) {
-    
-    if (val.toLowerCase() == "andon") {
-      this.tiledCoreService.setBulletData({ color: "purple"});
-    }
-    if (val.toLowerCase() == "none") {
-      this.tiledCoreService.setBulletData({ color: null });
-    }
-    if (val.toLowerCase() == "oee") {
-      this.tiledCoreService.setBulletData({ color: "green" });
-    }
-    
-    this.tiledCoreService.broadcastRefresh();
   }
 
 }

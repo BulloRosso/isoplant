@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
 import { EventService } from '../event-service';
-import { stringify } from 'querystring';
-import { stripGeneratedFileSuffix } from '@angular/compiler/src/aot/util';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { stringify } from '@angular/core/src/util';
 
 @Component({
   selector: 'tiled-editor',
@@ -20,7 +21,17 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
   selWorkcenter:string;
   selMachine:string;
   layeredTileImages:string;
+  badges:string;
 
+  // Material chips control
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  badgesChips: string[] = [];
+
+  // selected tile index
   cellIndex:string;
 
   // values for dropdown
@@ -91,6 +102,19 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
               this.selWorkcenter = "";
               this.selMachine = "";
             }
+            if (currentTile.mapKpis) {
+              this.badges = JSON.stringify(currentTile.mapKpis);
+            } else {
+              this.badges = "";
+            }
+            if (currentTile.mapKpis) {
+              this.badgesChips = [];
+              currentTile.mapKpis.forEach((value, key, map) => {
+                 this.badgesChips.push(key + ":" + value);
+              });
+            } else {
+              this.badgesChips = [];
+            }
           }
         }
     }); 
@@ -124,6 +148,14 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
     } else {
       selData.imgName = this.imageName;
     }
+    if (this.badgesChips) {
+      selData.mapKpis = new Map<string,string>();
+      this.badgesChips.forEach(itm => {
+        selData.mapKpis.set(itm.split(":")[0],itm.split(":")[1]);
+      });  
+    } else {
+      selData.mapKpis = null;
+    }
     // update & trigger redraw
     this.tiledCoreService.setTileData(this.cellIndex, selData);
   }
@@ -131,6 +163,29 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
   clearTile() {
     this.tiledCoreService.clearTileData(this.cellIndex);
     this.cellIndex = "";
+  }
+
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      this.badgesChips.push(value.trim());
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  remove(badge: string): void {
+    const index = this.badgesChips.indexOf(badge);
+
+    if (index >= 0) {
+      this.badgesChips.splice(index, 1);
+    }
   }
 
 }

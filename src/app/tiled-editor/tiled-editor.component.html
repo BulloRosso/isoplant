@@ -2,8 +2,8 @@
   <table style="border-collapse: collapse;width:100%">
     <tr>
       <td colspan="2">
-        <span *ngIf="!cellIndex">
-          Please click a tile in the map to edit.
+        <span *ngIf="!cellIndex" style="font-family:Roboto,Arial">
+           <span class="mdi mdi-cursor-default-click-outline mdi-18px"></span> Please click a tile in the map to edit.
         </span>
         <div *ngIf="cellIndex" style="font-family:Roboto,Arial;margin-bottom:20px;font-size:16px;">
           <span class="mdi mdi-pencil"></span> Edit selected tile <div class="selTile">{{ tiledCoreService.selectedTile }}</div>
@@ -49,11 +49,26 @@
           <input matInput [(ngModel)]="selMachine" placeholder="Machine" value="">
         </mat-form-field>
         <br/>
+        <mat-form-field class="example-full-width">
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let badge of badgesChips"  [selectable]="selectable"
+                     [removable]="removable" (removed)="remove(badge)">
+              {{badge}}
+              <span class="mdi mdi-close" matChipRemove *ngIf="removable"></span>
+            </mat-chip>
+            <input placeholder="New badge (name:value)..."
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field>
+        <br/>
       </td>
     </tr>
     <tr *ngIf="cellIndex">
       <td>
-        <button mat-flat-button color="accent" (click)="clearTile()">Delete</button>
+        <button mat-flat-button color="warn" (click)="clearTile()">Delete</button>
       </td>
       <td style="text-align: right">
         <button mat-flat-button color="primary" (click)="saveTile()">Save</button>

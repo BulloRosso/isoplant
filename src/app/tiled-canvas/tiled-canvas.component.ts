@@ -38,7 +38,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       tileColor: "#ccc"
     },
     
-    bulletColor: null,
+    badgeGlowEffect: true, // corona effect for non-number badges
+    badgeColor: null,
     tileMap: new Map<string,TileData>() 
   };
   
@@ -53,7 +54,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   private canvas; 
   private context; 
   private tileSubscription;
-  private bulletSubscription;
+  private badgeSubscription;
   
   // stuff for moving the canvas inside the outer div (viewport)
   private lastX = 0;
@@ -76,6 +77,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   private _selectedCell = new Subject<TileData>();
   public selectedCell: Observable<TileData> = this._selectedCell.asObservable();
   
+  private selectedBadgeType = null;
+
   // internal state
   private selectedObjectName = "";
   private selectedObjectType = "";
@@ -108,25 +111,25 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.redrawTiles( this.tiledCoreService.allTileData());
 
     this.eventService.events.subscribe(evt => {
-
-        if (evt && evt["eventName"] && evt["eventName"] === "resetMap") {
+      
+      if (evt && evt["eventName"]) {
+        if (evt["eventName"] === "resetMap") {
           this.panZoomAPI.resetView();
         }
-
+        if (evt["eventName"] === "selectedBadgeType") {
+          this.selectedBadgeType = evt["value"];
+          if (this.selectedBadgeType === "oee") {
+            this.grid.badgeColor = "purple";
+          } else {
+            this.grid.badgeColor = "green";
+          }
+          this.redrawTiles( this.tiledCoreService.allTileData());
+        }
+      }
     });
 
     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
       if (this.canvasRef) {
-        console.log("REDRAW tiles");
-        this.redrawTiles(this.tiledCoreService.allTileData());
-      }
-    });
-    
-    this.bulletSubscription = this.tiledCoreService.bulletData().subscribe(retBullets => {
-      
-      if (this.canvasRef) {
-        this.grid.bulletColor = retBullets["color"];
-        console.log("BULLET redraw " + retBullets["color"]);
         this.redrawTiles(this.tiledCoreService.allTileData());
       }
     });
@@ -141,7 +144,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.tileSubscription.unsubscribe();
     this.ownSelectedItemSubscription.unsubscribe();
-    this.bulletSubscription.unsubscribe();
+    this.badgeSubscription.unsubscribe();
     this.apiSubscription.unsubscribe();  // don't forget to unsubscribe.  you don't want a memory leak!
     this.modelChangedSubscription.unsubscribe();  // don't forget to unsubscribe.  you don't want a memory leak!
   }
@@ -260,7 +263,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }
     
-    // second pass: text & bullets
+    // second pass: text & badges
     for(var Xi = (this.grid.Xtiles - 1); Xi >= 0; Xi--) {
       for(var Yi = 0; Yi < this.grid.Ytiles; Yi++) {
         this.drawTileText(Xi, Yi, tileData.get(Xi + "," + Yi));
@@ -299,24 +302,47 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
             this.drawImage(offX, offY, tileData.imgName);
           }
           
-          if (tileData.mapKpis && this.grid.bulletColor) {
+          if (this.selectedBadgeType && tileData.mapKpis) {
             
-            const kpiVal = tileData.mapKpis.get("oee");
+            const kpiVal = tileData.mapKpis.get(this.selectedBadgeType);
             
             if (kpiVal) {
+
+              var reg = /^\d+$/;
+              let containsNumber = reg.test(kpiVal);
+
               // Circle
-              this.context.fillStyle = this.grid.bulletColor;
+              if (containsNumber) {
+                this.context.fillStyle = this.grid.badgeColor;
+              } else {
+                this.context.fillStyle = kpiVal;
+              }
+              this.context.save();
               this.context.beginPath();
+              
+              if (this.grid.badgeGlowEffect && !containsNumber) {
+                // glow effect ;-)
+                this.context.shadowBlur = 30;
+                this.context.shadowColor = kpiVal;
+              }
+
+              this.context.strokeStyle = "#fff";
+              this.context.lineWidth = "5";
+
               this.context.arc(offX + 70 * this.tiledCoreService.zoomLevel, offY + 10 * this.tiledCoreService.zoomLevel, 
                 8 * this.tiledCoreService.zoomLevel, 0, 2 * Math.PI, true);
                 this.context.closePath(); 
                 this.context.fill();
+                this.context.stroke();
                 
-                // Text
+              // Text
+              if (containsNumber) {
                 this.context.font = 8 * this.tiledCoreService.zoomLevel + "px Verdana";
                 this.context.fillStyle = "white";
                 this.context.textAlign = 'center';
                 this.context.fillText(kpiVal, offX + 70 * this.tiledCoreService.zoomLevel, offY + 13 * this.tiledCoreService.zoomLevel);
+              }
+              this.context.restore();
               }
             }
           }

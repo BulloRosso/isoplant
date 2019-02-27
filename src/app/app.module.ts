@@ -12,6 +12,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule, } from '@angular/material/button-toggle';
 import { Ng2PanZoomModule } from 'ng2-panzoom';
@@ -36,6 +37,7 @@ import { EventService } from './event-service';
     MatButtonToggleModule,
     MatToolbarModule,
     MatCardModule,
+    MatChipsModule,
     Ng2PanZoomModule
   ],
   providers: [  EventService ],

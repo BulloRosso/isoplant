@@ -19,12 +19,12 @@ export class TiledCoreService  {
       //
       var testDataArr = [
         { coordinate: "1,1", imgName: "machine", labelText: "L100-1", mapKpis: new Map([
-          ["andon", "19"],
+          ["andon", "gold"],
           ["oee", "5"]
         ]), mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-1"] ]) },
         { coordinate: "3,1", imgName: "warehouse", labelText: "WAREHOUSE" },
         { coordinate: "5,1", imgName: "conveyor", labelText: "U7120", mapKpis: new Map([
-          ["andon", "8"],
+          ["andon", "red"],
           ["oee", "1"]
         ]) },
         { coordinate: "0,1", mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L200"], ["Machine", "L200-1"] ]) },
@@ -48,7 +48,7 @@ export class TiledCoreService  {
         { coordinate: "1,2", imgName: "machine", statusColor: "red", labelText: "L100-3",
           mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-3"] ]),
           mapKpis: new Map([
-            ["andon", "0"],
+            ["andon", "green"],
             ["oee", "0"]
           ])
         },
