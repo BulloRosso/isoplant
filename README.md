@@ -42,6 +42,15 @@ Different images can be layered on a tile - to do this, imgName is a list of com
 
 The example above would have imgName: "road,door,boxes" (attention: avoid spaces here!).
 
+## Overlay information (badges)
+One of the main goals of the map is to add some kind of status information to the objects which
+have been plaed on the map. This is done with the help of a map<string,string> which is optional for each tile: add the name of the information (e. g. "oee") with a number or a color code:
+
+![Editing of elements](https://github.com/BulloRosso/isoplant/blob/master/badges.PNG?raw=true)
+
+Numbers are displayed whereas color-codes will result in some kind of LED (with a glow effect). You can
+configure the glow effect in the grid basic properties of the canvas control.
+
 ## Editor pane
 To edit tiles an (optional) component can be used exposing the properties of a tile:
 
