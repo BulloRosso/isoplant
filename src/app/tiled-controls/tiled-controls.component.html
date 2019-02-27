@@ -1,6 +1,6 @@
 <div id="tileControls">
   
-  <table>
+  <table style="width:100%">
     <tr style="vertical-align: middle">
       <td>
         <span class="mdi mdi-information mdi-24px" style="color:darkgreen"></span>
@@ -17,6 +17,9 @@
             [Off]
           </mat-button-toggle>
         </mat-button-toggle-group>
+      </td>
+      <td style="width:100%;text-align:right">
+        <button mat-mini-fab color="primary" (click)="resetMap()"><span class="mdi mdi-home mdi-24px"></span></button>
       </td>
     </tr>
   </table>

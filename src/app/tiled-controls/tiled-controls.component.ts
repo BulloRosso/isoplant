@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
+import { EventService } from '../event-service';
 
 @Component({
   selector: 'tiled-controls',
@@ -20,25 +21,15 @@ export class TiledControlsComponent implements OnInit {
       this.showBullets(val);
   }
 
-  constructor(public tiledCoreService : TiledCoreService) { }
+
+  constructor(public tiledCoreService : TiledCoreService,
+              private eventService: EventService<any>) { }
 
   ngOnInit() {
   }
 
-  zoomIn() {
-    if (this.tiledCoreService.zoomLevel == 4) {
-      return;
-    } 
-    this.tiledCoreService.incrementZoom();
-    this.tiledCoreService.broadcastRefresh();
-  }
-
-  zoomOut() {
-    if (this.tiledCoreService.zoomLevel == 1) {
-      return;
-    } 
-    this.tiledCoreService.decrementZoom();
-    this.tiledCoreService.broadcastRefresh();
+  resetMap() {
+    this.eventService.dispatchEvent({ eventName: "resetMap "});
   }
 
   showBullets(val) {

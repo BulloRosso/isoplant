@@ -5,6 +5,8 @@ import { PanZoomConfig, PanZoomAPI, PanZoomModel } from 'ng2-panzoom';
 import { Subscription, Subject } from 'rxjs';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { IsoMapItem } from '../model/iso-map-item';
+import { TiledControlsComponent } from '../tiled-controls/tiled-controls.component';
+import { EventService } from '../event-service';
 
 @Component({
   selector: 'tiled-canvas',
@@ -78,7 +80,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   private selectedObjectName = "";
   private selectedObjectType = "";
   
-  constructor(private tiledCoreService : TiledCoreService, private elementRef: ElementRef, private renderer: Renderer2) { 
+  constructor(private tiledCoreService : TiledCoreService, 
+              private eventService: EventService<any>) { 
     
     // panzoom konfigurieren https://www.npmjs.com/package/jquery.panzoom#disable
     //
@@ -88,22 +91,6 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     //this.panZoomConfig.neutralZoomLevel = 4;
     this.panZoomConfig.zoomOnDoubleClick = false;
     this.panZoomConfig.initialZoomLevel = 0;
-    
-    this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
-      if (this.canvasRef) {
-        console.log("REDRAW tiles");
-        this.redrawTiles(this.tiledCoreService.allTileData());
-      }
-    });
-    
-    this.bulletSubscription = this.tiledCoreService.bulletData().subscribe(retBullets => {
-      
-      if (this.canvasRef) {
-        this.grid.bulletColor = retBullets["color"];
-        console.log("BULLET redraw " + retBullets["color"]);
-        this.redrawTiles(this.tiledCoreService.allTileData());
-      }
-    });
     
   }
   
@@ -119,6 +106,30 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     
     this.redrawTiles( this.tiledCoreService.allTileData());
+
+    this.eventService.events.subscribe(evt => {
+
+        console.log(evt);
+        this.panZoomAPI.resetView();
+
+    });
+
+    this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
+      if (this.canvasRef) {
+        console.log("REDRAW tiles");
+        this.redrawTiles(this.tiledCoreService.allTileData());
+      }
+    });
+    
+    this.bulletSubscription = this.tiledCoreService.bulletData().subscribe(retBullets => {
+      
+      if (this.canvasRef) {
+        this.grid.bulletColor = retBullets["color"];
+        console.log("BULLET redraw " + retBullets["color"]);
+        this.redrawTiles(this.tiledCoreService.allTileData());
+      }
+    });
+
     this.ownSelectedItemSubscription = this.selectedItem.subscribe(itm => {
         this.ownSelectedItem = itm;
     });

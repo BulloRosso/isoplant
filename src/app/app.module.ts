@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule, } from '@angular/material/button-toggle';
 import { Ng2PanZoomModule } from 'ng2-panzoom';
+import { EventService } from './event-service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { Ng2PanZoomModule } from 'ng2-panzoom';
     MatCardModule,
     Ng2PanZoomModule
   ],
-  providers: [],
+  providers: [  EventService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
