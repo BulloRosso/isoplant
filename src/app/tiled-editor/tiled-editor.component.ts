@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
+import { EventService } from '../event-service';
 
 @Component({
   selector: 'tiled-editor',
@@ -12,6 +13,9 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
   imageName: string;
   labelText: string;
   backgroundColor: string;
+  statusColor:string;
+
+  cellIndex:string;
 
   // values for dropdown
   private tileTypes = [
@@ -40,42 +44,57 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
 
   private tileSubscription;
 
-  constructor(public tiledCoreService : TiledCoreService, private change: ChangeDetectorRef) {
+  constructor(public tiledCoreService : TiledCoreService, 
+              private eventService: EventService<any>,
+              private change: ChangeDetectorRef) {
      
   }
-
- 
 
   ngOnDestroy() {
     this.tileSubscription.unsubscribe();
   }
 
+  ngOnInit() {
+
+    // subscribe to selection of tile (global eventing)
+    this.tileSubscription = this.eventService.events.subscribe(evt => {
+
+        if (evt && evt["eventName"] && evt["eventName"] === "cellSelected") {
+
+          this.cellIndex = evt["cellIndex"];
+          var currentTile = this.tiledCoreService.getTileData(this.cellIndex);
+          if (currentTile) {
+            this.labelText = currentTile.labelText;
+            this.imageName = currentTile.imgName;
+            this.backgroundColor = currentTile.backgroundColor;
+            this.statusColor = currentTile.statusColor;
+            this.change.markForCheck();
+          }
+        }
+    }); 
+
+     if (false) {
+     // subscribe to selection of tile
+     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
+       
+      
+      });
+    }
+  }
+
   saveTile() {
-    var selData = this.tiledCoreService.getTileData(this.tiledCoreService.selectedTile);
+    var selData = this.tiledCoreService.getTileData(this.cellIndex);
     // modify
     selData.imgName = this.imageName;
     selData.labelText = this.labelText;
     selData.backgroundColor = this.backgroundColor;
+    selData.statusColor = this.statusColor;
     // update & trigger redraw
-    this.tiledCoreService.setTileData(this.tiledCoreService.selectedTile, selData);
-  }
-
-  ngOnInit() {
-     // subscribe to selection of tile
-     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
-       
-      var currentTile = this.tiledCoreService.getTileData(this.tiledCoreService.selectedTile);
-      if (currentTile) {
-        this.labelText = currentTile.labelText;
-        this.imageName = currentTile.imgName;
-        this.backgroundColor = currentTile.backgroundColor;
-        this.change.markForCheck();
-      }
-   });
+    this.tiledCoreService.setTileData(this.cellIndex, selData);
   }
 
   clearTile() {
-    this.tiledCoreService.clearTileData(this.tiledCoreService.selectedTile);
+    this.tiledCoreService.clearTileData(this.cellIndex);
   }
 
 }

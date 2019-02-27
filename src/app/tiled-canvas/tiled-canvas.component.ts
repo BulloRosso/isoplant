@@ -197,6 +197,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       newTile = this.tiledCoreService.getTileData(tileX + "," + tileY);
     }
     
+    this.eventService.dispatchEvent({"eventName": "cellSelected", "cellIndex": tileX + "," + tileY});
     this._selectedCell.next(newTile); // signal to editor (if present)
     
     this.tiledCoreService.selectedTile = tileX + "," + tileY;
