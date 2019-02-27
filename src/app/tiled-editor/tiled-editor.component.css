@@ -7,7 +7,11 @@
 }
 
 .selTile {
+    display:inline-block;
+    padding:4px;
     background-color: yellow;
+    border-bottom:solid gold 2px;
+    border-top:solid gold 2px;
 }
 
 .example-full-width {

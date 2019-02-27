@@ -27,7 +27,8 @@ The following features need to be implemented
 * Areas: scroll into view a specified location in the toolbar
 * Bug: slight offset when selecting a tile (you must aim a little bit lower)
 * load and save tile configuration (currently hardcoded in service init)
-* make all current features editable in the editor pane
+* demostrate badge handling
+* currently tile pane is fixed 10 x 10
 
 ## Dependencies
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1 and uses Angular Material.
@@ -40,6 +41,11 @@ Different images can be layered on a tile - to do this, imgName is a list of com
 ![Layering of elements](https://github.com/BulloRosso/isoplant/blob/master/tile-layers.PNG?raw=true)
 
 The example above would have imgName: "road,door,boxes" (attention: avoid spaces here!).
+
+## Editor pane
+To edit tiles an (optional) component can be used exposing the properties of a tile:
+
+![Editing of elements](https://github.com/BulloRosso/isoplant/blob/master/editor.PNG?raw=true)
 
 ## Development server
 

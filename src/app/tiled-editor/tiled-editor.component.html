@@ -6,7 +6,7 @@
           Please click a tile in the map to edit.
         </span>
         <div *ngIf="cellIndex" style="font-family:Roboto,Arial;margin-bottom:20px;font-size:16px;">
-          Selected tile: <span class="selTile">{{ tiledCoreService.selectedTile }}</span>
+          <span class="mdi mdi-pencil"></span> Edit selected tile <div class="selTile">{{ tiledCoreService.selectedTile }}</div>
         </div>
       </td>
     </tr>
