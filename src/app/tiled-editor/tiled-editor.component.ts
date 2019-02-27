@@ -116,6 +116,7 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
 
   clearTile() {
     this.tiledCoreService.clearTileData(this.cellIndex);
+    this.cellIndex = "";
   }
 
 }
