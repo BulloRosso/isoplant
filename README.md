@@ -22,6 +22,16 @@ This project is useful for facility management:
 
 In order to create and edit a floorplan a rudimentary editor pane is included as control.
 
+## Alternatives
+
+One of the requirements for this control was to create the most simple component in regard to runtime requirements and
+ease of handling (for the user as well as the developer).
+
+While you could imagine an implementation using a full blown 3D engine (like Unity3D) along with all fancy features (like free rotation, advanced level of detail zooming) this would certainly impose a quite heavy impact upon the available budget: creating a full scale world from the Audocad files of the shopfloor machinery would require weeks of highly skilled personell alone!
+Optimizing the loading times on mobile devices as well as compatibility issues can become a nightmare in some environments, too.
+
+If you just need a top down view of the facility you could use Leaflet, which supports some nice level of detail zoom options. In this case you are restricted to a top down projection.
+
 ## To Dos
 The following features need to be implemented
 * Areas: scroll into view a specified location in the toolbar
@@ -29,6 +39,16 @@ The following features need to be implemented
 * load and save tile configuration (currently hardcoded in service init)
 * demostrate badge handling
 * currently tile pane is fixed 10 x 10
+
+## Eventing between components
+
+![Component communication](https://github.com/BulloRosso/isoplant/blob/master/components.PNG?raw=true)
+
+Because editing is done on an administrator's page it is provided by a separate component.
+
+It is arguable whether the tiled-canvas should contain the controls component - but to make the code more readable
+I decided to split it in a different component (this ensures the view can be controlled externally - like with code-behind
+of a simple button).
 
 ## Dependencies
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1 and uses Angular Material.
