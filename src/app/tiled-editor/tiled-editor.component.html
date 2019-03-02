@@ -80,7 +80,7 @@
     </mat-tab>
     <mat-tab label="Grid">
         <table style="border-collapse: collapse;width:95%;margin:15px;">
-          <tr>
+          <tr style="vertical-align: top">
               <td style="width:50%">
                   <mat-form-field class="example-full-width">
                     <input matInput [(ngModel)]="gridWidth" placeholder="Tiles horizontal" value="">
@@ -95,7 +95,13 @@
                   </mat-form-field>
               </td>
               <td>
-
+                <button mat-flat-button color="accent" (click)="shift('north')"><span class="mdi mdi-arrow-up"></span></button>
+                &nbsp;
+                <button mat-flat-button color="accent" (click)="shift('south')"><span class="mdi mdi-arrow-down"></span></button>
+                &nbsp;
+                <button mat-flat-button color="accent" (click)="shift('west')"><span class="mdi mdi-arrow-left"></span></button>
+                &nbsp;
+                <button mat-flat-button color="accent" (click)="shift('east')"><span class="mdi mdi-arrow-right"></span></button>
               </td>
           </tr>
         </table>

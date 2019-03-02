@@ -133,6 +133,10 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
     }
   }
 
+  shift(direction:string) {
+     this.tiledCoreService.shiftGrid(direction);
+  }
+
   saveTile() {
     var selData = this.tiledCoreService.getTileData(this.cellIndex);
     // modify

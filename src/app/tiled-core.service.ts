@@ -102,6 +102,79 @@ export class TiledCoreService  {
     this._tileData.next(this._tileData.value);
   }
 
+  public shiftGrid(direction:string) {
+
+     let newMap = new Map<string, TileData>();
+      
+     console.log("shifting" + direction);
+      switch (direction) {
+        case "north":
+          
+          this._tileData.value.forEach((key ) => {
+             
+            let x = parseInt(key.coordinate.split(',')[0]);
+            let y = parseInt(key.coordinate.split(',')[1]);
+            let newTileData = key;
+            newTileData.coordinate = (x + 1) + "," + y;
+            newMap.set((x + 1) + "," + y, newTileData);
+             
+          });
+
+          break;
+        case "south":
+          
+          this._tileData.value.forEach((key ) => {
+              
+            let x = parseInt(key.coordinate.split(',')[0]);
+            let y = parseInt(key.coordinate.split(',')[1]);
+            let newTileData = key;
+            newTileData.coordinate = (x - 1) + "," + y;
+            newMap.set((x - 1) + "," + y, newTileData);
+            
+          });
+
+          break;
+        case "east":
+          
+        this._tileData.value.forEach((key ) => {
+              
+          let x = parseInt(key.coordinate.split(',')[0]);
+          let y = parseInt(key.coordinate.split(',')[1]);
+          let newTileData = key;
+          newTileData.coordinate = x + "," + (y + 1);
+          newMap.set(x + "," + (y + 1), newTileData);
+          
+        });
+
+          break;
+        case "west":
+          
+          this._tileData.value.forEach((key ) => {
+                
+            let x = parseInt(key.coordinate.split(',')[0]);
+            let y = parseInt(key.coordinate.split(',')[1]);
+            let newTileData = key;
+            newTileData.coordinate = x + "," + (y - 1);
+            newMap.set(x + "," + (y - 1), newTileData);
+            
+          });
+
+          break;
+      }
+
+      // re-init old map with temp map
+      this.clearMap();
+      newMap.forEach((key ) => {
+         this.setTileData(key.coordinate, key);
+      });
+  
+      this._tileData.next(this._tileData.value);
+  }
+
+  private clearMap() {
+    this._tileData.value.clear();
+  }
+
   public getTileData(key) {
     if (this._tileData.value.has(key)) {
       return this._tileData.value.get(key);
@@ -119,8 +192,6 @@ export class TiledCoreService  {
     this._tileData.value.delete(key);
     this._tileData.next(this._tileData.value);
  }
-
-  
 
   public incrementZoom() {
      this.zoomLevel++;
