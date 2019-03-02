@@ -1,7 +1,10 @@
 #tileEditor {
     background: #efefef;
+    max-width:800px;
+}
+
+mat-tab.content {
     padding:20px;
-    max-width:760px;
 }
 
 .selTile {

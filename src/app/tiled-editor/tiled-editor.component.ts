@@ -23,6 +23,11 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
   layeredTileImages:string;
   badges:string;
 
+  // grid pane controls
+  gridWidth:number = 10;
+  gridHeight:number = 10;
+  gridBackgroundColor: string;
+
   // Material chips control
   visible = true;
   selectable = true;

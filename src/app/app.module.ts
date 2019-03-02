@@ -11,6 +11,7 @@ import { TiledCanvasComponent } from './tiled-canvas/tiled-canvas.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
@@ -38,6 +39,7 @@ import { EventService } from './event-service';
     MatToolbarModule,
     MatCardModule,
     MatChipsModule,
+    MatTabsModule,
     Ng2PanZoomModule
   ],
   providers: [  EventService ],

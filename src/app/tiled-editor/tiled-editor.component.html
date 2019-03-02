@@ -1,79 +1,104 @@
 <div id="tileEditor">
-  <table style="border-collapse: collapse;width:100%">
-    <tr>
-      <td colspan="2">
-        <span *ngIf="!cellIndex" style="font-family:Roboto,Arial">
-           <span class="mdi mdi-cursor-default-click-outline mdi-18px"></span> Please click a tile in the map to edit.
-        </span>
-        <div *ngIf="cellIndex" style="font-family:Roboto,Arial;margin-bottom:20px;font-size:16px;">
-          <span class="mdi mdi-pencil"></span> Edit selected tile <div class="selTile">{{ tiledCoreService.selectedTile }}</div>
-        </div>
-      </td>
-    </tr>
-    <tr *ngIf="cellIndex" style="vertical-align: top">
-      <td style="width:50%;padding-right:40px;">
-        <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="labelText" placeholder="Label Text" value="">
-        </mat-form-field>
-        <br/>
-        <mat-form-field>
-          <mat-select placeholder="Single tile Image" [(ngModel)]="imageName">
-            <mat-option *ngFor="let tileType of tileTypes" [value]="tileType">
-              {{tileType}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <br/>
-        <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="layeredTileImages" placeholder="Layered tile images (optional)" value="">
-        </mat-form-field>
-        <br/>
-        <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="backgroundColor" placeholder="Background Color" value="">
-        </mat-form-field>
-        <br/>
-        <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="statusColor" placeholder="Status" value="">
-        </mat-form-field>
-      </td>
-      <td style="width:50%">
-        <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="selLine" placeholder="Line" value="">
-        </mat-form-field>
-        <br/>
-        <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="selWorkcenter" placeholder="Workcenter" value="">
-        </mat-form-field>
-        <br/>
-        <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="selMachine" placeholder="Machine" value="">
-        </mat-form-field>
-        <br/>
-        <mat-form-field class="example-full-width">
-          <mat-chip-list #chipList>
-            <mat-chip *ngFor="let badge of badgesChips"  [selectable]="selectable"
-                     [removable]="removable" (removed)="remove(badge)">
-              {{badge}}
-              <span class="mdi mdi-close" matChipRemove *ngIf="removable"></span>
-            </mat-chip>
-            <input placeholder="New badge (name:value)..."
-                   [matChipInputFor]="chipList"
-                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                   [matChipInputAddOnBlur]="addOnBlur"
-                   (matChipInputTokenEnd)="add($event)">
-          </mat-chip-list>
-        </mat-form-field>
-        <br/>
-      </td>
-    </tr>
-    <tr *ngIf="cellIndex">
-      <td>
-        <button mat-flat-button color="warn" (click)="clearTile()">Delete</button>
-      </td>
-      <td style="text-align: right">
-        <button mat-flat-button color="primary" (click)="saveTile()">Save</button>
-      </td>
-    </tr>
-  </table>
- 
+    <mat-tab-group>
+      <mat-tab label="Tile">
+        <table style="border-collapse: collapse;width:95%;margin:15px;">
+          <tr>
+              <td colspan="2">
+                <span *ngIf="!cellIndex" style="font-family:Roboto,Arial">
+                  <span class="mdi mdi-cursor-default-click-outline mdi-18px"></span> Please click a tile in the map to edit.
+                </span>
+                <div *ngIf="cellIndex" style="font-family:Roboto,Arial;margin-bottom:20px;font-size:16px;">
+                  <span class="mdi mdi-pencil"></span> Edit selected tile <div class="selTile">{{ tiledCoreService.selectedTile }}</div>
+                </div>
+              </td>
+            </tr>
+            <tr *ngIf="cellIndex" style="vertical-align: top">
+              <td style="width:50%;padding-right:40px;">
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="labelText" placeholder="Label Text" value="">
+                </mat-form-field>
+                <br/>
+                <mat-form-field>
+                  <mat-select placeholder="Single tile Image" [(ngModel)]="imageName">
+                    <mat-option *ngFor="let tileType of tileTypes" [value]="tileType">
+                      {{tileType}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="layeredTileImages" placeholder="Layered tile images (optional)" value="">
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="backgroundColor" placeholder="Background Color" value="">
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="statusColor" placeholder="Status" value="">
+                </mat-form-field>
+              </td>
+              <td style="width:50%">
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="selLine" placeholder="Line" value="">
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="selWorkcenter" placeholder="Workcenter" value="">
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="selMachine" placeholder="Machine" value="">
+                </mat-form-field>
+                <br/>
+                <mat-form-field class="example-full-width">
+                  <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let badge of badgesChips"  [selectable]="selectable"
+                            [removable]="removable" (removed)="remove(badge)">
+                      {{badge}}
+                      <span class="mdi mdi-close" matChipRemove *ngIf="removable"></span>
+                    </mat-chip>
+                    <input placeholder="New badge (name:value)..."
+                          [matChipInputFor]="chipList"
+                          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                          [matChipInputAddOnBlur]="addOnBlur"
+                          (matChipInputTokenEnd)="add($event)">
+                  </mat-chip-list>
+                </mat-form-field>
+                <br/>
+              </td>
+            </tr>
+            <tr *ngIf="cellIndex">
+              <td>
+                <button mat-flat-button color="warn" (click)="clearTile()">Delete</button>
+              </td>
+              <td style="text-align: right">
+                <button mat-flat-button color="primary" (click)="saveTile()">Save</button>
+              </td>
+            </tr>
+          </table>
+    </mat-tab>
+    <mat-tab label="Grid">
+        <table style="border-collapse: collapse;width:95%;margin:15px;">
+          <tr>
+              <td style="width:50%">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="gridWidth" placeholder="Tiles horizontal" value="">
+                  </mat-form-field>
+                  <br/>
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="gridHeight" placeholder="Tiles vertical" value="">
+                  </mat-form-field>
+                  <br/>
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="gridBackgroundColor" placeholder="Background color" value="">
+                  </mat-form-field>
+              </td>
+              <td>
+
+              </td>
+          </tr>
+        </table>
+    </mat-tab>
+  </mat-tab-group>
 </div>
