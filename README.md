@@ -27,7 +27,7 @@ In order to create and edit a floorplan a rudimentary editor pane is included as
 One of the requirements for this control was to create the most simple component in regard to runtime requirements and
 ease of handling (for the user as well as the developer).
 
-While you could imagine an implementation using a full blown 3D engine (like Unity3D) along with all fancy features (like free rotation, advanced level of detail zooming) this would certainly impose a quite heavy impact upon the available budget: creating a full scale world from the Audocad files of the shopfloor machinery would require weeks of highly skilled personell alone!
+While you could imagine an implementation using a full blown 3D engine (like Unity3D) along with all fancy features (like free rotation, advanced level of detail zooming) this would certainly impose a quite heavy impact upon the available budget: creating a full scale world from the AutoCAD files of the shopfloor machinery would require weeks of highly skilled personell alone!
 Optimizing the loading times on mobile devices as well as compatibility issues can become a nightmare in some environments, too.
 
 If you just need a top down view of the facility you could use Leaflet, which supports some nice level of detail zoom options. In this case you are restricted to a top down projection.
@@ -37,7 +37,6 @@ The following features need to be implemented
 * Areas: scroll into view a specified location in the toolbar
 * Bug: slight offset when selecting a tile (you must aim a little bit lower)
 * load and save tile configuration (currently hardcoded in service init)
-* demostrate badge handling
 * currently tile pane is fixed 10 x 10
 
 ## Eventing between components
