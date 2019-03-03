@@ -36,8 +36,8 @@ If you just need a top down view of the facility you could use Leaflet, which su
 The following features need to be implemented
 * Areas: scroll into view a specified location in the toolbar
 * Bug: slight offset when selecting a tile (you must aim a little bit lower)
-* load and save tile configuration (currently hardcoded in service init)
-* currently tile pane is fixed 10 x 10
+* save tile configuration
+* currently tile pane is fixed 10 x 10 tiles
 
 ## Eventing between components
 
