@@ -99,9 +99,9 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
             this.backgroundColor = currentTile.backgroundColor;
             this.statusColor = currentTile.statusColor;
             if (currentTile.mapSelectionPath) {
-              this.selLine = currentTile.mapSelectionPath.get("Line");
-              this.selWorkcenter = currentTile.mapSelectionPath.get("Workcenter");
-              this.selMachine = currentTile.mapSelectionPath.get("Machine");
+              this.selLine = currentTile.mapSelectionPath["Line"];
+              this.selWorkcenter = currentTile.mapSelectionPath["Workcenter"];
+              this.selMachine = currentTile.mapSelectionPath["Machine"];
             } else {
               this.selLine = "";
               this.selWorkcenter = "";
@@ -114,8 +114,8 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
             }
             if (currentTile.mapKpis) {
               this.badgesChips = [];
-              currentTile.mapKpis.forEach((value, key, map) => {
-                 this.badgesChips.push(key + ":" + value);
+              Object.keys(currentTile.mapKpis).forEach(prop => {
+                 this.badgesChips.push(prop + ":" + currentTile.mapKpis[prop]);
               });
             } else {
               this.badgesChips = [];
@@ -160,7 +160,7 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
     if (this.badgesChips) {
       selData.mapKpis = new Map<string,string>();
       this.badgesChips.forEach(itm => {
-        selData.mapKpis.set(itm.split(":")[0],itm.split(":")[1]);
+        selData.mapKpis[itm.split(":")[0]] = itm.split(":")[1];
       });  
     } else {
       selData.mapKpis = null;

@@ -108,7 +108,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   
   ngOnInit() {
     
-    this.redrawTiles( this.tiledCoreService.allTileData());
+    // TODO fixed URL for demo purposes
+    this.tiledCoreService.loadData("http://localhost:4200/assets/sample-data/tilemap.json");
 
     this.eventService.events.subscribe(evt => {
       
@@ -214,7 +215,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     
     if (selTileData.mapSelectionPath && this.selectUnitType != "Cell") {
       // look for object type to select
-      let hit = selTileData.mapSelectionPath.get(this.selectUnitType);
+      let hit = selTileData.mapSelectionPath[this.selectUnitType];
       if (hit) {
         // this property is the real result of the component
         this.selectedObjectName = hit;
@@ -304,7 +305,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           
           if (this.selectedBadgeType && tileData.mapKpis) {
             
-            const kpiVal = tileData.mapKpis.get(this.selectedBadgeType);
+            const kpiVal = tileData.mapKpis[this.selectedBadgeType];
             
             if (kpiVal) {
 
@@ -364,8 +365,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
           if (tileData && tileData.mapSelectionPath && this.ownSelectedItem) {
             // part of type-based-selection?
-            if (tileData.mapSelectionPath.get(this.selectUnitType)) {
-               if (tileData.mapSelectionPath.get(this.selectUnitType) == this.ownSelectedItem.name) {
+            if (tileData.mapSelectionPath[this.selectUnitType]) {
+               if (tileData.mapSelectionPath[this.selectUnitType] == this.ownSelectedItem.name) {
                   // selected state (indirect hit)
                   this.context.fillStyle = '#FFFFCC'; // light yellow
                   indirectHit = true;

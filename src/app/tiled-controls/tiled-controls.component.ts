@@ -30,6 +30,7 @@ export class TiledControlsComponent implements OnInit {
               private eventService: EventService<any>) { }
 
   ngOnInit() {
+    
   }
 
   resetMap() {

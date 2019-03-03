@@ -2,7 +2,7 @@ export class TileData {
 
     public coordinate : string; // e. g. "0,0"
 
-    public mapKpis : Map<string, string> = new Map<string,string>();
+    public mapKpis  = new Object(); // Hashmap key/val
 
     public backgroundColor: string;
 
@@ -13,6 +13,6 @@ export class TileData {
     public statusColor: string; // e. g. red
 
     // drilldown assignment (depending on current drilldown object selector)
-    public mapSelectionPath : Map<string, string> = new Map<string, string>();
+    public mapSelectionPath  = new Object(); // Hashmap key/val
 
 }

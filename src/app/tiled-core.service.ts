@@ -1,11 +1,12 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { TileData } from './model/tile-data';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TiledCoreService  {
+export class TiledCoreService {
 
   public zoomLevel : number = 4;
   public selectedTile : string = null;
@@ -13,22 +14,27 @@ export class TiledCoreService  {
   private _bulletData : BehaviorSubject<any> = new BehaviorSubject({});
   private _tileData :  BehaviorSubject<Map<string,TileData>> = new BehaviorSubject(new Map<string,TileData>());
   
-  constructor() {
+  constructor(private http: HttpClient) {
 
+      // left here only for demonstration purposes of the internal structure (!)
+      // a JSON representation is under /assets/sample-data/tilemap.json
+      //
+      // #region demodata 
+      if (false) {
       // Let's create some test data
       //
       var testDataArr = [
-        { coordinate: "1,1", imgName: "machine", labelText: "L100-1", mapKpis: new Map([
-          ["andon", "gold"],
-          ["oee", "5"]
-        ]), mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-1"] ]) },
+        { coordinate: "1,1", imgName: "machine", labelText: "L100-1", mapKpis: {
+          "andon": "gold",
+          "oee": "5"
+        }, mapSelectionPath: { "Line": "L1", "Workcenter":"L100", "Machine":"L100-1"} },
         { coordinate: "3,1", imgName: "warehouse", labelText: "WAREHOUSE" },
-        { coordinate: "5,1", imgName: "conveyor", labelText: "U7120", mapKpis: new Map([
-          ["andon", "red"],
-          ["oee", "1"]
-        ]) },
-        { coordinate: "0,1", mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L200"], ["Machine", "L200-1"] ]) },
-        { coordinate: "0,2", mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L200"], ["Machine", "L200-2"] ]) },
+        { coordinate: "5,1", imgName: "conveyor", labelText: "U7120", mapKpis: {
+          "andon": "red",
+          "oee": "1"
+        } },
+        { coordinate: "0,1", mapSelectionPath: { "Line": "L1","Workcenter":"L200", "Machine": "L200-1" } },
+        { coordinate: "0,2", mapSelectionPath: { "Line": "L1", "Workcenter":"L200", "Machine": "L200-2" } },
         { coordinate: "0,0", imgName: "wall_left", labelText: null },
         { coordinate: "1,0", imgName: "wall_left,road_right", labelText: null },
         { coordinate: "2,0", imgName: "wall_left,road_crossroad_e_s_w,paletts,door_north_south", labelText: null },
@@ -46,11 +52,11 @@ export class TiledCoreService  {
         { coordinate: "2,1", imgName: "road_left", labelText: null },
         { coordinate: "2,2", imgName: "road_left", labelText: null },
         { coordinate: "1,2", imgName: "machine", statusColor: "red", labelText: "L100-3",
-          mapSelectionPath: new Map([["Line", "L1"],["Workcenter","L100"], ["Machine", "L100-3"] ]),
-          mapKpis: new Map([
-            ["andon", "green"],
-            ["oee", "0"]
-          ])
+          mapSelectionPath: { "Line": "L1", "Workcenter":"L100", "Machine": "L100-3"},
+          mapKpis: {
+            "andon": "green",
+            "oee": "0"
+          }
         },
         { coordinate: "0,9", backgroundColor: "white"},
         { coordinate: "0,8", backgroundColor: "white"},
@@ -79,7 +85,14 @@ export class TiledCoreService  {
         }
         this._tileData.value.set(itm.coordinate, tile);
       });
-    
+
+    }
+    //#endregion
+  }
+
+  public saveData(url: string) {
+
+     console.log(JSON.stringify(Array.from(this._tileData.value.entries()))); 
   }
 
   public tileData(): Observable<any> {
@@ -104,62 +117,61 @@ export class TiledCoreService  {
 
   public shiftGrid(direction:string) {
 
-     let newMap = new Map<string, TileData>();
-      
-     console.log("shifting" + direction);
-      switch (direction) {
-        case "north":
-          
-          this._tileData.value.forEach((key ) => {
-             
-            let x = parseInt(key.coordinate.split(',')[0]);
-            let y = parseInt(key.coordinate.split(',')[1]);
-            let newTileData = key;
-            newTileData.coordinate = (x + 1) + "," + y;
-            newMap.set((x + 1) + "," + y, newTileData);
-             
-          });
-
-          break;
-        case "south":
-          
-          this._tileData.value.forEach((key ) => {
-              
-            let x = parseInt(key.coordinate.split(',')[0]);
-            let y = parseInt(key.coordinate.split(',')[1]);
-            let newTileData = key;
-            newTileData.coordinate = (x - 1) + "," + y;
-            newMap.set((x - 1) + "," + y, newTileData);
+    let newMap = new Map<string, TileData>();
+    
+    switch (direction) {
+      case "north":
+        
+        this._tileData.value.forEach((key ) => {
             
-          });
+          let x = parseInt(key.coordinate.split(',')[0]);
+          let y = parseInt(key.coordinate.split(',')[1]);
+          let newTileData = key;
+          newTileData.coordinate = (x + 1) + "," + y;
+          newMap.set((x + 1) + "," + y, newTileData);
+            
+        });
 
-          break;
-        case "east":
+        break;
+      case "south":
+        
+        this._tileData.value.forEach((key ) => {
+            
+          let x = parseInt(key.coordinate.split(',')[0]);
+          let y = parseInt(key.coordinate.split(',')[1]);
+          let newTileData = key;
+          newTileData.coordinate = (x - 1) + "," + y;
+          newMap.set((x - 1) + "," + y, newTileData);
           
+        });
+
+        break;
+      case "east":
+        
+      this._tileData.value.forEach((key ) => {
+            
+        let x = parseInt(key.coordinate.split(',')[0]);
+        let y = parseInt(key.coordinate.split(',')[1]);
+        let newTileData = key;
+        newTileData.coordinate = x + "," + (y + 1);
+        newMap.set(x + "," + (y + 1), newTileData);
+        
+      });
+
+        break;
+      case "west":
+        
         this._tileData.value.forEach((key ) => {
               
           let x = parseInt(key.coordinate.split(',')[0]);
           let y = parseInt(key.coordinate.split(',')[1]);
           let newTileData = key;
-          newTileData.coordinate = x + "," + (y + 1);
-          newMap.set(x + "," + (y + 1), newTileData);
+          newTileData.coordinate = x + "," + (y - 1);
+          newMap.set(x + "," + (y - 1), newTileData);
           
         });
 
-          break;
-        case "west":
-          
-          this._tileData.value.forEach((key ) => {
-                
-            let x = parseInt(key.coordinate.split(',')[0]);
-            let y = parseInt(key.coordinate.split(',')[1]);
-            let newTileData = key;
-            newTileData.coordinate = x + "," + (y - 1);
-            newMap.set(x + "," + (y - 1), newTileData);
-            
-          });
-
-          break;
+        break;
       }
 
       // re-init old map with temp map
@@ -181,6 +193,21 @@ export class TiledCoreService  {
     } else {
       return null;
     }
+  }
+
+  // init from url (JSON)
+  public loadData(url: string) {
+
+    return this.http.get(url).subscribe((data: Map<string,TileData>) => {
+        console.log("Loaded data from " + url);
+        // loaded data
+        this.clearMap();
+        data.forEach((val,key) => {
+          this.setTileData(val[0],val[1]);
+        });
+        // triger redraw
+        this._tileData.next(this._tileData.value);
+    });;
   }
 
   public setTileData(key : string, val : TileData) {

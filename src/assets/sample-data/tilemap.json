@@ -1,0 +1,299 @@
+[
+    [
+        "1,1",
+        {
+            "mapKpis": {
+                "andon": "gold",
+                "oee": "5"
+            },
+            "mapSelectionPath": {
+                "Line": "L1",
+                "Workcenter": "L100",
+                "Machine": "L100-1"
+            },
+            "coordinate": "1,1",
+            "imgName": "machine",
+            "labelText": "L100-1"
+        }
+    ],
+    [
+        "3,1",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "3,1",
+            "imgName": "warehouse",
+            "labelText": "WAREHOUSE"
+        }
+    ],
+    [
+        "5,1",
+        {
+            "mapKpis": {
+                "andon": "red",
+                "oee": "1"
+            },
+            "mapSelectionPath": null,
+            "coordinate": "5,1",
+            "imgName": "conveyor",
+            "labelText": "U7120"
+        }
+    ],
+    [
+        "0,1",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": {
+                "Line": "L1",
+                "Workcenter": "L200",
+                "Machine": "L200-1"
+            },
+            "coordinate": "0,1"
+        }
+    ],
+    [
+        "0,2",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": {
+                "Line": "L1",
+                "Workcenter": "L200",
+                "Machine": "L200-2"
+            },
+            "coordinate": "0,2"
+        }
+    ],
+    [
+        "0,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "0,0",
+            "imgName": "wall_left",
+            "labelText": null
+        }
+    ],
+    [
+        "1,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "1,0",
+            "imgName": "wall_left,road_right",
+            "labelText": null
+        }
+    ],
+    [
+        "2,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "2,0",
+            "imgName": "wall_left,road_crossroad_e_s_w,paletts,door_north_south",
+            "labelText": null
+        }
+    ],
+    [
+        "3,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "3,0",
+            "imgName": "wall_left,road_right",
+            "labelText": null
+        }
+    ],
+    [
+        "4,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "4,0",
+            "imgName": "wall_left,road_right",
+            "labelText": null
+        }
+    ],
+    [
+        "5,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "5,0",
+            "imgName": "wall_left,road_right",
+            "labelText": null
+        }
+    ],
+    [
+        "6,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "6,0",
+            "imgName": "wall_left,road_crossroad_e_s_w",
+            "labelText": null
+        }
+    ],
+    [
+        "7,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "7,0",
+            "imgName": "wall_left,road_right,agv_west",
+            "labelText": null
+        }
+    ],
+    [
+        "8,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "8,0",
+            "imgName": "wall_left,road_right,door_north_south",
+            "labelText": null
+        }
+    ],
+    [
+        "9,0",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "9,0",
+            "imgName": "wall_left",
+            "labelText": null
+        }
+    ],
+    [
+        "7,1",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "7,1",
+            "imgName": "paletts_big",
+            "labelText": "FINISHED GOODS"
+        }
+    ],
+    [
+        "8,1",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "8,1",
+            "imgName": "paletts_big",
+            "labelText": null
+        }
+    ],
+    [
+        "7,2",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "7,2",
+            "imgName": "paletts_big",
+            "labelText": null
+        }
+    ],
+    [
+        "8,2",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "8,2",
+            "imgName": "paletts",
+            "labelText": null
+        }
+    ],
+    [
+        "2,1",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "2,1",
+            "imgName": "road_left",
+            "labelText": null
+        }
+    ],
+    [
+        "2,2",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "2,2",
+            "imgName": "road_left",
+            "labelText": null
+        }
+    ],
+    [
+        "1,2",
+        {
+            "mapKpis": {
+                "andon": "green",
+                "oee": "0"
+            },
+            "mapSelectionPath": {
+                "Line": "L1",
+                "Workcenter": "L100",
+                "Machine": "L100-3"
+            },
+            "coordinate": "1,2",
+            "imgName": "machine",
+            "labelText": "L100-3",
+            "statusColor": "red"
+        }
+    ],
+    [
+        "0,9",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "0,9",
+            "backgroundColor": "white"
+        }
+    ],
+    [
+        "0,8",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "0,8",
+            "backgroundColor": "white"
+        }
+    ],
+    [
+        "0,7",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "0,7",
+            "backgroundColor": "white"
+        }
+    ],
+    [
+        "1,9",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "1,9",
+            "backgroundColor": "white"
+        }
+    ],
+    [
+        "1,8",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "1,8",
+            "labelText": "MILLING AREA",
+            "backgroundColor": "white"
+        }
+    ],
+    [
+        "1,7",
+        {
+            "mapKpis": null,
+            "mapSelectionPath": null,
+            "coordinate": "1,7",
+            "backgroundColor": "white"
+        }
+    ]
+]

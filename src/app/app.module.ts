@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule, } from '@angular/material/button-toggle';
 import { Ng2PanZoomModule } from 'ng2-panzoom';
 import { EventService } from './event-service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { EventService } from './event-service';
     MatCardModule,
     MatChipsModule,
     MatTabsModule,
+    HttpClientModule,
     Ng2PanZoomModule
   ],
   providers: [  EventService ],
