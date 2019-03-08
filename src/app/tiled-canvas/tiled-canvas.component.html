@@ -31,6 +31,24 @@
         </pan-zoom>
     </div>
 
+    <mat-card [@zoomStatus]="zoomIn" class="propertiesSheet">
+        <table style="width:100%">
+            <tr style="vertical-align: top">
+                <td>
+                    Properties
+                </td>
+                <td style="text-align:right">
+                    <span style="right:0" class="mdi mdi-close" (click)="zoomIn = 'invisible'"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:#ccc;padding-top:10px;">
+                    put Machine info (like OEE, status) here.
+                </td>
+            </tr>
+        </table>
+    </mat-card>
+
 </div>
 
 <!-- preload images before canvas is rendered, note the load event on the last image! -->

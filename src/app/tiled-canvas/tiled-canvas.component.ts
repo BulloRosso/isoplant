@@ -7,17 +7,34 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { IsoMapItem } from '../model/iso-map-item';
 import { TiledControlsComponent } from '../tiled-controls/tiled-controls.component';
 import { EventService } from '../event-service';
+// animations https://www.npmjs.com/package/ng-animate
+import { trigger, transition, useAnimation, state, style } from '@angular/animations';
+import {  zoomIn, flipInX, flipInY, fadeOut, flipOutX } from 'ng-animate';
 
 @Component({
   selector: 'tiled-canvas',
   templateUrl: './tiled-canvas.component.html',
-  styleUrls: ['./tiled-canvas.component.css']
+  styleUrls: ['./tiled-canvas.component.css'],
+  animations: [
+    trigger('zoomStatus', [
+      state('invisible', style({
+        transform: "rotateX(90deg)" 
+      })),
+      state('visible', style({
+        transform: 'rotateX(0deg)'
+      })),
+      transition('invisible => visible', useAnimation(flipInX, {})),
+      transition('visible => invisible', useAnimation(flipOutX))
+     ])
+  ],
 })
 // 
 //   Simple Isometric Renderer inspired by http://nick-aschenbach.github.io/assets/2015-02-25-isometric-tile-engine/isometric02/js/isometric.js
 //
 export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   
+  zoomIn: string = "invisible";
+
   private grid = {
     Xtiles: 10,
     Ytiles: 10,
@@ -162,7 +179,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   // select a tile AND an object according toe the header preferences
   //
   onClick(event: MouseEvent): void {
-    
+
     this.ownSelectedItem = null; // clear previous selection
 
     const clickXforCanvas = event.clientX - 10; // TODO determine canvas offset
@@ -213,20 +230,31 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     //
     this.selectedObjectName = "[" + tileX + "," + tileY + "]";
     
-    if (selTileData.mapSelectionPath && this.selectUnitType != "Cell") {
-      // look for object type to select
-      let hit = selTileData.mapSelectionPath[this.selectUnitType];
-      if (hit) {
-        // this property is the real result of the component
-        this.selectedObjectName = hit;
-        this.selectedObjectType = this.selectUnitType;
-        
-        // notify client subscribers (e. g. host page)
-        let itm : IsoMapItem = new IsoMapItem();
-        itm.name = this.selectedObjectName;
-        itm.type = this.selectedObjectType;
-        this._selectedItem.next(itm); // signal to host page
-      } 
+    if (selTileData.mapSelectionPath) {
+      if ( this.selectUnitType === "Workcenter" || this.selectUnitType === "Line") {
+        // look for object type to select
+        let hit = selTileData.mapSelectionPath[this.selectUnitType];
+        if (hit) {
+          // this property is the real result of the component
+          this.selectedObjectName = hit;
+          this.selectedObjectType = this.selectUnitType;
+          
+          // notify client subscribers (e. g. host page)
+          let itm : IsoMapItem = new IsoMapItem();
+          itm.name = this.selectedObjectName;
+          itm.type = this.selectedObjectType;
+          this._selectedItem.next(itm); // signal to host page
+        } 
+      } else {
+        // example: show machine properties
+        let hit = selTileData.mapSelectionPath[this.selectUnitType];
+        if (hit) {
+          this.selectedObjectName = hit;
+          this.selectedObjectType = this.selectUnitType;
+          // hint: this could also be triggered by the event (e. g. to open an off-canvas menu)
+          this.zoomIn = "visible";
+        }
+      }
     }
     
     this.redrawTiles(this.tiledCoreService.allTileData());

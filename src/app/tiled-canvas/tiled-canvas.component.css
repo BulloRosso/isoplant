@@ -35,3 +35,18 @@ canvas {
     margin-left:20px;
 }
 
+.propertiesSheet {
+    font-family: 'Roboto', 'Arial';
+    padding:10px;
+    position:absolute;
+    
+    transform: rotateX(90deg); 
+
+    top:82px;
+    left:19px;
+    width:760px;
+    height:360px;
+    background:white;
+ 
+}
+
