@@ -2,6 +2,7 @@ import { Component, OnDestroy, ViewChild, ElementRef,  AfterViewInit } from '@an
 import { IsoMapItem } from './model/iso-map-item';
 import { TiledCanvasComponent } from './tiled-canvas/tiled-canvas.component';
 import { EventService } from './event-service';
+import { EventBadgeChanged } from './model/event-badge-changed';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
  
   itmSubscription;
 
-  constructor(private eventService: EventService<any>) {
+  constructor(private eventService: EventService<EventBadgeChanged>) {
      
   }
 
@@ -45,6 +46,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   testBadgeLiveUpdate() {
      
-     this.eventService.dispatchEvent({ eventName: "kpiChanged", eventType: this.messageType, eventTarget: this.messageToMachine, eventValue: this.messageValue })
+     this.eventService.dispatchEvent( new EventBadgeChanged( this.messageType, this.messageToMachine, this.messageValue ));
   }
 }

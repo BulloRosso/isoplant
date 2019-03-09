@@ -10,6 +10,7 @@ import { EventService } from '../event-service';
 // animations https://www.npmjs.com/package/ng-animate
 import { trigger, transition, useAnimation, state, style } from '@angular/animations';
 import {  zoomIn, flipInX, flipInY, fadeOut, flipOutX } from 'ng-animate';
+import { EventBadgeChanged } from '../model/event-badge-changed';
 
 @Component({
   selector: 'tiled-canvas',
@@ -146,18 +147,20 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         // live update of overlay values
-        if (evt["eventName"] === "kpiChanged") {
+        if (evt instanceof EventBadgeChanged) {
+
+          let evtT : EventBadgeChanged = evt;
 
           this.tiledCoreService.allTileData().forEach(itm => {
             if (itm.mapSelectionPath) {
               
-              if (itm.mapSelectionPath["Machine"] && itm.mapSelectionPath["Machine"] === evt["eventTarget"]) {
+              if (itm.mapSelectionPath["Machine"] && itm.mapSelectionPath["Machine"] === evtT.eventTarget) {
               
                 if (itm.mapKpis) {
-                  itm.mapKpis[evt["eventType"]] = evt["eventValue"];
+                  itm.mapKpis[evt.eventType] = evtT.eventValue;
                 } else {
                   itm.mapKpis = {};
-                  itm.mapKpis[evt["eventType"]] = evt["eventValue"];
+                  itm.mapKpis[evt.eventType] = evt.eventValue;
                 }
                 this.redrawTiles(this.tiledCoreService.allTileData());
 
