@@ -1,6 +1,7 @@
 import { Component, OnDestroy, ViewChild, ElementRef,  AfterViewInit } from '@angular/core';
 import { IsoMapItem } from './model/iso-map-item';
 import { TiledCanvasComponent } from './tiled-canvas/tiled-canvas.component';
+import { EventService } from './event-service';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,17 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   
   title = 'Tile Editor Sample Host Page';
 
+  // test messaging
+  messageType = "oee";
+  messageToMachine = "L100-1";
+  messageValue = "4";
+
   @ViewChild(TiledCanvasComponent) childCanvas: TiledCanvasComponent;
   selectedItem: IsoMapItem;
  
   itmSubscription;
 
-  constructor() {
+  constructor(private eventService: EventService<any>) {
      
   }
 
@@ -35,5 +41,10 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.itmSubscription.unsubscribe();
+  }
+
+  testBadgeLiveUpdate() {
+     
+     this.eventService.dispatchEvent({ eventName: "kpiChanged", eventType: this.messageType, eventTarget: this.messageToMachine, eventValue: this.messageValue })
   }
 }

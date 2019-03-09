@@ -7,3 +7,27 @@ Hint: You can drag the view around like Google maps. Use pinch gesture/scroll wh
 </p>
 
 <tiled-editor></tiled-editor>
+
+<!-- test for messaging -->
+<table style="padding:10px;margin-top:20px;">
+    <tr>
+        <td>
+            <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="messageType" placeholder="andon or oee" value="oee">
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="messageToMachine" placeholder="Machine ID" value="L100-1">
+            </mat-form-field>
+        </td>
+        <td>
+            <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="messageValue" placeholder="Value (color or number)" value="3">
+            </mat-form-field>
+        </td>
+        <td>
+            <button mat-flat-button color="primary" (click)="testBadgeLiveUpdate()">Send message</button>
+        </td>
+    </tr>
+</table>

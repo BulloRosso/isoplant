@@ -70,9 +70,10 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('tileViewport') viewportRef:ElementRef;
   private canvas; 
   private context; 
+
   private tileSubscription;
   private badgeSubscription;
-  
+
   // stuff for moving the canvas inside the outer div (viewport)
   private lastX = 0;
   private lastY = 0;
@@ -143,6 +144,28 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           }
           this.redrawTiles( this.tiledCoreService.allTileData());
         }
+
+        // live update of overlay values
+        if (evt["eventName"] === "kpiChanged") {
+
+          this.tiledCoreService.allTileData().forEach(itm => {
+            if (itm.mapSelectionPath) {
+              
+              if (itm.mapSelectionPath["Machine"] && itm.mapSelectionPath["Machine"] === evt["eventTarget"]) {
+              
+                if (itm.mapKpis) {
+                  itm.mapKpis[evt["eventType"]] = evt["eventValue"];
+                } else {
+                  itm.mapKpis = {};
+                  itm.mapKpis[evt["eventType"]] = evt["eventValue"];
+                }
+                this.redrawTiles(this.tiledCoreService.allTileData());
+
+              } 
+            }
+          });
+          
+        } // kpi changed
       }
     });
 
