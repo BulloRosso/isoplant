@@ -205,15 +205,15 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.ownSelectedItem = null; // clear previous selection
 
-    const clickXforCanvas = event.clientX - 10; // TODO determine canvas offset
-    const clickYforCanvas = event.clientY - 70; // TODO determine canvas offset
+    const clickXforCanvas = event.clientX - this.viewportRef.nativeElement.offsetLeft;
+    const clickYforCanvas = event.clientY - this.viewportRef.nativeElement.offsetTop;
 
     const clickXScaled = (clickXforCanvas - this.lastX) / Math.pow(2, this.currentPanZoomFactor);
     const clickYScaled = (clickYforCanvas - this.lastY) / Math.pow(2, this.currentPanZoomFactor);
 
     // canvas size
-    this.grid.originX = 800 / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2; // TODO determine canvas size
-    this.grid.originY = 400 / 2;                                                     // TODO determine canvase size
+    this.grid.originX = this.viewportRef.nativeElement.offsetWidth / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2; 
+    this.grid.originY = this.viewportRef.nativeElement.offsetHeight / 2;                                                     
 
     // position of mouse-pointer: click-location 
     var pageX = clickXScaled - this.grid.tileColumnOffset / 2 - this.grid.originX;
