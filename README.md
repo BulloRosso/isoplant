@@ -35,7 +35,6 @@ If you just need a top down view of the facility you could use Leaflet, which su
 ## To Dos
 The following features need to be implemented
 * Areas: scroll into view a specified location in the toolbar
-* Bug: slight offset when selecting a tile (you must aim a little bit lower)
 * save tile configuration
 * currently tile pane is fixed 10 x 10 tiles
 
@@ -49,10 +48,15 @@ It is arguable whether the tiled-canvas should contain the controls component - 
 I decided to split it in a different component (this ensures the view can be controlled externally - like with code-behind
 of a simple button).
 
+## Panning, Zooming & Responsiveness
+In the initial versions the panZoom lib was used - but in a later stage replaced by d3 v4 because of panZoom's dependency of jQuery.
+
+While some d3 modules suffer from poor documentation the zoom module has one the most concise and brilliant written documentation I've ever seen in open source software: [D3 Zoom: The Missing Manual](https://www.datamake.io/blog/d3-zoom) by Lars Verspohl. Combined with the comprehensive [code examples](https://bl.ocks.org/mbostock/3680958) by Mike Bostock (which are breathtaking minimal crafted) it was a breeze to integrated panning & zooming into my project!
+
 ## Dependencies
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1 and uses Angular Material.
 
-Panning and zooming is done with the help of panzoom.js
+Panning and zooming is done with the help d3 zoom module (v4).
 
 ## Layered rendering of a tile
 Different images can be layered on a tile - to do this, imgName is a list of comma separated names.

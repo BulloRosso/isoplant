@@ -1,16 +1,15 @@
-import { Component, OnInit, OnDestroy, ElementRef, Renderer, ViewChild, Renderer2, AfterViewInit, ViewChildren, ContentChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, Renderer, ViewChild, Renderer2, AfterViewInit, ViewChildren, ContentChild, HostListener } from '@angular/core';
 import { TiledCoreService } from '../tiled-core.service';
 import { TileData } from '../model/tile-data';
-import { PanZoomConfig, PanZoomAPI, PanZoomModel } from 'ng2-panzoom';
 import { Subscription, Subject } from 'rxjs';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { IsoMapItem } from '../model/iso-map-item';
-import { TiledControlsComponent } from '../tiled-controls/tiled-controls.component';
 import { EventService } from '../event-service';
 // animations https://www.npmjs.com/package/ng-animate
 import { trigger, transition, useAnimation, state, style } from '@angular/animations';
 import {  zoomIn, flipInX, flipInY, fadeOut, flipOutX } from 'ng-animate';
 import { EventBadgeChanged } from '../model/event-badge-changed';
+import { D3Service, D3, Selection } from 'd3-ng2-service';
 
 @Component({
   selector: 'tiled-canvas',
@@ -61,16 +60,15 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     tileMap: new Map<string,TileData>() 
   };
   
-  private panZoomConfig: PanZoomConfig = new PanZoomConfig();
-  private panZoomAPI: PanZoomAPI;
-  private modelChangedSubscription: Subscription;
-  private apiSubscription: Subscription;
-  
   event: MouseEvent;
   @ViewChild('tileCanvas') canvasRef:ElementRef;
-  @ViewChild('tileViewport') viewportRef:ElementRef;
   private canvas; 
   private context; 
+  private d3: D3;
+  private zoomIdentity;
+  private zoomFactor = 1;
+  private translateX = 0;
+  private translateY = 0;
 
   private tileSubscription;
   private badgeSubscription;
@@ -102,31 +100,42 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   private selectedObjectName = "";
   private selectedObjectType = "";
   
-  constructor(private tiledCoreService : TiledCoreService, 
+  constructor(private tiledCoreService : TiledCoreService,
+              d3Service: D3Service, 
               private eventService: EventService<any>) { 
-    
-    // panzoom konfigurieren https://www.npmjs.com/package/jquery.panzoom#disable
-    //
-    //this.panZoomConfig.zoomOnMouseWheel = true;
-    //this.panZoomConfig.keepInBounds = true;
-    //this.panZoomConfig.zoomToFitZoomLevelFactor = 1;
-    //this.panZoomConfig.neutralZoomLevel = 4;
-    this.panZoomConfig.zoomOnDoubleClick = false;
-    this.panZoomConfig.initialZoomLevel = 0;
-    
+       this.d3 = d3Service.getD3();
   }
   
   imagesReady() {
     // preloading finished by browser
-    this.redrawTiles(this.tiledCoreService.allTileData());
+    this.redrawTiles(this.tiledCoreService.allTileData(), this.translateX, this.translateY);
   }
   
   ngAfterViewInit() {
+    
+   // this.redrawTiles(this.tiledCoreService.allTileData());
+    this.zoomIdentity = this.d3.zoomIdentity.translate(0,0).scale(1) 
+
+    let canvas = this.d3.select("canvas").call(this.d3.zoom().scaleExtent([1, 4]).on("zoom", () => {
+    
+      this.canvas = this.canvasRef.nativeElement;
+      this.context =  this.canvas.getContext("2d");
+
+      this.zoomIdentity = this.d3.event.transform;
+      this.translateX = this.zoomIdentity.x;
+      this.translateY = this.zoomIdentity.y;
+      this.zoomFactor = this.zoomIdentity.k;
+
+      this.redrawTiles(this.tiledCoreService.allTileData(), this.zoomIdentity.x, this.zoomIdentity.y);
+ 
+    }));
     
   }
   
   ngOnInit() {
     
+    let d3 = this.d3; 
+
     // TODO fixed URL for demo purposes
     this.tiledCoreService.loadData("http://localhost:4200/assets/sample-data/tilemap.json");
 
@@ -134,7 +143,14 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       
       if (evt && evt["eventName"]) {
         if (evt["eventName"] === "resetMap") {
-          this.panZoomAPI.resetView();
+
+          this.zoomFactor =1;
+          this.translateX = 0;
+          this.translateY = 0;
+          this.zoomIdentity = d3.zoomIdentity.translate(0,0).scale(1);
+          
+          this.redrawTiles( this.tiledCoreService.allTileData(), this.translateX, this.translateY);
+
         }
         if (evt["eventName"] === "selectedBadgeType") {
           this.selectedBadgeType = evt["value"];
@@ -143,7 +159,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           } else {
             this.grid.badgeColor = "green";
           }
-          this.redrawTiles( this.tiledCoreService.allTileData());
+          this.redrawTiles( this.tiledCoreService.allTileData(), this.translateX, this.translateY);
         }
 
         // live update of overlay values
@@ -162,7 +178,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
                   itm.mapKpis = {};
                   itm.mapKpis[evt.eventType] = evt.eventValue;
                 }
-                this.redrawTiles(this.tiledCoreService.allTileData());
+                this.redrawTiles(this.tiledCoreService.allTileData(), this.translateX, this.translateY);
 
               } 
             }
@@ -174,32 +190,26 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
       if (this.canvasRef) {
-        this.redrawTiles(this.tiledCoreService.allTileData());
+        this.redrawTiles(this.tiledCoreService.allTileData(), this.translateX, this.translateY);
       }
     });
 
     this.ownSelectedItemSubscription = this.selectedItem.subscribe(itm => {
         this.ownSelectedItem = itm;
     });
-    this.apiSubscription = this.panZoomConfig.api.subscribe( (api: PanZoomAPI) => this.panZoomAPI = api );
-    this.modelChangedSubscription = this.panZoomConfig.modelChanged.subscribe( (model: PanZoomModel) => this.onModelChanged(model) );
+   
   }
-  
+
   ngOnDestroy() {
     this.tileSubscription.unsubscribe();
     this.ownSelectedItemSubscription.unsubscribe();
     this.badgeSubscription.unsubscribe();
-    this.apiSubscription.unsubscribe();  // don't forget to unsubscribe.  you don't want a memory leak!
-    this.modelChangedSubscription.unsubscribe();  // don't forget to unsubscribe.  you don't want a memory leak!
+   
   }
-  
-  // receive live data from panZoom plugin
-  //
-  onModelChanged(model: PanZoomModel): void {
-    // console.log(model.zoomLevel);
-    this.currentPanZoomFactor = model.zoomLevel; // 2 = 100%
-    this.lastX = model.pan.x;
-    this.lastY = model.pan.y;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.redrawTiles(this.tiledCoreService.allTileData(), this.translateX, this.translateY);
   }
 
   // select a tile AND an object according toe the header preferences
@@ -207,34 +217,32 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   onClick(event: MouseEvent): void {
 
     this.ownSelectedItem = null; // clear previous selection
+                                              
+    // consider zoomFactor + responsive width
+    let tileColumnOffset = this.canvas.offsetWidth / this.grid.Xtiles * this.zoomFactor ;
+    let tileRowOffset = this.grid.tileColumnOffset / 2;
 
-    const clickXforCanvas = event.clientX - this.viewportRef.nativeElement.offsetLeft;
-    const clickYforCanvas = event.clientY - this.viewportRef.nativeElement.offsetTop;
+    let originX =  (this.canvas.offsetWidth / 2 - this.grid.Xtiles * tileColumnOffset / 2 + 1) * this.zoomFactor;
+    let originY =  ((this.canvas.offsetWidth / 2) / 2 - tileRowOffset / 2 + 1) * this.zoomFactor;
 
-    const clickXScaled = (clickXforCanvas - this.lastX) / Math.pow(2, this.currentPanZoomFactor);
-    const clickYScaled = (clickYforCanvas - this.lastY) / Math.pow(2, this.currentPanZoomFactor);
+    // position of mouse-pointer: click-location on page - pan position - canvas position on page
+    var pageX = (event.clientX - this.translateX - this.canvas.offsetLeft) - tileColumnOffset / 2 - originX;
+    var pageY = (event.clientY - this.translateY - this.canvas.offsetTop) - tileRowOffset / 2 - originY;
 
-    // canvas size
-    this.grid.originX = this.viewportRef.nativeElement.offsetWidth / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2; 
-    this.grid.originY = this.viewportRef.nativeElement.offsetHeight / 2;                                                     
-
-    // position of mouse-pointer: click-location 
-    var pageX = clickXScaled - this.grid.tileColumnOffset / 2 - this.grid.originX;
-    var pageY = clickYScaled - this.grid.tileRowOffset / 2 - this.grid.originY;
-    
     // tile index
-    var tileX = Math.round(pageX / this.grid.tileColumnOffset - pageY / this.grid.tileRowOffset);
-    var tileY = Math.round(pageX / this.grid.tileColumnOffset + pageY / this.grid.tileRowOffset);
+    var tileX = Math.round(pageX / tileColumnOffset - pageY / tileRowOffset);
+    var tileY = Math.round(pageX / tileColumnOffset + pageY / tileRowOffset);
     
-    console.log(tileX + ".." + tileY);
-    
-    if (tileX < 0 || tileY < 0) {
+    // check bounds  
+    if (tileX < 0 || tileY < 0 || tileX >= this.grid.Xtiles || tileY >= this.grid.Ytiles) {
       return; 
     }
-    
+     
+    // now we have a valid hit
     this.grid.selectedTileX = tileX;
     this.grid.selectedTileY = tileY;
     
+    // let's look what is selected and trigger a event for child compontens
     var newTile;
     
     if (!this.tiledCoreService.getTileData(tileX + "," + tileY)) {
@@ -283,10 +291,10 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }
     
-    this.redrawTiles(this.tiledCoreService.allTileData());
+    this.redrawTiles(this.tiledCoreService.allTileData(), this.translateX, this.translateY);
   }
   
-  redrawTiles(tileData: Map<string, TileData>) {
+  redrawTiles(tileData: Map<string, TileData>, translateX, translateY) {
     
     if (!this.canvasRef) {
       return;
@@ -295,33 +303,32 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.canvas = this.canvasRef.nativeElement;
     this.context =  this.canvas.getContext("2d");
     
+    // HOW MANY PIXELS DOES THE CANVAS "CONTAIN"? --> 1px:1unit 
+    this.canvas.height = this.canvas.offsetHeight;
+    this.canvas.width = this.canvas.offsetWidth;
+    // if you don't adjust the canvas-properties this way it will be pixelated! 
+
+    this.context.clearRect(0, 0, this.canvas.offsetWidth, this.canvas.offsetHeight);
+
     this.context.save();
-    
-    var width = 80 * this.grid.Xtiles * this.tiledCoreService.zoomLevel;
-    var height = 40 * this.grid.Ytiles * this.tiledCoreService.zoomLevel;
-    
-    this.context.canvas.width  = width;
-    this.canvas.style.width = width + "px";
-    this.context.canvas.height = height;
-    this.canvas.style.height = height + "px";
-    
-    this.grid.tileColumnOffset = 80 * this.tiledCoreService.zoomLevel;
-    this.grid.tileRowOffset = 40 * this.tiledCoreService.zoomLevel;
-    
-    this.grid.originX = width / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2 + 1;
-    this.grid.originY = height / 2 - this.grid.tileRowOffset / 2 + 1;
+
+    this.grid.tileColumnOffset = this.canvas.offsetWidth / this.grid.Xtiles * this.zoomFactor ;
+    this.grid.tileRowOffset = this.grid.tileColumnOffset / 2;
+
+    this.grid.originX =  (this.canvas.offsetWidth / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2 + 1) * this.zoomFactor;
+    this.grid.originY =  ((this.canvas.offsetWidth / 2) / 2 - this.grid.tileRowOffset / 2 + 1) * this.zoomFactor;
     
     // first pass: Images
     for(var Xi = (this.grid.Xtiles - 1); Xi >= 0; Xi--) {
       for(var Yi = 0; Yi < this.grid.Ytiles; Yi++) {
-        this.drawTile(Xi, Yi, tileData.get(Xi + "," + Yi));
+        this.drawTile(Xi, Yi, tileData.get(Xi + "," + Yi), translateX, translateY);
       }
     }
     
     // second pass: text & badges
     for(var Xi = (this.grid.Xtiles - 1); Xi >= 0; Xi--) {
       for(var Yi = 0; Yi < this.grid.Ytiles; Yi++) {
-        this.drawTileText(Xi, Yi, tileData.get(Xi + "," + Yi));
+        this.drawTileText(Xi, Yi, tileData.get(Xi + "," + Yi), translateX, translateY);
       }
     }
     
@@ -329,24 +336,21 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     // this.drawText("ISOMETRIC PLANT VIEW",550,-110);
     
     this.context.restore();
-    this.grid.tileColumnOffset = 80 ;
-    this.grid.tileRowOffset = 40 ;
-    this.grid.originX =0 ;
-    this.grid.originY =0;
+ 
   }
   
-  drawTileText(Xi, Yi, tileData: TileData) {
+  drawTileText(Xi, Yi, tileData: TileData, translateX, translateY) {
     
-    var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX;
-    var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY;
+    var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX + translateX;
+    var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY + translateY;
     
     if (tileData) {
       
-      if (tileData.labelText && this.tiledCoreService.zoomLevel > 1) {
+      if (tileData.labelText && this.zoomFactor > 1) {
         this.drawText(tileData.labelText, 
           offX + this.grid.tileColumnOffset / 3.2, 
           offY + this.grid.tileRowOffset / 1.4, 
-          6 * this.tiledCoreService.zoomLevel);
+          6 * this.zoomFactor);
         }
         
         if (tileData.imgName) {
@@ -384,18 +388,18 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
               this.context.strokeStyle = "#fff";
               this.context.lineWidth = "5";
 
-              this.context.arc(offX + 70 * this.tiledCoreService.zoomLevel, offY + 10 * this.tiledCoreService.zoomLevel, 
-                8 * this.tiledCoreService.zoomLevel, 0, 2 * Math.PI, true);
+              this.context.arc(offX + 70 * this.zoomFactor, offY + 10 * this.zoomFactor, 
+                8 * this.zoomFactor, 0, 2 * Math.PI, true);
                 this.context.closePath(); 
                 this.context.fill();
                 this.context.stroke();
                 
               // Text
               if (containsNumber) {
-                this.context.font = 8 * this.tiledCoreService.zoomLevel + "px Verdana";
+                this.context.font = 8 * this.zoomFactor + "px Verdana";
                 this.context.fillStyle = "white";
                 this.context.textAlign = 'center';
-                this.context.fillText(kpiVal, offX + 70 * this.tiledCoreService.zoomLevel, offY + 13 * this.tiledCoreService.zoomLevel);
+                this.context.fillText(kpiVal, offX + 70 * this.zoomFactor, offY + 13 * this.zoomFactor);
               }
               this.context.restore();
               }
@@ -404,10 +408,10 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       }
       
-      drawTile(Xi, Yi, tileData: TileData) {
+      drawTile(Xi, Yi, tileData: TileData, translateX, translateY) {
         
-        var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX;
-        var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY;
+        var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX + translateX;
+        var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY + translateY;
         
         let indirectHit = false;
 

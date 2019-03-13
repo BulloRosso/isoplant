@@ -21,7 +21,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule, } from '@angular/material/button-toggle';
 
-import { Ng2PanZoomModule } from 'ng2-panzoom';
+import { D3Service } from 'd3-ng2-service'; 
 
 // helpers
 import { EventService } from './event-service';
@@ -48,10 +48,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatChipsModule,
     MatTabsModule,
-    HttpClientModule,
-    Ng2PanZoomModule
+    HttpClientModule
   ],
-  providers: [  EventService ],
+  providers: [  EventService, D3Service ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

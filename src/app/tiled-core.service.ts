@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TiledCoreService {
 
-  public zoomLevel : number = 4;
+  public zoomLevel : number = 1;
   public selectedTile : string = null;
   
   private _bulletData : BehaviorSubject<any> = new BehaviorSubject({});

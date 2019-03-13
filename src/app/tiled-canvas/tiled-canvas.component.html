@@ -25,11 +25,7 @@
         </mat-toolbar-row>
     </mat-toolbar>
 
-    <div #tileViewport id="tileViewport">
-        <pan-zoom [config]="panZoomConfig">
-           <canvas #tileCanvas (click)="onClick($event)"></canvas>
-        </pan-zoom>
-    </div>
+    <canvas #tileCanvas (click)="onClick($event)"></canvas>
 
     <mat-card [@zoomStatus]="zoomIn" class="propertiesSheet">
         <table style="width:100%">
