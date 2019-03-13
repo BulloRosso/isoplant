@@ -367,6 +367,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
             
             if (kpiVal) {
 
+              let responsiveFactor = this.grid.tileColumnOffset / 80;
+
               var reg = /^\d+$/;
               let containsNumber = reg.test(kpiVal);
 
@@ -381,25 +383,25 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
               
               if (this.grid.badgeGlowEffect && !containsNumber) {
                 // glow effect ;-)
-                this.context.shadowBlur = 30;
+                this.context.shadowBlur = 30 * responsiveFactor * this.zoomFactor;
                 this.context.shadowColor = kpiVal;
               }
 
               this.context.strokeStyle = "#fff";
-              this.context.lineWidth = "5";
+              this.context.lineWidth = 1 * responsiveFactor * this.zoomFactor;
 
-              this.context.arc(offX + 70 * this.zoomFactor, offY + 10 * this.zoomFactor, 
-                8 * this.zoomFactor, 0, 2 * Math.PI, true);
+              this.context.arc(offX + 70 * responsiveFactor * this.zoomFactor, offY + 10 * responsiveFactor * this.zoomFactor, 
+                8 * responsiveFactor * this.zoomFactor, 0, 2 * Math.PI, true);
                 this.context.closePath(); 
                 this.context.fill();
                 this.context.stroke();
                 
               // Text
               if (containsNumber) {
-                this.context.font = 8 * this.zoomFactor + "px Verdana";
+                this.context.font = 8 * responsiveFactor * this.zoomFactor + "px Verdana";
                 this.context.fillStyle = "white";
                 this.context.textAlign = 'center';
-                this.context.fillText(kpiVal, offX + 70 * this.zoomFactor, offY + 13 * this.zoomFactor);
+                this.context.fillText(kpiVal, offX + 70 * responsiveFactor * this.zoomFactor, offY + 13 * responsiveFactor * this.zoomFactor);
               }
               this.context.restore();
               }
