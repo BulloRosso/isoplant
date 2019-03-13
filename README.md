@@ -49,7 +49,7 @@ I decided to split it in a different component (this ensures the view can be con
 of a simple button).
 
 ## Panning, Zooming & Responsiveness
-In the initial versions the panZoom lib was used - but in a later stage replaced by d3 v4 because of panZoom's dependency of jQuery.
+In the initial versions the panZoom lib was used - but in a later stage replaced by d3 v4 because of panZoom's dependency on jQuery.
 
 While some d3 modules suffer from poor documentation the zoom module has one the most concise and brilliant written documentation I've ever seen in open source software: [D3 Zoom: The Missing Manual](https://www.datamake.io/blog/d3-zoom) by Lars Verspohl. Combined with the comprehensive [code examples](https://bl.ocks.org/mbostock/3680958) by Mike Bostock (which are breathtaking minimal crafted) it was a breeze to integrated panning & zooming into my project!
 
