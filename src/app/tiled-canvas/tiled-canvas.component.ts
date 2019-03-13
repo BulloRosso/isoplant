@@ -129,6 +129,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       this.redrawTiles(this.tiledCoreService.allTileData(), this.zoomIdentity.x, this.zoomIdentity.y);
  
     }));
+
+    canvas.on("dblclick.zoom", null); // otherwise user zooms in quite deep with accidential double-click
     
   }
   
