@@ -383,25 +383,25 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
               
               if (this.grid.badgeGlowEffect && !containsNumber) {
                 // glow effect ;-)
-                this.context.shadowBlur = 30 * responsiveFactor * this.zoomFactor;
+                this.context.shadowBlur = 30 * responsiveFactor;
                 this.context.shadowColor = kpiVal;
               }
 
               this.context.strokeStyle = "#fff";
-              this.context.lineWidth = 1 * responsiveFactor * this.zoomFactor;
+              this.context.lineWidth = 1 * responsiveFactor;
 
-              this.context.arc(offX + 70 * responsiveFactor * this.zoomFactor, offY + 10 * responsiveFactor * this.zoomFactor, 
-                8 * responsiveFactor * this.zoomFactor, 0, 2 * Math.PI, true);
+              this.context.arc(offX + 70 * responsiveFactor , offY + 10 * responsiveFactor , 
+                8 * responsiveFactor , 0, 2 * Math.PI, true);
                 this.context.closePath(); 
                 this.context.fill();
                 this.context.stroke();
                 
               // Text
               if (containsNumber) {
-                this.context.font = 8 * responsiveFactor * this.zoomFactor + "px Verdana";
+                this.context.font = 8 * responsiveFactor  + "px Verdana";
                 this.context.fillStyle = "white";
                 this.context.textAlign = 'center';
-                this.context.fillText(kpiVal, offX + 70 * responsiveFactor * this.zoomFactor, offY + 13 * responsiveFactor * this.zoomFactor);
+                this.context.fillText(kpiVal, offX + 70 * responsiveFactor , offY + 13 * responsiveFactor );
               }
               this.context.restore();
               }
