@@ -346,13 +346,15 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX + translateX;
     var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY + translateY;
     
+    let responsiveFactor = this.grid.tileColumnOffset / 80;
+
     if (tileData) {
       
       if (tileData.labelText && this.zoomFactor > 1) {
         this.drawText(tileData.labelText, 
           offX + this.grid.tileColumnOffset / 3.2, 
           offY + this.grid.tileRowOffset / 1.4, 
-          6 * this.zoomFactor);
+          6 * responsiveFactor);
         }
         
         if (tileData.imgName) {
@@ -368,8 +370,6 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
             const kpiVal = tileData.mapKpis[this.selectedBadgeType];
             
             if (kpiVal) {
-
-              let responsiveFactor = this.grid.tileColumnOffset / 80;
 
               var reg = /^\d+$/;
               let containsNumber = reg.test(kpiVal);
