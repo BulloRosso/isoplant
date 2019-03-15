@@ -7,9 +7,10 @@ import { IsoMapItem } from '../model/iso-map-item';
 import { EventService } from '../event-service';
 // animations https://www.npmjs.com/package/ng-animate
 import { trigger, transition, useAnimation, state, style } from '@angular/animations';
-import {  zoomIn, flipInX, flipInY, fadeOut, flipOutX } from 'ng-animate';
+import { flipInX, flipOutX } from 'ng-animate';
 import { EventBadgeChanged } from '../model/event-badge-changed';
 import { D3Service, D3, Selection } from 'd3-ng2-service';
+import { zoom } from 'd3-ng2-service/src/bundle-d3';
 
 @Component({
   selector: 'tiled-canvas',
@@ -65,6 +66,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   private canvas; 
   private context; 
   private d3: D3;
+  private zoom; // d3 instance of zoom
   private zoomIdentity;
   private zoomFactor = 1;
   private translateX = 0;
@@ -82,7 +84,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   public unitTypes = [ "Line", "Workcenter", "Machine", "Cell" ];
   
   public selectArea: string = "Plant";
-  public areaTypes = [ "Plant", "Milling area", "Drilling area", "Spilling area" ];
+  public areaTypes = [ "Plant", "Milling area", "Finished goods", "Line 1" ];
   
   // make observable (THIS IS FOR THE HOST PAGE)
   private _selectedItem = new Subject<IsoMapItem>();
@@ -114,9 +116,11 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     
    // this.redrawTiles(this.tiledCoreService.allTileData());
-    this.zoomIdentity = this.d3.zoomIdentity.translate(0,0).scale(1) 
+    this.zoomIdentity = this.d3.zoomIdentity.translate(this.canvasRef.nativeElement.offsetWidth / 2, this.canvasRef.nativeElement.offsetHeight / 2).scale(1); 
 
-    let canvas = this.d3.select("canvas").call(this.d3.zoom().scaleExtent([1, 4]).on("zoom", () => {
+    this.zoom =this.d3.zoom().scaleExtent([1, 4]);
+
+    let selCanvas = this.d3.select("canvas").call(this.zoom.on("zoom", () => {
     
       this.canvas = this.canvasRef.nativeElement;
       this.context =  this.canvas.getContext("2d");
@@ -130,7 +134,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
  
     }));
 
-    canvas.on("dblclick.zoom", null); // otherwise user zooms in quite deep with accidential double-click
+    selCanvas.on("dblclick.zoom", null); // otherwise user zooms in quite deep with accidential double-click
     
   }
   
@@ -151,7 +155,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           this.translateY = 0;
           this.zoomIdentity = d3.zoomIdentity.translate(0,0).scale(1);
           
-          this.redrawTiles( this.tiledCoreService.allTileData(), this.translateX, this.translateY);
+          this.d3.select("canvas").transition().duration(750).call(this.zoom.transform, d3.zoomIdentity.translate(0,0).scale(1));
 
         }
         if (evt["eventName"] === "selectedBadgeType") {
@@ -320,6 +324,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.grid.originX =  (this.canvas.offsetWidth / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2 + 1) * this.zoomFactor;
     this.grid.originY =  ((this.canvas.offsetWidth / 2) / 2 - this.grid.tileRowOffset / 2 + 1) * this.zoomFactor;
     
+    console.log({ "zoom ": this.zoomFactor, "tileColumnOffset": this.grid.tileColumnOffset, "tX": this.translateX, "ty": this.translateY})
+
     // first pass: Images
     for(var Xi = (this.grid.Xtiles - 1); Xi >= 0; Xi--) {
       for(var Yi = 0; Yi < this.grid.Ytiles; Yi++) {
@@ -482,6 +488,61 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         
       }
       
+      // example: How to focus/zoom entity on map?
+      focusTo(event) {
+
+        let bound1: string = "";
+        let bound2: string = "";
+
+        // TODO create some kind of JSON representation
+        switch (event.value) {
+          case "Milling area":
+            bound1 = "0,7";
+            bound2 = "1,9";
+            break;
+          case "Finished goods":
+            break;
+          case "Line 1":
+            break;
+        }
+        // TODO create event, so that the selection can be triggered from outside the component
+        this.focusEntity(bound1, bound2);
+        
+      }
+
+      // zoom and pan on rectangle(bound1x,bound1y, bound2x, bound2y) <-- tile coordinates
+      focusEntity(bound1: string, bound2: string) {
+
+        // dimensions of the area which has to be zoomed
+        let rectHeight = parseInt(bound2.split(",")[0]) - parseInt(bound1.split(",")[0]) + 1; 
+        let rectWidth = parseInt(bound2.split(",")[1]) - parseInt(bound1.split(",")[1]) + 1;
+
+        let tileColumnOffset = this.canvasRef.nativeElement.offsetWidth / (rectWidth + 1); // the space we have (+0.5 tile padding left and right)
+
+        let sidePadding = 0; //tileColumnOffset / 2;
+
+        let topX = parseInt(bound1.split(",")[1]) * tileColumnOffset / 2 + sidePadding; // left top point
+        let topY = (this.grid.Ytiles - parseInt(bound2.split(",")[0])) * tileColumnOffset / 2 + sidePadding; // top point
+
+        let bottomX = topX + rectHeight * tileColumnOffset + sidePadding; // right bottom point
+        let bottomY = topY + rectHeight * tileColumnOffset / 2; // not relevant (width needs to fit)
+
+        console.log("zoomRect " + topX + "," + topY + " - " + bottomX + "," + bottomY);
+
+        // now adjust the transform parameters
+        this.zoomFactor = this.canvasRef.nativeElement.offsetWidth / (bottomX - topX);
+        this.translateX = (topX * this.zoomFactor);
+        this.translateY = (topY * this.zoomFactor);
+        this.zoomIdentity = this.d3.zoomIdentity.translate(this.translateX,this.translateY).scale(this.zoomFactor);
+        // programmatically call zoom
+        this.d3.select("canvas").transition().duration(750).call(this.zoom.transform, this.d3.zoomIdentity.translate(this.translateX,this.translateY).scale(this.zoomFactor));
+
+        console.log("CALC-RESULTS");
+        console.log({ "offsetW": this.canvasRef.nativeElement.offsetWidth, "tileColOffset": tileColumnOffset, "tx": this.translateX, "ty": this.translateY, "zF": this.zoomFactor});
+
+        
+      }
+
       // draw isometric text
       drawText(str,xpos,ypos, size) {
         

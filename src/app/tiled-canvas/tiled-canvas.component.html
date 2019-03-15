@@ -6,7 +6,7 @@
                 
                 <span class="mdi mdi-eye-outline space-right"></span>
 
-                <mat-select class="toolbarSelect" placeholder="Select object" [(ngModel)]="selectArea">
+                <mat-select class="toolbarSelect" (selectionChange)="focusTo($event)" placeholder="Select object" [(ngModel)]="selectArea">
                     <mat-option *ngFor="let areaType of areaTypes" [value]="areaType">
                     {{areaType}}
                     </mat-option>
