@@ -64,6 +64,17 @@ In the initial versions the panZoom lib was used - but in a later stage replaced
 
 While some d3 modules suffer from poor documentation the zoom module has one the most concise and brilliant written documentation I've ever seen in open source software: [D3 Zoom: The Missing Manual](https://www.datamake.io/blog/d3-zoom) by Lars Verspohl. Combined with the comprehensive [code examples](https://bl.ocks.org/mbostock/3680958) by Mike Bostock (which are breathtaking minimal crafted) it was a breeze to integrated panning & zooming into my project!
 
+## Technical base: HTMLCanvas
+
+It is possible to choose either an SVG element or a HTMLCanvas element as a rendering base.
+
+The current example is placing SVG images upon a HTMLCanvas - this might be faster on mobile
+devices while it is more memory consuming at 4K devices.
+
+If you prefer using SVG it can be easily modified in the `renderXXX()` methods and opens
+up interesting options for animation. I avoided SVG because this project was not planned
+as a data driven document.
+
 ## Coordinate system
 
 This is the orientation of the grid coordinates (can be visualized by setting the grid parameters):
@@ -84,6 +95,14 @@ There is a method `focusEntity(bound1,bound2)` in the canvas component which is 
 
 This method currently zooms in on hardcoded sample areas. This should be implemented as a part of
 the map data JSON.
+
+## Level of detail (LOD)
+
+Because the canvas elements are redrawn during the zoom process you can hide certain elements to achieve an uncluttered overall visual.
+
+As an example for LOD the tiles' labels are not visible on zoom level 1 - they appear on zoom levels 2 to 4 (max zoom).
+
+For example you could add more badges at higher zoom levels (not implemented).
 
 ## Dependencies
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1 and uses Angular Material.
