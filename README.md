@@ -12,6 +12,17 @@ All screen components are connected to a SERVICE which holds the data and state.
 
 ![Demo screen](https://github.com/BulloRosso/isoplant/blob/master/screenshot.PNG?raw=true)
 
+This component set was created to support different selection scenarios:
+* Select an set of tiles (Line or Workcenter in the toolbar)
+* Select a single tile (Machine in the toolbar)
+
+This component set was also created to ease navigation by defining areas:
+* An area is a rectangular set of tiles with a area name associated
+
+In the sample image above the match type "Line" was selected and you can see that 4 tiles
+were highlighted. In other words: you hit any member of a tile set to select it - like
+the tile containing the machine "L100-1" was hit - but this led to the selection of "Line L1".
+
 ## Use Cases
 This project is useful for facility management:
 
@@ -67,9 +78,9 @@ parameters (Line, Workcenter, Machine,...) and is meant to model larger areas on
 ![Zoomed area](https://github.com/BulloRosso/isoplant/blob/master/zoomed-area.PNG?raw=true)
 
 The area above has the coordinates `7,1` and `8,2`. You define an area by selecting the most
-south-western point and as a second parameter the most nort-eastern poin.
+south-western point and as a second parameter the most nort-eastern point.
 
-There is a method `focusEntity(bound1,bound2)` in the canvas.
+There is a method `focusEntity(bound1,bound2)` in the canvas component which is currently not exposed to the outside.
 
 This method currently zooms in on hardcoded sample areas. This should be implemented as a part of
 the map data JSON.
