@@ -514,7 +514,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         
       }
 
-      // zoom and pan on rectangle(bound1x,bound1y, bound2x, bound2y) <-- tile coordinates
+      // zoom and pan on rectangle(bound1x,bound1y, bound2x, bound2y) <-- tile(!) coordinates
       focusEntity(bound1: string, bound2: string) {
 
         // dimensions of the area which has to be zoomed
@@ -532,12 +532,16 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         var offX1 = Xi * tileColumnOffset / 2 + Yi * tileColumnOffset / 2 ;
         var offY1 = Yi * tileRowOffset / 2 - Xi * tileRowOffset / 2;
 
+        if (Xj > Xi) {
+          offY1 = Yi * tileRowOffset / 2 - Xj * tileRowOffset / 2;
+        }
+
         var offX2 = Xj * tileColumnOffset / 2 + Yj * tileColumnOffset / 2 + tileColumnOffset;
         var offY2 = Yj * tileRowOffset / 2 - Xj * tileRowOffset / 2 + tileRowOffset;
 
-        // move vertical origin
-        offY2 = offY2 + ( this.grid.Ytiles / 2 * tileRowOffset);
-        offY1 = offY1 + ( this.grid.Ytiles / 2 * tileRowOffset);
+        // move vertical origin ( /3 gives a little space on top because pictures exceed boundaries)
+        offY2 = offY2 + ( this.grid.Ytiles / 2 * tileRowOffset) - tileRowOffset / 3;
+        offY1 = offY1 + ( this.grid.Ytiles / 2 * tileRowOffset) - tileRowOffset / 3;
 
         console.log("tileOffsets" + tileColumnOffset + "/" + tileRowOffset);
         console.log("offX" + offX1 + "," +offY1 + " to " + offX2 + "," + offY2);

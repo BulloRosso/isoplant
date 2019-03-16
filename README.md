@@ -59,6 +59,21 @@ This is the orientation of the grid coordinates (can be visualized by setting th
 
 ![Grid orientation](https://github.com/BulloRosso/isoplant/blob/master/grid-orientation.PNG?raw=true)
 
+## Zooming in on areas
+
+An area is a rectangle defined by coordinate points. It does not correlate to a cells ID
+parameters (Line, Workcenter, Machine,...) and is meant to model larger areas on a floorplan:
+
+![Zoomed area](https://github.com/BulloRosso/isoplant/blob/master/zoomed-area.PNG?raw=true)
+
+The area above has the coordinates `7,1` and `8,2`. You define an area by selecting the most
+south-western point and as a second parameter the most nort-eastern poin.
+
+There is a method `focusEntity(bound1,bound2)` in the canvas.
+
+This method currently zooms in on hardcoded sample areas. This should be implemented as a part of
+the map data JSON.
+
 ## Dependencies
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1 and uses Angular Material.
 
