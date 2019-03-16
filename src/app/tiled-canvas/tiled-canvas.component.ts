@@ -81,7 +81,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   public unitTypes = [ "Line", "Workcenter", "Machine", "Cell" ];
   
   public selectArea: string = "Plant";
-  public areaTypes = [ "Plant", "Milling area", "Finished goods", "Line 1" ];
+  public areaTypes = [ "Plant", "Milling area", "Finished goods", "Machine L100-3" ];
   
   // make observable (THIS IS FOR THE HOST PAGE)
   private _selectedItem = new Subject<IsoMapItem>();
@@ -319,7 +319,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     // move origin vertically
     translateY = translateY + ( this.grid.Ytiles / 2 * this.grid.tileRowOffset);
 
-    console.log({ "zoom ": this.zoomFactor, "tileColumnOffset": this.grid.tileColumnOffset, "tX": this.translateX, "ty": this.translateY})
+    //console.log({ "zoom ": this.zoomFactor, "tileColumnOffset": this.grid.tileColumnOffset, "tX": this.translateX, "ty": this.translateY})
 
     // first pass: Images
     for(var Xi = (this.grid.Xtiles - 1); Xi >= 0; Xi--) {
@@ -488,9 +488,13 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
         let bound1: string = "";
         let bound2: string = "";
-
+  
         // TODO create some kind of JSON representation
         switch (event.value) {
+          case "Plant":
+            bound1 = "0,0";  // edge case (maximal)
+            bound2 = "9,9";
+            break;
           case "Milling area":
             bound1 = "0,7";
             bound2 = "1,9";
@@ -499,9 +503,12 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
             bound1 = "7,1";
             bound2 = "8,2";
             break;
-          case "Line 1":
+          case "Machine L100-3":
+            bound1 = "1,2"; // edge case (minimal)
+            bound2 = "1,2";
             break;
         }
+        console.log("BOUNDS for " + event.value + ": " + bound1 + "--" + bound2);
         // TODO create event, so that the selection can be triggered from outside the component
         this.focusEntity(bound1, bound2);
         
@@ -513,20 +520,38 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         // dimensions of the area which has to be zoomed
 
         let tileColumnOffset = this.canvasRef.nativeElement.offsetWidth / this.grid.Xtiles; 
-        let tileRowOffset =tileColumnOffset ;
+        let tileRowOffset = tileColumnOffset / 2;
+
+
         let Xi = parseInt(bound1.split(",")[0]);
         let Yi = parseInt(bound1.split(",")[1]);
 
-        var offX = Xi * tileColumnOffset / 2 + Yi * tileColumnOffset / 2 ;
-        var offY = Yi * tileRowOffset / 2 - Xi * tileRowOffset / 2;
+        let Xj = parseInt(bound2.split(",")[0]);
+        let Yj = parseInt(bound2.split(",")[1]);
 
-        console.log("offX" + offX + "*" +offY);
+        var offX1 = Xi * tileColumnOffset / 2 + Yi * tileColumnOffset / 2 ;
+        var offY1 = Yi * tileRowOffset / 2 - Xi * tileRowOffset / 2;
+
+        var offX2 = Xj * tileColumnOffset / 2 + Yj * tileColumnOffset / 2 + tileColumnOffset;
+        var offY2 = Yj * tileRowOffset / 2 - Xj * tileRowOffset / 2 + tileRowOffset;
+
+        // move vertical origin
+        offY2 = offY2 + ( this.grid.Ytiles / 2 * tileRowOffset);
+        offY1 = offY1 + ( this.grid.Ytiles / 2 * tileRowOffset);
+
+        console.log("tileOffsets" + tileColumnOffset + "/" + tileRowOffset);
+        console.log("offX" + offX1 + "," +offY1 + " to " + offX2 + "," + offY2);
+        console.log("with canvas " + this.canvasRef.nativeElement.offsetWidth);
+        
 
         // now adjust the transform parameters
-        this.zoomFactor = 4; //this.grid.Xtiles / (parseInt(bound2.split(",")[1]) - parseInt(bound1.split(",")[1]) + 1);
+        this.zoomFactor =  this.canvasRef.nativeElement.offsetWidth / (offX2 - offX1);
+        // avoid overzooming 
+        this.zoomFactor = Math.min(this.zoomFactor, 4); 
+        console.log("and zoom factor " + this.zoomFactor);
 
-        this.translateX = -(offX  * this.zoomFactor);
-        this.translateY = -(offY * this.zoomFactor);
+        this.translateX = -(Math.min(offX1,offX2)  * this.zoomFactor);
+        this.translateY = -(Math.min(offY1,offY2) * this.zoomFactor);
         this.zoomIdentity = this.d3.zoomIdentity.translate(this.translateX,this.translateY).scale(this.zoomFactor);
         // programmatically call zoom
         this.d3.select("canvas").transition().duration(750).call(this.zoom.transform, this.d3.zoomIdentity.translate(this.translateX,this.translateY).scale(this.zoomFactor));
