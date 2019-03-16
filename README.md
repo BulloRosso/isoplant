@@ -47,7 +47,7 @@ If you just need a top down view of the facility you could use Leaflet, which su
 The following features need to be implemented
 * save tile configuration
 * currently tile pane is fixed 10 x 10 tiles
-* with zooming the center (x,y) has to be adjusted/corrected (e. g. by using the computations [found on stackoverflow](https://stackoverflow.com/questions/2916081/zoom-in-on-a-point-using-scale-and-translate)).:
+* toolbar could be moved to a separate component
 
 ## Eventing between components
 
