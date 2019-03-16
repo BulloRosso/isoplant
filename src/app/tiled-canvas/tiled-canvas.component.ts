@@ -113,7 +113,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     
    // this.redrawTiles(this.tiledCoreService.allTileData());
-    this.zoomIdentity = this.d3.zoomIdentity.translate(this.canvasRef.nativeElement.offsetWidth / 2, this.canvasRef.nativeElement.offsetHeight / 2).scale(1); 
+    this.zoomIdentity = this.d3.zoomIdentity.translate(0, 0).scale(1); 
 
     this.zoom =this.d3.zoom().scaleExtent([1, 4]);
 
@@ -121,6 +121,14 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     
       this.canvas = this.canvasRef.nativeElement;
       this.context =  this.canvas.getContext("2d");
+
+      // restrict free movement to boundaries
+      // a) horizontally (done)
+      let width = this.canvas.offsetWidth;
+      this.d3.event.transform.x = Math.min(0, Math.max(this.d3.event.transform.x, width - width * this.d3.event.transform.k));
+      // b) vertically (TODO)
+      // let height = (width / 2) * 1.3;
+      // this.d3.event.transform.y = Math.min(0, Math.max(this.d3.event.transform.y, height - height * this.d3.event.transform.k));
 
       this.zoomIdentity = this.d3.event.transform;
       this.translateX = this.zoomIdentity.x;
