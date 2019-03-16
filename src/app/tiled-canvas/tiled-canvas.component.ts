@@ -47,7 +47,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     selectedTileY: -1,
     
     showCoordinates: false, // only to learn how axis values are set
-    showOutlines: false, // show borders - helps to align svs and debug
+    showOutlines: false, // show borders - helps to align svgs and debug
     
     style: {
       tileColor: "#ccc"
@@ -477,7 +477,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         this.drawLine(offX + this.grid.tileColumnOffset / 2, offY + this.grid.tileRowOffset, offX, offY + this.grid.tileRowOffset / 2, color);
         
         if(this.grid.showCoordinates) {
-          this.context.fillStyle = 'orange';
+          this.context.fillStyle = '#990000';
           this.context.fillText(Xi + ", " + Yi, offX + this.grid.tileColumnOffset/2 - 9, offY + this.grid.tileRowOffset/2 + 3);
         }
         

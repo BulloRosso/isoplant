@@ -34,12 +34,9 @@ If you just need a top down view of the facility you could use Leaflet, which su
 
 ## To Dos
 The following features need to be implemented
-* Areas: scroll into view a specified location in the toolbar
 * save tile configuration
 * currently tile pane is fixed 10 x 10 tiles
 * with zooming the center (x,y) has to be adjusted/corrected (e. g. by using the computations [found on stackoverflow](https://stackoverflow.com/questions/2916081/zoom-in-on-a-point-using-scale-and-translate)).:
-
-
 
 ## Eventing between components
 
@@ -55,6 +52,12 @@ of a simple button).
 In the initial versions the panZoom lib was used - but in a later stage replaced by d3 v4 because of panZoom's dependency on jQuery.
 
 While some d3 modules suffer from poor documentation the zoom module has one the most concise and brilliant written documentation I've ever seen in open source software: [D3 Zoom: The Missing Manual](https://www.datamake.io/blog/d3-zoom) by Lars Verspohl. Combined with the comprehensive [code examples](https://bl.ocks.org/mbostock/3680958) by Mike Bostock (which are breathtaking minimal crafted) it was a breeze to integrated panning & zooming into my project!
+
+## Coordinate system
+
+This is the orientation of the grid coordinates (can be visualized by setting the grid parameters):
+
+![Grid orientation](https://github.com/BulloRosso/isoplant/blob/master/grid-orientation.PNG?raw=true)
 
 ## Dependencies
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1 and uses Angular Material.
