@@ -49,9 +49,6 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     showCoordinates: false, // only to learn how axis values are set
     showOutlines: false, // show borders - helps to align svs and debug
     
-    originY: 0,
-    originX: 0,
-    
     style: {
       tileColor: "#ccc"
     },
@@ -227,13 +224,11 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     // consider zoomFactor + responsive width
     let tileColumnOffset = this.canvas.offsetWidth / this.grid.Xtiles * this.zoomFactor ;
     let tileRowOffset = this.grid.tileColumnOffset / 2;
-
-    let originX =  (this.canvas.offsetWidth / 2 - this.grid.Xtiles * tileColumnOffset / 2 + 1) * this.zoomFactor;
-    let originY =  ((this.canvas.offsetWidth / 2) / 2 - tileRowOffset / 2 + 1) * this.zoomFactor;
+    let correctY = (this.grid.Ytiles / 2 * tileRowOffset);
 
     // position of mouse-pointer: click-location on page - pan position - canvas position on page
-    var pageX = (event.clientX - this.translateX - this.canvas.offsetLeft) - tileColumnOffset / 2 - originX;
-    var pageY = (event.clientY - this.translateY - this.canvas.offsetTop) - tileRowOffset / 2 - originY;
+    var pageX = (event.clientX - this.translateX - this.canvas.offsetLeft) - tileColumnOffset / 2;
+    var pageY = (event.clientY- (this.translateY + correctY) - this.canvas.offsetTop) - tileRowOffset / 2;
 
     // tile index
     var tileX = Math.round(pageX / tileColumnOffset - pageY / tileRowOffset);
@@ -321,9 +316,9 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.grid.tileColumnOffset = this.canvas.offsetWidth / this.grid.Xtiles * this.zoomFactor ;
     this.grid.tileRowOffset = this.grid.tileColumnOffset / 2;
 
-    this.grid.originX =  (this.canvas.offsetWidth / 2 - this.grid.Xtiles * this.grid.tileColumnOffset / 2 + 1) * this.zoomFactor;
-    this.grid.originY =  ((this.canvas.offsetWidth / 2) / 2 - this.grid.tileRowOffset / 2 + 1) * this.zoomFactor;
-    
+    // move origin vertically
+    translateY = translateY + ( this.grid.Ytiles / 2 * this.grid.tileRowOffset);
+
     console.log({ "zoom ": this.zoomFactor, "tileColumnOffset": this.grid.tileColumnOffset, "tX": this.translateX, "ty": this.translateY})
 
     // first pass: Images
@@ -349,8 +344,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   
   drawTileText(Xi, Yi, tileData: TileData, translateX, translateY) {
     
-    var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX + translateX;
-    var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY + translateY;
+    var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + translateX;
+    var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2  + translateY;
     
     let responsiveFactor = this.grid.tileColumnOffset / 80;
 
@@ -420,8 +415,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       
       drawTile(Xi, Yi, tileData: TileData, translateX, translateY) {
         
-        var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 + this.grid.originX + translateX;
-        var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 + this.grid.originY + translateY;
+        var offX = Xi * this.grid.tileColumnOffset / 2 + Yi * this.grid.tileColumnOffset / 2 +  translateX;
+        var offY = Yi * this.grid.tileRowOffset / 2 - Xi * this.grid.tileRowOffset / 2 +  translateY;
         
         let indirectHit = false;
 
@@ -501,6 +496,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
             bound2 = "1,9";
             break;
           case "Finished goods":
+            bound1 = "7,1";
+            bound2 = "8,2";
             break;
           case "Line 1":
             break;
@@ -514,33 +511,26 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       focusEntity(bound1: string, bound2: string) {
 
         // dimensions of the area which has to be zoomed
-        let rectHeight = parseInt(bound2.split(",")[0]) - parseInt(bound1.split(",")[0]) + 1; 
-        let rectWidth = parseInt(bound2.split(",")[1]) - parseInt(bound1.split(",")[1]) + 1;
 
-        let tileColumnOffset = this.canvasRef.nativeElement.offsetWidth / (rectWidth + 1); // the space we have (+0.5 tile padding left and right)
+        let tileColumnOffset = this.canvasRef.nativeElement.offsetWidth / this.grid.Xtiles; 
+        let tileRowOffset =tileColumnOffset ;
+        let Xi = parseInt(bound1.split(",")[0]);
+        let Yi = parseInt(bound1.split(",")[1]);
 
-        let sidePadding = 0; //tileColumnOffset / 2;
+        var offX = Xi * tileColumnOffset / 2 + Yi * tileColumnOffset / 2 ;
+        var offY = Yi * tileRowOffset / 2 - Xi * tileRowOffset / 2;
 
-        let topX = parseInt(bound1.split(",")[1]) * tileColumnOffset / 2 + sidePadding; // left top point
-        let topY = (this.grid.Ytiles - parseInt(bound2.split(",")[0])) * tileColumnOffset / 2 + sidePadding; // top point
-
-        let bottomX = topX + rectHeight * tileColumnOffset + sidePadding; // right bottom point
-        let bottomY = topY + rectHeight * tileColumnOffset / 2; // not relevant (width needs to fit)
-
-        console.log("zoomRect " + topX + "," + topY + " - " + bottomX + "," + bottomY);
+        console.log("offX" + offX + "*" +offY);
 
         // now adjust the transform parameters
-        this.zoomFactor = this.canvasRef.nativeElement.offsetWidth / (bottomX - topX);
-        this.translateX = (topX * this.zoomFactor);
-        this.translateY = (topY * this.zoomFactor);
+        this.zoomFactor = 4; //this.grid.Xtiles / (parseInt(bound2.split(",")[1]) - parseInt(bound1.split(",")[1]) + 1);
+
+        this.translateX = -(offX  * this.zoomFactor);
+        this.translateY = -(offY * this.zoomFactor);
         this.zoomIdentity = this.d3.zoomIdentity.translate(this.translateX,this.translateY).scale(this.zoomFactor);
         // programmatically call zoom
         this.d3.select("canvas").transition().duration(750).call(this.zoom.transform, this.d3.zoomIdentity.translate(this.translateX,this.translateY).scale(this.zoomFactor));
 
-        console.log("CALC-RESULTS");
-        console.log({ "offsetW": this.canvasRef.nativeElement.offsetWidth, "tileColOffset": tileColumnOffset, "tx": this.translateX, "ty": this.translateY, "zF": this.zoomFactor});
-
-        
       }
 
       // draw isometric text
