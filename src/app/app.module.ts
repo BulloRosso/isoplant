@@ -20,6 +20,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule } from '@angular/forms';
 import { MatButtonToggleModule, } from '@angular/material/button-toggle';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { D3Service } from 'd3-ng2-service'; 
 
@@ -48,6 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatChipsModule,
     MatTabsModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
     HttpClientModule
   ],
   providers: [  EventService, D3Service ],

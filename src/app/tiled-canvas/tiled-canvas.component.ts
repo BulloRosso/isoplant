@@ -8,7 +8,7 @@ import { EventService } from '../event-service';
 // animations https://www.npmjs.com/package/ng-animate
 import { trigger, transition, useAnimation, state, style } from '@angular/animations';
 import { flipInX, flipOutX } from 'ng-animate';
-import { EventBadgeChanged } from '../model/event-badge-changed';
+import { EventBadgeChanged, EventCellSelected } from '../model/event-badge-changed';
 import { D3Service, D3, Selection } from 'd3-ng2-service';
 import { zoom } from 'd3-ng2-service/src/bundle-d3';
 
@@ -286,6 +286,9 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     //
     this.selectedObjectName = "[" + tileX + "," + tileY + "]";
     
+    // notify editor (which may be around)
+    this.eventService.dispatchEvent(new EventCellSelected(tileX + "," + tileY));
+    
     if (selTileData.mapSelectionPath) {
       if ( this.selectUnitType === "Workcenter" || this.selectUnitType === "Line") {
         // look for object type to select
@@ -529,7 +532,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
             bound2 = "1,2";
             break;
         }
-        console.log("BOUNDS for " + event.value + ": " + bound1 + "--" + bound2);
+        
         // TODO create event, so that the selection can be triggered from outside the component
         this.focusEntity(bound1, bound2);
         
@@ -564,16 +567,10 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         offY2 = offY2 + ( this.grid.Ytiles / 2 * tileRowOffset) - tileRowOffset / 3;
         offY1 = offY1 + ( this.grid.Ytiles / 2 * tileRowOffset) - tileRowOffset / 3;
 
-        console.log("tileOffsets" + tileColumnOffset + "/" + tileRowOffset);
-        console.log("offX" + offX1 + "," +offY1 + " to " + offX2 + "," + offY2);
-        console.log("with canvas " + this.canvasRef.nativeElement.offsetWidth);
-        
-
         // now adjust the transform parameters
         this.zoomFactor =  this.canvasRef.nativeElement.offsetWidth / (offX2 - offX1);
         // avoid overzooming 
         this.zoomFactor = Math.min(this.zoomFactor, 4); 
-        console.log("and zoom factor " + this.zoomFactor);
 
         this.translateX = -(Math.min(offX1,offX2)  * this.zoomFactor);
         this.translateY = -(Math.min(offY1,offY2) * this.zoomFactor);

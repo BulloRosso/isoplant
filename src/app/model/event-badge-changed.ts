@@ -12,3 +12,21 @@ export class EventBadgeChanged {
     public eventTarget: string;
     public eventValue: string;
 }
+
+export class EventTileEditCompleted {
+
+    public eventName = "tileEditCompleted";
+
+}
+
+export class EventCellSelected {
+
+    public eventName = "cellSelected";
+
+    constructor(cellIndex: string) {
+        this.cellIndex = cellIndex;
+    }
+
+    public cellIndex: string;
+   
+}

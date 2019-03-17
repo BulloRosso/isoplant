@@ -4,6 +4,7 @@ import { EventService } from '../event-service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { stringify } from '@angular/core/src/util';
+import { EventTileEditCompleted } from '../model/event-badge-changed';
 
 @Component({
   selector: 'tiled-editor',
@@ -167,11 +168,16 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
     }
     // update & trigger redraw
     this.tiledCoreService.setTileData(this.cellIndex, selData);
+
+     // report to other components (e. g. host page)
+     this.eventService.dispatchEvent(new EventTileEditCompleted());
   }
 
   clearTile() {
     this.tiledCoreService.clearTileData(this.cellIndex);
     this.cellIndex = "";
+    // report to other components (e. g. host page)
+    this.eventService.dispatchEvent(new EventTileEditCompleted());
   }
 
   add(event: MatChipInputEvent): void {

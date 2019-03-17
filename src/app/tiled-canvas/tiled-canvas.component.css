@@ -1,13 +1,8 @@
 
-#tileToolbar {
-    display:block;
-    width:780px;
-    background-color:#555;
-    color:white;
-    padding:10px;
-    font-family:Arial;
+.custom-toolbar {
+    min-height:48px;
+    max-height:48px;
 }
-
 
 canvas {
     background-color:#efefef;

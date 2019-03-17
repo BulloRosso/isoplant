@@ -1,6 +1,18 @@
 .hint {   
     max-width: 980px;
-    font-family:Roboto,Arial;
+    font-family:'Roboto',Arial;
     color:#ccc;
     padding-left:30px;
+ }
+
+ .sidenav-triggers {
+     padding:10px;
+ }
+
+ .sidenav-triggers button {
+     margin-right:20px;
+ }
+
+ .prop-table td {
+     padding-left:20px;
  }

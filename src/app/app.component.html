@@ -1,33 +1,70 @@
+<mat-sidenav-container class="example-container" >
 
-<tiled-canvas #tileCanvas></tiled-canvas>
-<tiled-controls id="controlBox"></tiled-controls>
+    <tiled-canvas #tileCanvas></tiled-canvas>
+    <tiled-controls id="controlBox"></tiled-controls>
 
-<p class="hint">
-Hint: You can drag the view around like Google maps. Use pinch gesture/scroll wheel to zoom in and out.
-</p>
+    <p class="hint">
+    Hint: You can drag the view around like Google maps. Use pinch gesture/scroll wheel to zoom in and out.
+    </p>
 
-<tiled-editor></tiled-editor>
+    <mat-sidenav #drawerLeft class="example-sidenav" mode="over" style="width:640px">
+        <tiled-editor></tiled-editor>
+    </mat-sidenav>
 
-<!-- test for messaging -->
-<table style="padding:10px;margin-top:20px;">
-    <tr>
-        <td>
-            <mat-form-field class="example-full-width">
-                <input matInput [(ngModel)]="messageType" placeholder="andon or oee" value="oee">
-            </mat-form-field>
-        </td>
-        <td>
-            <mat-form-field class="example-full-width">
-                <input matInput [(ngModel)]="messageToMachine" placeholder="Machine ID" value="L100-1">
-            </mat-form-field>
-        </td>
-        <td>
-            <mat-form-field class="example-full-width">
-                <input matInput [(ngModel)]="messageValue" placeholder="Value (color or number)" value="3">
-            </mat-form-field>
-        </td>
-        <td>
-            <button mat-flat-button color="primary" (click)="testBadgeLiveUpdate()">Send message</button>
-        </td>
-    </tr>
-</table>
+    <mat-sidenav #drawerRight class="example-sidenav" position="end" mode="over" style="width:300px">
+        <mat-tab-group>
+            <mat-tab label="Test Eventing">
+                <table style="width:300px;" class="prop-table">
+                    <tr>
+                        <td class="hint" style="font-size:14px;padding:20px;">
+                            Use events to update the badges on the canvas.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput [(ngModel)]="messageType" placeholder="andon or oee" value="oee">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput [(ngModel)]="messageToMachine" placeholder="Machine ID" value="L100-1">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput [(ngModel)]="messageValue" placeholder="Value (color or number)" value="3">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right">
+                            <button mat-flat-button color="primary" (click)="testBadgeLiveUpdate()">Send message</button>
+                        </td>
+                    </tr>
+                </table>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-sidenav>
+  
+    <div class="sidenav-triggers">
+      <button type="button" mat-raised-button (click)="drawerLeft.toggle()">
+          <i class="mdi mdi-table-edit mdi-18px"></i> Edit Grid
+      </button>
+   
+      <button type="button" mat-raised-button (click)="drawerRight.toggle()">
+        <i class="mdi mdi-flash-outline mdi-18px"></i> Send badge update event
+      </button>
+
+      <mat-slide-toggle #editModeSlider
+        class="slider-margin" color="accent" [(checked)]="editMode">
+        Cell edit mode active
+      </mat-slide-toggle>
+    </div>
+
+  </mat-sidenav-container>
+
