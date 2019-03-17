@@ -104,18 +104,30 @@ As an example for LOD the tiles' labels are not visible on zoom level 1 - they a
 
 For example you could add more badges at higher zoom levels (not implemented).
 
-## Events
+## Internal events
 
 Events between the components are shared by a simple eventing service (feel free to replace this).
 
-| Event name        | Source              | Destination      | Intention              |
-|-------------------|---------------------|------------------|------------------------|
-| mapLoaded         | tiled-core-service  | tiled-canvas     | Trigger redraw         |
-| resetMap          | tiled-controls      | tiled-canvas     | Reset zoom and pan     |
-| selectedBadgeType | tiled-controls      | tiled-canvas     | Show/hide badges       |
-| EventBadgeChanged | host page           | tiled-canvas     | Update badge status    |
+| Event name          | Source              | Destination      | Intention              |
+|---------------------|---------------------|------------------|------------------------|
+| `mapLoaded `        | tiled-core-service  | tiled-canvas     | Trigger redraw         |
+| `resetMap`          | tiled-controls      | tiled-canvas     | Reset zoom and pan     |
+| `selectedBadgeType` | tiled-controls      | tiled-canvas     | Show/hide badges       |
+| `cellSelected`      | tiled-canvas        | tiled-editor     | Display cell properties|
 
-The last event is typed.
+## Inside:Out events
+
+For interaction with the host page the tiled-canvas features the obervable `selectedItem` which
+is composed of `id`,`name`and `type` (type definition `IsoMapItem`).
+
+## Outside:In events
+
+To reflect status changes sent from the host page there is one typed event in the event service:
+
+| Event name          | Source              | Destination      | Intention              |
+|---------------------|---------------------|------------------|------------------------|
+| `EventBadgeChanged` | host page           | tiled-canvas     | Update badge status    |
+
 
 ## Dependencies
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1 and uses Angular Material.
