@@ -59,11 +59,6 @@ It is arguable whether the tiled-canvas should contain the controls component - 
 I decided to split it in a different component (this ensures the view can be controlled externally - like with code-behind
 of a simple button).
 
-## Panning, Zooming & Responsiveness
-In the initial versions the panZoom lib was used - but in a later stage replaced by d3 v4 because of panZoom's dependency on jQuery.
-
-While some d3 modules suffer from poor documentation the zoom module has one the most concise and brilliant written documentation I've ever seen in open source software: [D3 Zoom: The Missing Manual](https://www.datamake.io/blog/d3-zoom) by Lars Verspohl. Combined with the comprehensive [code examples](https://bl.ocks.org/mbostock/3680958) by Mike Bostock (which are breathtaking minimal crafted) it was a breeze to integrated panning & zooming into my project!
-
 ## Technical base: HTMLCanvas
 
 It is possible to choose either an SVG element or a HTMLCanvas element as a rendering base.
@@ -81,7 +76,12 @@ This is the orientation of the grid coordinates (can be visualized by setting th
 
 ![Grid orientation](https://github.com/BulloRosso/isoplant/blob/master/grid-orientation.PNG?raw=true)
 
-## Zooming in on areas
+## Panning, Zooming & Responsiveness
+In the initial versions the panZoom lib was used - but in a later stage replaced by d3 v4 because of panZoom's dependency on jQuery.
+
+While some d3 modules suffer from poor documentation the zoom module has one the most concise and brilliant written documentation I've ever seen in open source software: [D3 Zoom: The Missing Manual](https://www.datamake.io/blog/d3-zoom) by Lars Verspohl. Combined with the comprehensive [code examples](https://bl.ocks.org/mbostock/3680958) by Mike Bostock (which are breathtaking minimal crafted) it was a breeze to integrated panning & zooming into my project!
+
+### Zooming in on areas
 
 An area is a rectangle defined by coordinate points. It does not correlate to a cells ID
 parameters (Line, Workcenter, Machine,...) and is meant to model larger areas on a floorplan:
@@ -96,7 +96,7 @@ There is a method `focusEntity(bound1,bound2)` in the canvas component which is 
 This method currently zooms in on hardcoded sample areas. This should be implemented as a part of
 the map data JSON.
 
-## Level of detail (LOD)
+### Level of detail (LOD)
 
 Because the canvas elements are redrawn during the zoom process you can hide certain elements to achieve an uncluttered overall visual.
 
