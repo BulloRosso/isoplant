@@ -48,20 +48,4 @@
 </div>
 
 <!-- preload images before canvas is rendered, note the load event on the last image! -->
-<img src="assets/tiles/machine.svg" width="0"/>
-<img src="assets/tiles/conveyor.svg" width="0"/>
-<img src="assets/tiles/paletts_big.svg" width="0"/>
-<img src="assets/tiles/door_north_south.svg" width="0"/>
-<img src="assets/tiles/door_west_east.svg" width="0"/>
-<img src="assets/tiles/paletts.svg" width="0"/>
-<img src="assets/tiles/road_right.svg" width="0"/>
-<img src="assets/tiles/road_left.svg" width="0"/>
-<img src="assets/tiles/machine_red.svg" width="0"/>
-<img src="assets/tiles/agv_south.svg" width="0"/>
-<img src="assets/tiles/agv_west.svg" width="0"/>
-<img src="assets/tiles/road_crossroad_e_s_w.svg" width="0"/>
-<img src="assets/tiles/warehouse.svg" width="0"/>
-<img src="assets/tiles/wall_left.svg" width="0"/>
-<img src="assets/tiles/wall_right.svg" width="0"/>
-<img src="assets/tiles/shelf_right.svg" width="0"/>
-<img src="assets/tiles/shelf_left.svg" width="0" (load)="imagesReady()"/>
+<img *ngFor="let svgImgName of svgImages; last as isLast" src="assets/tiles/{{svgImgName}}.svg" (load)="imagesReady(isLast)" width="0"/>

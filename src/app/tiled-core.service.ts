@@ -2,6 +2,7 @@ import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { TileData } from './model/tile-data';
 import { HttpClient } from '@angular/common/http';
+import { EventService } from './event-service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class TiledCoreService {
   private _bulletData : BehaviorSubject<any> = new BehaviorSubject({});
   private _tileData :  BehaviorSubject<Map<string,TileData>> = new BehaviorSubject(new Map<string,TileData>());
   
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private eventService: EventService<any>) {
 
       // left here only for demonstration purposes of the internal structure (!)
       // a JSON representation is under /assets/sample-data/tilemap.json
@@ -206,7 +207,7 @@ export class TiledCoreService {
           this.setTileData(val[0],val[1]);
         });
         // triger redraw
-        this._tileData.next(this._tileData.value);
+        this.eventService.dispatchEvent({"eventName": "mapLoaded"});
     });;
   }
 

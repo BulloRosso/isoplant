@@ -71,11 +71,6 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private tileSubscription;
   private badgeSubscription;
-
-  // stuff for moving the canvas inside the outer div (viewport)
-  private lastX = 0;
-  private lastY = 0;
-  private currentPanZoomFactor = 0;
   
   public selectUnitType: string = "Line";
   public unitTypes = [ "Line", "Workcenter", "Machine", "Cell" ];
@@ -83,6 +78,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   public selectArea: string = "Plant";
   public areaTypes = [ "Plant", "Milling area", "Finished goods", "Machine L100-3" ];
   
+  public svgImages = new Array<string>(); // required for preloading svg images
+
   // make observable (THIS IS FOR THE HOST PAGE)
   private _selectedItem = new Subject<IsoMapItem>();
   public selectedItem: Observable<IsoMapItem> = this._selectedItem.asObservable();
@@ -105,14 +102,15 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
        this.d3 = d3Service.getD3();
   }
   
-  imagesReady() {
-    // preloading finished by browser
-    this.redrawTiles(this.tiledCoreService.allTileData(), this.translateX, this.translateY);
+  imagesReady(isLast) {
+    if (isLast) {
+      // preloading finished by browser
+      this.redrawTiles(this.tiledCoreService.allTileData(), this.translateX, this.translateY);
+    }
   }
   
   ngAfterViewInit() {
     
-   // this.redrawTiles(this.tiledCoreService.allTileData());
     this.zoomIdentity = this.d3.zoomIdentity.translate(0, 0).scale(1); 
 
     this.zoom =this.d3.zoom().scaleExtent([1, 4]);
@@ -153,6 +151,20 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.eventService.events.subscribe(evt => {
       
       if (evt && evt["eventName"]) {
+        if (evt["eventName"] === "mapLoaded") {
+          // compile required svgs for preloader
+          this.tiledCoreService.allTileData().forEach(tileData => {
+              if (tileData.imgName) { 
+              let tileImages = tileData.imgName.split(",");
+              tileImages.forEach(svgFilename => {
+                if (this.svgImages.indexOf(svgFilename) == -1) {
+                  this.svgImages.push(svgFilename);
+                }
+              });
+            }
+          });
+        }
+
         if (evt["eventName"] === "resetMap") {
 
           this.zoomFactor =1;
@@ -199,6 +211,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
 
+    // onchange for tile array
     this.tileSubscription = this.tiledCoreService.tileData().subscribe(retMap => { 
       if (this.canvasRef) {
         this.redrawTiles(this.tiledCoreService.allTileData(), this.translateX, this.translateY);
