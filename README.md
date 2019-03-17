@@ -135,14 +135,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Panning and zooming is done with the help d3 zoom module (v4).
 
-## Layered rendering of a tile
+## Rendering
+### Layered rendering of a tile
 Different images can be layered on a tile - to do this, imgName is a list of comma separated names.
 
 ![Layering of elements](https://github.com/BulloRosso/isoplant/blob/master/tile-layers.PNG?raw=true)
 
 The example above would have imgName: "road,door,boxes" (attention: avoid spaces here!).
 
-## Overlay information (badges)
+### Overlay information (badges)
 One of the main goals of the map is to add some kind of status information to the objects which
 have been plaed on the map. This is done with the help of a map<string,string> which is optional for each tile: add the name of the information (e. g. "oee") with a number or a color code:
 
