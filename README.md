@@ -109,7 +109,7 @@ For example you could add more badges at higher zoom levels (not implemented).
 Events between the components are shared by a simple eventing service (feel free to replace this).
 
 | Event name        | Source              | Destination      | Intention              |
----------------------------------------------------------------------------------------
+|-------------------|---------------------|------------------|------------------------|
 | mapLoaded         | tiled-core-service  | tiled-canvas     | Trigger redraw         |
 | resetMap          | tiled-controls      | tiled-canvas     | Reset zoom and pan     |
 | selectedBadgeType | tiled-controls      | tiled-canvas     | Show/hide badges       |
