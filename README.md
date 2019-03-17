@@ -3,6 +3,7 @@
 This project contains the technical artifacts and "how to"s for a simple isometric plant view canvas and editor.
 
 Try this project as [LIVE DEMO on stackblitz](https://stackblitz.com/github/bullorosso/isoplant)!
+Zooming does not work there for some reasons I did not research in depth...
 
 There are three UI components:
 
