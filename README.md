@@ -104,7 +104,8 @@ As an example for LOD the tiles' labels are not visible on zoom level 1 - they a
 
 For example you could add more badges at higher zoom levels (not implemented).
 
-## Internal events
+## Events
+### Internal events
 
 Events between the components are shared by a simple eventing service (feel free to replace this).
 
@@ -115,12 +116,12 @@ Events between the components are shared by a simple eventing service (feel free
 | `selectedBadgeType` | tiled-controls      | tiled-canvas     | Show/hide badges       |
 | `cellSelected`      | tiled-canvas        | tiled-editor     | Display cell properties|
 
-## Inside:Out events
+### Inside:Out events
 
 For interaction with the host page the tiled-canvas features the obervable `selectedItem` which
 is composed of `id`,`name`and `type` (type definition `IsoMapItem`).
 
-## Outside:In events
+### Outside:In events
 
 To reflect status changes sent from the host page there is one typed event in the event service:
 
