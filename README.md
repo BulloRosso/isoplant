@@ -2,6 +2,8 @@
 
 This project contains the technical artifacts and "how to"s for a simple isometric plant view canvas and editor.
 
+Try this project as [LIVE DEMO on stackblitz](https://stackblitz.com/github/bullorosso/isoplant)!
+
 There are three UI components:
 
 * the CANVAS which draws the tiles and handles selection
