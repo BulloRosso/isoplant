@@ -1,0 +1,50 @@
+
+<div id="tileCanvas">
+
+    <mat-toolbar color="primary" class="custom-toolbar">
+        <mat-toolbar-row class="custom-toolbar">
+                
+                <span class="mdi mdi-eye-outline space-right"></span>
+
+                <mat-select class="toolbarSelect" (selectionChange)="focusTo($event)" placeholder="Select object" [(ngModel)]="selectArea">
+                    <mat-option *ngFor="let areaType of areaTypes" [value]="areaType">
+                    {{areaType}}
+                    </mat-option>
+                </mat-select>
+
+                <span class="mdi mdi-select-drag space-right space-left"></span>
+
+                <mat-select class="toolbarSelect" placeholder="Select object" [(ngModel)]="selectUnitType">
+                    <mat-option *ngFor="let unitType of unitTypes" [value]="unitType">
+                    {{unitType}}
+                    </mat-option>
+                </mat-select>
+
+                <span class="space-left">{{ selectedObjectName }}</span>
+           
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <canvas #tileCanvas (click)="onClick($event)"></canvas>
+
+    <mat-card [@zoomStatus]="zoomIn" class="propertiesSheet">
+        <table style="width:100%">
+            <tr style="vertical-align: top">
+                <td>
+                    Machine Details (Sample)
+                </td>
+                <td style="text-align:right">
+                    <span style="right:0" class="mdi mdi-close" (click)="zoomIn = 'invisible'"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:#ccc;padding-top:10px;">
+                   <img src="assets/sample-charts.png" style="margin-top:40px;width:100%"/>
+                </td>
+            </tr>
+        </table>
+    </mat-card>
+</div>
+
+<!-- preload images before canvas is rendered, note the load event on the last image! -->
+<img *ngFor="let svgImgName of svgImages; last as isLast" src="assets/tiles/{{svgImgName}}.svg" (load)="imagesReady(isLast)" width="0"/>

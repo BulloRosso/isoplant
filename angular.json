@@ -132,6 +132,41 @@
           }
         }
       }
+    },
+    "ng-isomap-viewer": {
+      "root": "projects/ng-isomap-viewer",
+      "sourceRoot": "projects/ng-isomap-viewer/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-isomap-viewer/tsconfig.lib.json",
+            "project": "projects/ng-isomap-viewer/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-isomap-viewer/src/test.ts",
+            "tsConfig": "projects/ng-isomap-viewer/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-isomap-viewer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-isomap-viewer/tsconfig.lib.json",
+              "projects/ng-isomap-viewer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "tile-editor"

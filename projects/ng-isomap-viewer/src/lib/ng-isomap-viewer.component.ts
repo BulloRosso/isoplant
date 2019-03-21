@@ -1,38 +1,62 @@
-import { Component, OnInit, OnDestroy, ElementRef, Renderer, ViewChild, Renderer2, AfterViewInit, ViewChildren, ContentChild, HostListener } from '@angular/core';
-import { TiledCoreService } from '../tiled-core.service';
-import { TileData } from '../model/tile-data';
-import { Subscription, Subject } from 'rxjs';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { IsoMapItem } from '../model/iso-map-item';
-import { EventService } from '../event-service';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  HostListener
+} from '@angular/core';
+import { Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 // animations https://www.npmjs.com/package/ng-animate
-import { trigger, transition, useAnimation, state, style } from '@angular/animations';
+import {
+  trigger,
+  transition,
+  useAnimation,
+  state,
+  style
+} from '@angular/animations';
 import { flipInX, flipOutX } from 'ng-animate';
-import { EventBadgeChanged, EventCellSelected } from '../model/event-badge-changed';
-import { D3Service, D3, Selection } from 'd3-ng2-service';
-import { zoom } from 'd3-ng2-service/src/bundle-d3';
+import { D3Service, D3 } from 'd3-ng2-service';
+import { TileData } from './model/tile-data';
+import { IsoMapItem } from './model/iso-map-item';
+import { TiledCoreService } from './tiled-core.service';
+import { EventService } from './event-service';
+import {
+  EventBadgeChanged,
+  EventCellSelected
+} from './model/event-badge-changed';
 
 @Component({
-  selector: 'tiled-canvas',
-  templateUrl: './tiled-canvas.component.html',
-  styleUrls: ['./tiled-canvas.component.css'],
+  selector: 'lib-ng-isomap-viewer',
+  templateUrl: 'ng-isomap-viewer.component.html',
+  styleUrls: ['ng-isomap-viewer.component.html'],
   animations: [
     trigger('zoomStatus', [
-      state('invisible', style({
-        transform: "rotateX(90deg)" 
-      })),
-      state('visible', style({
-        transform: 'rotateX(0deg)'
-      })),
+      state(
+        'invisible',
+        style({
+          transform: 'rotateX(90deg)'
+        })
+      ),
+      state(
+        'visible',
+        style({
+          transform: 'rotateX(0deg)'
+        })
+      ),
       transition('invisible => visible', useAnimation(flipInX, {})),
       transition('visible => invisible', useAnimation(flipOutX))
-     ])
-  ],
+    ])
+  ]
 })
-// 
-//   Simple Isometric Renderer inspired by http://nick-aschenbach.github.io/assets/2015-02-25-isometric-tile-engine/isometric02/js/isometric.js
 //
-export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
+//   Simple Isometric Renderer inspired by
+//   http://nick-aschenbach.github.io/assets/2015-02-25-isometric-tile-engine/isometric02/js/isometric.js
+//
+export class NgIsomapViewerComponent
+  implements OnInit, AfterViewInit, OnDestroy {
   zoomIn = 'invisible';
 
   private grid = {
