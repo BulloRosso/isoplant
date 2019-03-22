@@ -2565,7 +2565,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "29,11",
-      "imgName": "conveyor"
+      "imgName": "conveyor_01"
     }
   ],
   [
@@ -2575,7 +2575,7 @@
       "mapSelectionPath": null,
       "coordinate": "30,11",
       "labelText": "BySprint Fiber3015",
-      "imgName": "conveyor"
+      "imgName": "conveyor_01"
     }
   ],
   [
@@ -2585,7 +2585,7 @@
       "mapSelectionPath": null,
       "coordinate": "31,11",
       "labelText": "BySprint Fiber3015",
-      "imgName": "conveyor"
+      "imgName": "conveyor_01"
     }
   ],
   [
@@ -2594,7 +2594,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "32,11",
-      "imgName": "conveyor",
+      "imgName": "conveyor_01",
       "labelText": "BySprint Fiber4020"
     }
   ],
@@ -2604,7 +2604,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "33,11",
-      "imgName": "conveyor"
+      "imgName": "conveyor_01"
     }
   ],
   [

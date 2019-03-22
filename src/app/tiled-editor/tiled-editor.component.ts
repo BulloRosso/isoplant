@@ -47,7 +47,7 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
 
   // values for dropdown
   private tileTypes = [
-    "conveyor",
+    "conveyor_01",
     "workstation_01",
     "workcenter_01",
     "finished_goods_small",
