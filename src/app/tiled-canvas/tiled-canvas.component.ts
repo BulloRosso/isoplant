@@ -1,43 +1,70 @@
-import { Component, OnInit, OnDestroy, ElementRef, Renderer, ViewChild, Renderer2, AfterViewInit, ViewChildren, ContentChild, HostListener } from '@angular/core';
-import { TiledCoreService } from '../tiled-core.service';
-import { TileData } from '../model/tile-data';
-import { Subscription, Subject } from 'rxjs';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { IsoMapItem } from '../model/iso-map-item';
-import { EventService } from '../event-service';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ElementRef,
+  Renderer,
+  ViewChild,
+  Renderer2,
+  AfterViewInit,
+  ViewChildren,
+  ContentChild,
+  HostListener
+} from "@angular/core";
+import { TiledCoreService } from "../tiled-core.service";
+import { TileData } from "../model/tile-data";
+import { Subscription, Subject } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
+import { IsoMapItem } from "../model/iso-map-item";
+import { EventService } from "../event-service";
 // animations https://www.npmjs.com/package/ng-animate
-import { trigger, transition, useAnimation, state, style } from '@angular/animations';
-import { flipInX, flipOutX } from 'ng-animate';
-import { EventBadgeChanged, EventCellSelected } from '../model/event-badge-changed';
-import { D3Service, D3, Selection } from 'd3-ng2-service';
-import { zoom } from 'd3-ng2-service/src/bundle-d3';
+import {
+  trigger,
+  transition,
+  useAnimation,
+  state,
+  style
+} from "@angular/animations";
+import { flipInX, flipOutX } from "ng-animate";
+import {
+  EventBadgeChanged,
+  EventCellSelected
+} from "../model/event-badge-changed";
+import { D3Service, D3, Selection } from "d3-ng2-service";
+import { zoom } from "d3-ng2-service/src/bundle-d3";
 
 @Component({
-  selector: 'tiled-canvas',
-  templateUrl: './tiled-canvas.component.html',
-  styleUrls: ['./tiled-canvas.component.css'],
+  selector: "tiled-canvas",
+  templateUrl: "./tiled-canvas.component.html",
+  styleUrls: ["./tiled-canvas.component.css"],
   animations: [
-    trigger('zoomStatus', [
-      state('invisible', style({
-        transform: "rotateX(90deg)" 
-      })),
-      state('visible', style({
-        transform: 'rotateX(0deg)'
-      })),
-      transition('invisible => visible', useAnimation(flipInX, {})),
-      transition('visible => invisible', useAnimation(flipOutX))
-     ])
-  ],
+    trigger("zoomStatus", [
+      state(
+        "invisible",
+        style({
+          transform: "rotateX(90deg)"
+        })
+      ),
+      state(
+        "visible",
+        style({
+          transform: "rotateX(0deg)"
+        })
+      ),
+      transition("invisible => visible", useAnimation(flipInX, {})),
+      transition("visible => invisible", useAnimation(flipOutX))
+    ])
+  ]
 })
-// 
+//
 //   Simple Isometric Renderer inspired by http://nick-aschenbach.github.io/assets/2015-02-25-isometric-tile-engine/isometric02/js/isometric.js
 //
 export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
-  zoomIn = 'invisible';
+  zoomIn = "invisible";
 
   private grid = {
-    Xtiles: 10,
-    Ytiles: 10,
+    Xtiles: 36,
+    Ytiles: 36,
 
     tileColumnOffset: 80, // pixels
     tileRowOffset: 40, // pixels
@@ -49,7 +76,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     showOutlines: false, // show borders - helps to align svgs and debug
 
     style: {
-      tileColor: '#ccc'
+      // TODO
+      tileColor: "#b3b3b3"
     },
 
     badgeGlowEffect: true, // corona effect for non-number badges
@@ -58,7 +86,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   };
 
   event: MouseEvent;
-  @ViewChild('tileCanvas') canvasRef: ElementRef;
+  @ViewChild("tileCanvas") canvasRef: ElementRef;
   private canvas;
   private context;
   private d3: D3;
@@ -71,15 +99,15 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   private tileSubscription;
   private badgeSubscription;
 
-  public selectUnitType = 'Line';
-  public unitTypes = ['Line', 'Workcenter', 'Machine', 'Cell'];
+  public selectUnitType = "Line";
+  public unitTypes = ["Line", "Workcenter", "Machine", "Cell"];
 
-  public selectArea = 'Plant';
+  public selectArea = "Plant";
   public areaTypes = [
-    'Plant',
-    'Milling area',
-    'Finished goods',
-    'Machine L100-3'
+    "Plant",
+    "Milling area",
+    "Finished goods",
+    "Machine L100-3"
   ];
 
   public svgImages: string[] = []; // required for preloading svg images
@@ -101,8 +129,8 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   private selectedBadgeType = null;
 
   // internal state
-  public selectedObjectName = '';
-  private selectedObjectType = '';
+  public selectedObjectName = "";
+  private selectedObjectType = "";
 
   constructor(
     private tiledCoreService: TiledCoreService,
@@ -126,12 +154,12 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.zoomIdentity = this.d3.zoomIdentity.translate(0, 0).scale(1);
 
-    this.zoom = this.d3.zoom().scaleExtent([1, 4]);
+    this.zoom = this.d3.zoom().scaleExtent([1, 8]);
 
-    const selCanvas = this.d3.select('canvas').call(
-      this.zoom.on('zoom', () => {
+    const selCanvas = this.d3.select("canvas").call(
+      this.zoom.on("zoom", () => {
         this.canvas = this.canvasRef.nativeElement;
-        this.context = this.canvas.getContext('2d');
+        this.context = this.canvas.getContext("2d");
 
         // restrict free movement to boundaries
         // a) horizontally (done)
@@ -160,7 +188,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       })
     );
 
-    selCanvas.on('dblclick.zoom', null); // otherwise user zooms in quite deep with accidential double-click
+    selCanvas.on("dblclick.zoom", null); // otherwise user zooms in quite deep with accidential double-click
   }
 
   ngOnInit() {
@@ -168,33 +196,35 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // TODO fixed URL for demo purposes
     this.tiledCoreService.loadData(
-      'http://localhost:4200/assets/sample-data/tilemap.json'
+      "http://localhost:4200/assets/sample-data/tilemap.json"
     );
 
     this.eventService.events.subscribe((evt: any) => {
       if (evt && evt.eventName) {
-        if (evt.eventName === 'mapLoaded') {
+        if (evt.eventName === "mapLoaded") {
           // compile required svgs for preloader
-          (Object.values(this.tiledCoreService.allTileData()) || []).forEach(tileData => {
-            if (tileData.imgName) {
-              const tileImages = tileData.imgName.split(',') || [];
-              tileImages.forEach(svgFilename => {
-                if (this.svgImages.indexOf(svgFilename) === -1) {
-                  this.svgImages.push(svgFilename);
-                }
-              });
+          (Object.values(this.tiledCoreService.allTileData()) || []).forEach(
+            tileData => {
+              if (tileData.imgName) {
+                const tileImages = tileData.imgName.split(",") || [];
+                tileImages.forEach(svgFilename => {
+                  if (this.svgImages.indexOf(svgFilename) === -1) {
+                    this.svgImages.push(svgFilename);
+                  }
+                });
+              }
             }
-          });
+          );
         }
 
-        if (evt.eventName === 'resetMap') {
+        if (evt.eventName === "resetMap") {
           this.zoomFactor = 1;
           this.translateX = 0;
           this.translateY = 0;
           this.zoomIdentity = d3.zoomIdentity.translate(0, 0).scale(1);
 
           this.d3
-            .select('canvas')
+            .select("canvas")
             .transition()
             .duration(750)
             .call(
@@ -202,12 +232,12 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
               d3.zoomIdentity.translate(0, 0).scale(1)
             );
         }
-        if (evt.eventName === 'selectedBadgeType') {
+        if (evt.eventName === "selectedBadgeType") {
           this.selectedBadgeType = evt.value;
-          if (this.selectedBadgeType === 'oee') {
-            this.grid.badgeColor = 'purple';
+          if (this.selectedBadgeType === "oee") {
+            this.grid.badgeColor = "purple";
           } else {
-            this.grid.badgeColor = 'green';
+            this.grid.badgeColor = "green";
           }
           this.redrawTiles(
             this.tiledCoreService.allTileData(),
@@ -220,26 +250,28 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         if (evt instanceof EventBadgeChanged) {
           const evtT: EventBadgeChanged = evt;
 
-          (Object.values(this.tiledCoreService.allTileData()) || []).forEach((itm: any) => {
-            if (itm.mapSelectionPath) {
-              if (
-                itm.mapSelectionPath.Machine &&
-                itm.mapSelectionPath.Machine === evtT.eventTarget
-              ) {
-                if (itm.mapKpis) {
-                  itm.mapKpis[evt.eventType] = evtT.eventValue;
-                } else {
-                  itm.mapKpis = {};
-                  itm.mapKpis[evt.eventType] = evt.eventValue;
+          (Object.values(this.tiledCoreService.allTileData()) || []).forEach(
+            (itm: any) => {
+              if (itm.mapSelectionPath) {
+                if (
+                  itm.mapSelectionPath.Machine &&
+                  itm.mapSelectionPath.Machine === evtT.eventTarget
+                ) {
+                  if (itm.mapKpis) {
+                    itm.mapKpis[evt.eventType] = evtT.eventValue;
+                  } else {
+                    itm.mapKpis = {};
+                    itm.mapKpis[evt.eventType] = evt.eventValue;
+                  }
+                  this.redrawTiles(
+                    this.tiledCoreService.allTileData(),
+                    this.translateX,
+                    this.translateY
+                  );
                 }
-                this.redrawTiles(
-                  this.tiledCoreService.allTileData(),
-                  this.translateX,
-                  this.translateY
-                );
               }
             }
-          });
+          );
         } // kpi changed
       }
     });
@@ -268,7 +300,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.badgeSubscription.unsubscribe();
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener("window:resize", ["$event"])
   onResize(event) {
     this.redrawTiles(
       this.tiledCoreService.allTileData(),
@@ -321,21 +353,21 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     // let's look what is selected and trigger a event for child compontens
     let newTile;
 
-    if (!this.tiledCoreService.getTileData(tileX + ',' + tileY)) {
+    if (!this.tiledCoreService.getTileData(tileX + "," + tileY)) {
       newTile = new TileData();
-      newTile.coordinate = tileX + ',' + tileY;
-      this.tiledCoreService.setTileData(tileX + ',' + tileY, newTile);
+      newTile.coordinate = tileX + "," + tileY;
+      this.tiledCoreService.setTileData(tileX + "," + tileY, newTile);
     } else {
-      newTile = this.tiledCoreService.getTileData(tileX + ',' + tileY);
+      newTile = this.tiledCoreService.getTileData(tileX + "," + tileY);
     }
 
     this.eventService.dispatchEvent({
-      eventName: 'cellSelected',
-      cellIndex: tileX + ',' + tileY
+      eventName: "cellSelected",
+      cellIndex: tileX + "," + tileY
     });
     this.selectedCellSubject.next(newTile); // signal to editor (if present)
 
-    this.tiledCoreService.selectedTile = tileX + ',' + tileY;
+    this.tiledCoreService.selectedTile = tileX + "," + tileY;
 
     const selTileData = this.tiledCoreService.getTileData(
       this.tiledCoreService.selectedTile
@@ -343,15 +375,15 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Default: the cell that was hit
     //
-    this.selectedObjectName = '[' + tileX + ',' + tileY + ']';
+    this.selectedObjectName = "[" + tileX + "," + tileY + "]";
 
     // notify editor (which may be around)
-    this.eventService.dispatchEvent(new EventCellSelected(tileX + ',' + tileY));
+    this.eventService.dispatchEvent(new EventCellSelected(tileX + "," + tileY));
 
     if (selTileData.mapSelectionPath) {
       if (
-        this.selectUnitType === 'Workcenter' ||
-        this.selectUnitType === 'Line'
+        this.selectUnitType === "Workcenter" ||
+        this.selectUnitType === "Line"
       ) {
         // look for object type to select
         const hit = selTileData.mapSelectionPath[this.selectUnitType];
@@ -373,7 +405,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           this.selectedObjectName = hit;
           this.selectedObjectType = this.selectUnitType;
           // hint: this could also be triggered by the event (e. g. to open an off-canvas menu)
-          this.zoomIn = 'visible';
+          this.zoomIn = "visible";
         }
       }
     }
@@ -385,13 +417,13 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
-  redrawTiles(tileData: {[key: string]: TileData}, translateX, translateY) {
+  redrawTiles(tileData: { [key: string]: TileData }, translateX, translateY) {
     if (!this.canvasRef) {
       return;
     }
 
     this.canvas = this.canvasRef.nativeElement;
-    this.context = this.canvas.getContext('2d');
+    this.context = this.canvas.getContext("2d");
 
     // HOW MANY PIXELS DOES THE CANVAS "CONTAIN"? --> 1px:1unit
     this.canvas.height = this.canvas.offsetHeight;
@@ -420,13 +452,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     // first pass: Images
     for (let Xi = this.grid.Xtiles - 1; Xi >= 0; Xi--) {
       for (let Yi = 0; Yi < this.grid.Ytiles; Yi++) {
-        this.drawTile(
-          Xi,
-          Yi,
-          tileData[Xi + ',' + Yi],
-          translateX,
-          translateY
-        );
+        this.drawTile(Xi, Yi, tileData[Xi + "," + Yi], translateX, translateY);
       }
     }
 
@@ -436,7 +462,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         this.drawTileText(
           Xi,
           Yi,
-          tileData[Xi + ',' + Yi],
+          tileData[Xi + "," + Yi],
           translateX,
           translateY
         );
@@ -476,7 +502,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           this.drawImage(
             offX,
             offY,
-            tileData.imgName + '_' + tileData.statusColor
+            tileData.imgName + "_" + tileData.statusColor
           );
         } else {
           this.drawImage(offX, offY, tileData.imgName);
@@ -504,7 +530,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
               this.context.shadowColor = kpiVal;
             }
 
-            this.context.strokeStyle = '#fff';
+            this.context.strokeStyle = "#fff";
             this.context.lineWidth = 1 * responsiveFactor;
 
             this.context.arc(
@@ -521,9 +547,9 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
             // Text
             if (containsNumber) {
-              this.context.font = 8 * responsiveFactor + 'px Verdana';
-              this.context.fillStyle = 'white';
-              this.context.textAlign = 'center';
+              this.context.font = 8 * responsiveFactor + "px Verdana";
+              this.context.fillStyle = "white";
+              this.context.textAlign = "center";
               this.context.fillText(
                 kpiVal,
                 offX + 70 * responsiveFactor,
@@ -552,7 +578,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     // Draw tile interior
     if (Xi === this.grid.selectedTileX && Yi === this.grid.selectedTileY) {
       // selected state (direct hit)
-      this.context.fillStyle = 'yellow';
+      this.context.fillStyle = "yellow";
     } else {
       if (tileData && tileData.mapSelectionPath && this.ownSelectedItem) {
         // part of type-based-selection?
@@ -562,7 +588,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
             this.ownSelectedItem.name
           ) {
             // selected state (indirect hit)
-            this.context.fillStyle = '#FFFFCC'; // light yellow
+            this.context.fillStyle = "#FFFFCC"; // light yellow
             indirectHit = true;
           }
         }
@@ -602,16 +628,17 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.context.closePath();
 
     // Draw tile outline
-    let color = '#ccc';
+    // TODO
+    let color = "#b3b3b3";
     if (tileData && tileData.backgroundColor) {
       // avoid background bleeding through
       color = tileData.backgroundColor;
     }
     if (this.grid.showOutlines) {
-      color = '#999';
+      color = "#999";
     }
     if (indirectHit) {
-      color = '#FFFFCC'; // light yellow
+      color = "#FFFFCC"; // light yellow
     }
     this.drawLine(
       offX,
@@ -643,9 +670,9 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     );
 
     if (this.grid.showCoordinates) {
-      this.context.fillStyle = '#990000';
+      this.context.fillStyle = "#990000";
       this.context.fillText(
-        Xi + ', ' + Yi,
+        Xi + ", " + Yi,
         offX + this.grid.tileColumnOffset / 2 - 9,
         offY + this.grid.tileRowOffset / 2 + 3
       );
@@ -654,26 +681,26 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // example: How to focus/zoom entity on map?
   focusTo(event) {
-    let bound1 = '';
-    let bound2 = '';
+    let bound1 = "";
+    let bound2 = "";
 
     // TODO create some kind of JSON representation
     switch (event.value) {
-      case 'Plant':
-        bound1 = '0,0'; // edge case (maximal)
-        bound2 = '9,9';
+      case "Plant":
+        bound1 = "0,0"; // edge case (maximal)
+        bound2 = "9,9";
         break;
-      case 'Milling area':
-        bound1 = '0,7';
-        bound2 = '1,9';
+      case "Milling area":
+        bound1 = "0,7";
+        bound2 = "1,9";
         break;
-      case 'Finished goods':
-        bound1 = '7,1';
-        bound2 = '8,2';
+      case "Finished goods":
+        bound1 = "7,1";
+        bound2 = "8,2";
         break;
-      case 'Machine L100-3':
-        bound1 = '1,2'; // edge case (minimal)
-        bound2 = '1,2';
+      case "Machine L100-3":
+        bound1 = "1,2"; // edge case (minimal)
+        bound2 = "1,2";
         break;
     }
 
@@ -689,11 +716,11 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       this.canvasRef.nativeElement.offsetWidth / this.grid.Xtiles;
     const tileRowOffset = tileColumnOffset / 2;
 
-    const Xi = parseInt(bound1.split(',')[0], 10);
-    const Yi = parseInt(bound1.split(',')[1], 10);
+    const Xi = parseInt(bound1.split(",")[0], 10);
+    const Yi = parseInt(bound1.split(",")[1], 10);
 
-    const Xj = parseInt(bound2.split(',')[0], 10);
-    const Yj = parseInt(bound2.split(',')[1], 10);
+    const Xj = parseInt(bound2.split(",")[0], 10);
+    const Yj = parseInt(bound2.split(",")[1], 10);
 
     const offX1 = (Xi * tileColumnOffset) / 2 + (Yi * tileColumnOffset) / 2;
     let offY1 = (Yi * tileRowOffset) / 2 - (Xi * tileRowOffset) / 2;
@@ -726,7 +753,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       .scale(this.zoomFactor);
     // programmatically call zoom
     this.d3
-      .select('canvas')
+      .select("canvas")
       .transition()
       .duration(750)
       .call(
@@ -750,13 +777,13 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
     this.context.transform(1, 0, angle, 1, 0, 0);
     // Text zentriert zur Koordinate
     if (size) {
-      this.context.font = size + 'px Verdana';
+      this.context.font = size + "px Verdana";
     } else {
-      this.context.font = '26px Verdana';
+      this.context.font = "26px Verdana";
     }
 
-    this.context.fillStyle = 'black';
-    this.context.textAlign = 'center';
+    this.context.fillStyle = "black";
+    this.context.textAlign = "center";
     this.context.fillText(str, 0, 0);
 
     this.context.restore();
@@ -764,7 +791,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   drawLine(x1: any, y1: any, x2: any, y2: any, color) {
-    color = typeof color !== 'undefined' ? color : 'white';
+    color = typeof color !== "undefined" ? color : "white";
     this.context.strokeStyle = color;
     this.context.beginPath();
     this.context.lineWidth = 1;
@@ -774,15 +801,15 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   drawImage(x: number, y: number, imgName: string) {
-    if (imgName.indexOf(',') > -1) {
+    if (imgName.indexOf(",") > -1) {
       // stacked complex images
-      (imgName.split(',') || []).forEach(singleImgName => {
+      (imgName.split(",") || []).forEach(singleImgName => {
         this.drawImage(x, y, singleImgName);
       });
     } else {
       // simple single image
       const drawing = new Image();
-      drawing.src = 'assets/tiles/' + imgName + '.svg';
+      drawing.src = "assets/tiles/" + imgName + ".svg";
       this.context.drawImage(
         drawing,
         x,

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="crossroad_x5F_east" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" viewBox="0 0 479.9954834 438.8007813" style="enable-background:new 0 0 479.9954834 438.8007813;" xml:space="preserve">
+<svg version="1.1" id="crossroad_x5F_east_1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 479.0195007 437.7582092" style="enable-background:new 0 0 479.0195007 437.7582092;"
+	 xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#FCEE21;}
+	.st0{fill:#FFFFFF;}
 </style>
-<polygon class="st0" points="398.4925842,347.288147 401.4923706,345.5563965 322.9924622,300.2337952 401.4923706,254.9121399 
-	398.4927368,253.1802979 316.9924622,300.2337952 "/>
-<polygon class="st0" points="318.4930115,393.4759216 156.9924469,300.2337952 318.4923401,206.9920349 321.4919739,208.7238922 
-	162.9924469,300.2337952 321.4926758,391.7440796 "/>
+<polygon class="st0" points="147.3882446,302.9411011 141.3892822,299.4772034 310.2051086,202.0121613 316.2052002,205.4763184 "/>
+<polygon class="st0" points="331.6291809,302.9408569 325.6299133,299.4771729 402.324707,255.1974335 408.3242493,258.6609497 "/>
+<polygon class="st0" points="402.3249817,343.7568054 325.6293335,299.4775085 331.629425,296.0133362 408.3242493,340.2930908 "/>
+<polygon class="st0" points="310.2017517,396.9441528 141.3898621,299.4776306 147.3890839,296.0139771 316.2009888,393.4804993 "/>
 </svg>

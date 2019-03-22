@@ -1,299 +1,8622 @@
 [
-    [
-        "1,1",
-        {
-            "mapKpis": {
-                "andon": "gold",
-                "oee": "5"
-            },
-            "mapSelectionPath": {
-                "Line": "L1",
-                "Workcenter": "L100",
-                "Machine": "L100-1"
-            },
-            "coordinate": "1,1",
-            "imgName": "machine",
-            "labelText": "L100-1"
-        }
-    ],
-    [
-        "3,1",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "3,1",
-            "imgName": "warehouse",
-            "labelText": "WAREHOUSE"
-        }
-    ],
-    [
-        "5,1",
-        {
-            "mapKpis": {
-                "andon": "red",
-                "oee": "1"
-            },
-            "mapSelectionPath": null,
-            "coordinate": "5,1",
-            "imgName": "conveyor",
-            "labelText": "U7120"
-        }
-    ],
-    [
-        "0,1",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": {
-                "Line": "L1",
-                "Workcenter": "L200",
-                "Machine": "L200-1"
-            },
-            "coordinate": "0,1"
-        }
-    ],
-    [
-        "0,2",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": {
-                "Line": "L1",
-                "Workcenter": "L200",
-                "Machine": "L200-2"
-            },
-            "coordinate": "0,2"
-        }
-    ],
-    [
-        "0,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "0,0",
-            "imgName": "wall_left",
-            "labelText": null
-        }
-    ],
-    [
-        "1,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "1,0",
-            "imgName": "wall_left,road_right",
-            "labelText": null
-        }
-    ],
-    [
-        "2,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "2,0",
-            "imgName": "wall_left,road_crossroad_e_s_w,paletts,door_north_south",
-            "labelText": null
-        }
-    ],
-    [
-        "3,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "3,0",
-            "imgName": "wall_left,road_right",
-            "labelText": null
-        }
-    ],
-    [
-        "4,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "4,0",
-            "imgName": "wall_left,road_right",
-            "labelText": null
-        }
-    ],
-    [
-        "5,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "5,0",
-            "imgName": "wall_left,road_right",
-            "labelText": null
-        }
-    ],
-    [
-        "6,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "6,0",
-            "imgName": "wall_left,road_crossroad_e_s_w",
-            "labelText": null
-        }
-    ],
-    [
-        "7,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "7,0",
-            "imgName": "wall_left,road_right,agv_west",
-            "labelText": null
-        }
-    ],
-    [
-        "8,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "8,0",
-            "imgName": "wall_left,road_right,door_north_south",
-            "labelText": null
-        }
-    ],
-    [
-        "9,0",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "9,0",
-            "imgName": "wall_left",
-            "labelText": null
-        }
-    ],
-    [
-        "7,1",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "7,1",
-            "imgName": "paletts_big",
-            "labelText": "FINISHED GOODS"
-        }
-    ],
-    [
-        "8,1",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "8,1",
-            "imgName": "paletts_big",
-            "labelText": null
-        }
-    ],
-    [
-        "7,2",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "7,2",
-            "imgName": "paletts_big",
-            "labelText": null
-        }
-    ],
-    [
-        "8,2",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "8,2",
-            "imgName": "paletts",
-            "labelText": null
-        }
-    ],
-    [
-        "2,1",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "2,1",
-            "imgName": "road_left",
-            "labelText": null
-        }
-    ],
-    [
-        "2,2",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "2,2",
-            "imgName": "road_left",
-            "labelText": null
-        }
-    ],
-    [
-        "1,2",
-        {
-            "mapKpis": {
-                "andon": "green",
-                "oee": "0"
-            },
-            "mapSelectionPath": {
-                "Line": "L1",
-                "Workcenter": "L100",
-                "Machine": "L100-3"
-            },
-            "coordinate": "1,2",
-            "imgName": "machine",
-            "labelText": "L100-3",
-            "statusColor": "red"
-        }
-    ],
-    [
-        "0,9",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "0,9",
-            "backgroundColor": "white"
-        }
-    ],
-    [
-        "0,8",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "0,8",
-            "backgroundColor": "white"
-        }
-    ],
-    [
-        "0,7",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "0,7",
-            "backgroundColor": "white"
-        }
-    ],
-    [
-        "1,9",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "1,9",
-            "backgroundColor": "white"
-        }
-    ],
-    [
-        "1,8",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "1,8",
-            "labelText": "MILLING AREA",
-            "backgroundColor": "white"
-        }
-    ],
-    [
-        "1,7",
-        {
-            "mapKpis": null,
-            "mapSelectionPath": null,
-            "coordinate": "1,7",
-            "backgroundColor": "white"
-        }
-    ]
+  [
+    "2420",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2420",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,0",
+      "imgName": "wall_b_l,wall_u_l"
+    }
+  ],
+  [
+    "1,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "2,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "3,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "4,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "5,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "6,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "7,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "8,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "9,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "10,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "11,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "12,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "13,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "14,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "15,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "16,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "17,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "18,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "19,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "20,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "21,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "22,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "23,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,0",
+      "imgName": "wall_u_l,wall_b_l"
+    }
+  ],
+  [
+    "24,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,0",
+      "imgName": "wall_u_l,wall_b_l"
+    }
+  ],
+  [
+    "25,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "26,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "27,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "28,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "29,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "30,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "31,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "32,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "33,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "34,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,0",
+      "imgName": "wall_u_l"
+    }
+  ],
+  [
+    "35,0",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,0",
+      "imgName": "wall_u_l,wall_u_r"
+    }
+  ],
+  [
+    "35,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,1",
+      "imgName": "wall_u_r,wall_b_r"
+    }
+  ],
+  [
+    "35,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,2",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,3",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,4",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,5",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,6",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,7",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,8",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,9",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,10",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,11",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,12",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,13",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,14",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,15",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,16",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,16",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,17",
+      "imgName": "wall_u_r,wall_b_r"
+    }
+  ],
+  [
+    "35,18",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,18",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "35,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,19",
+      "imgName": "wall_u_r"
+    }
+  ],
+  [
+    "1,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,2",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "1,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,3",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "1,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,4",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "1,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,5",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "1,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,6",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "1,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,7",
+      "imgName": "warehouse_auto"
+    }
+  ],
+  [
+    "3,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,2",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "3,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,3",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "3,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,4",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "3,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,5",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "3,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,6",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "3,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,7",
+      "imgName": "warehouse_auto"
+    }
+  ],
+  [
+    "4,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,1",
+      "imgName": "road_crossroad_east"
+    }
+  ],
+  [
+    "5,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "6,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "7,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,1",
+      "imgName": "road_crossroad_e_s_w"
+    }
+  ],
+  [
+    "7,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,2",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,3",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,4",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,5",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,6",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,7",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,8",
+      "imgName": "road_crossroad"
+    }
+  ],
+  [
+    "7,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,9",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "8,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "9,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "10,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,1",
+      "imgName": "road_crossroad_e_s_w"
+    }
+  ],
+  [
+    "10,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,2",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,3",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,4",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,5",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,6",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,7",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,8",
+      "imgName": "road_crossroad"
+    }
+  ],
+  [
+    "10,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,9",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "11,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "12,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "13,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,1",
+      "imgName": "road_crossroad_e_s_w"
+    }
+  ],
+  [
+    "13,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,2",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,3",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,4",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,5",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,6",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,7",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,8",
+      "imgName": "road_crossroad"
+    }
+  ],
+  [
+    "13,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,9",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "14,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "15,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "16,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,1",
+      "imgName": "road_crossroad_e_s_w"
+    }
+  ],
+  [
+    "16,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,2",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,3",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,4",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,5",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,6",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,7",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,8",
+      "imgName": "road_crossroad"
+    }
+  ],
+  [
+    "16,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,9",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "17,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "18,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "19,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,1",
+      "imgName": "road_crossroad_e_s_w"
+    }
+  ],
+  [
+    "19,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,2",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,3",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,4",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,5",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,6",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,7",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,8",
+      "imgName": "road_crossroad"
+    }
+  ],
+  [
+    "19,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,9",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "20,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "21,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,1",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "22,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,1",
+      "imgName": "road_crossroad_south"
+    }
+  ],
+  [
+    "22,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,2",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,3",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,4",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,5",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,6",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,7",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,8",
+      "imgName": "road_crossroad_s_w_n"
+    }
+  ],
+  [
+    "22,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,9",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,2",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,3",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,4",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "2,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,8",
+      "imgName": "road_crossroad_east"
+    }
+  ],
+  [
+    "4,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,9",
+      "imgName": "road_crossroad_s_w_n"
+    }
+  ],
+  [
+    "4,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,5",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,6",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,7",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,8",
+      "imgName": "road_crossroad"
+    }
+  ],
+  [
+    "3,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,9",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "2,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,9",
+      "imgName": "road_crossroad_north"
+    }
+  ],
+  [
+    "22,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,10",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,11",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,12",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,13",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,14",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "22,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,15",
+      "imgName": "road_crossroad_west,wall_b_r"
+    }
+  ],
+  [
+    "19,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,10",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,11",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,12",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,13",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,14",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "19,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,15",
+      "imgName": "road_crossroad_w_n_e,wall_b_r"
+    }
+  ],
+  [
+    "16,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,10",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,11",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,12",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,13",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,14",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "16,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,15",
+      "imgName": "road_crossroad_w_n_e,wall_b_r"
+    }
+  ],
+  [
+    "13,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,10",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,11",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,12",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,13",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,14",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "13,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,15",
+      "imgName": "road_crossroad_w_n_e,wall_b_r"
+    }
+  ],
+  [
+    "10,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,10",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,11",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,12",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,13",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,14",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "10,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,15",
+      "imgName": "road_crossroad_w_n_e,wall_b_r"
+    }
+  ],
+  [
+    "7,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,10",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,11",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,12",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,13",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,14",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "7,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,15",
+      "imgName": "road_crossroad_w_n_e,wall_b_r"
+    }
+  ],
+  [
+    "4,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,10",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,11",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,12",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,13",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,14",
+      "imgName": "road_down"
+    }
+  ],
+  [
+    "4,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,15",
+      "imgName": "road_crossroad_north,wall_b_r"
+    }
+  ],
+  [
+    "8,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,2",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "8,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,3",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "8,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,5",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "8,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,4",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "8,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,6",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "9,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,2",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "9,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,3",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "9,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,4",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "9,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,5",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "9,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,6",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "9,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "9,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,7",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "8,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "3,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "6,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "5,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "11,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "12,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "8,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,10",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "14,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "15,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "17,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "18,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "20,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "21,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,8",
+      "imgName": "road_up"
+    }
+  ],
+  [
+    "17,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,3",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "18,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,3",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "17,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,4",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "18,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,4",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "17,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,5",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "18,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,5",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "17,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,6",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "18,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,6",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "20,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,4",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "20,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,6",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "17,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,10",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "17,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,11",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "17,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,13",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "18,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,13",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "18,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,12",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "18,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,10",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "18,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,11",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "20,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,9",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "20,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,10",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "20,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,11",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "20,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,12",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "20,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,13",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "20,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,14",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "21,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,9",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "21,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,11",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "21,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,14",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "3,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,11",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "3,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,13",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "3,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,14",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "5,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "6,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "8,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "9,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "12,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "11,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "14,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "15,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "17,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "18,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "20,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "21,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,15",
+      "imgName": "road_up,wall_b_r"
+    }
+  ],
+  [
+    "1,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,9",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  [
+    "1,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,14",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  [
+    "1,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,11",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  [
+    "1,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,13",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  [
+    "24,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,4",
+      "labelText": "ME1350A",
+      "imgName": "workstation_01,wall_b_l"
+    }
+  ],
+  [
+    "25,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,4",
+      "labelText": "NLX 3000",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "26,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,4",
+      "labelText": "NLX 3000Y",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "27,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,4",
+      "labelText": "NLX 3000",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "26,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,3",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "25,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,3",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "27,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,3",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "29,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,4",
+      "imgName": "workstation_01",
+      "labelText": "ME1332A"
+    }
+  ],
+  [
+    "29,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,3",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "30,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,3",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "31,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,3",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "32,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,3",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "33,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,3",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "30,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,4",
+      "imgName": "workstation_01",
+      "labelText": "NLX 3000"
+    }
+  ],
+  [
+    "31,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,4",
+      "imgName": "workstation_01",
+      "labelText": "NLX 3000"
+    }
+  ],
+  [
+    "32,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,4",
+      "imgName": "workstation_01",
+      "labelText": "NLX 3000"
+    }
+  ],
+  [
+    "33,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,4",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "24,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,8",
+      "imgName": "workstation_01,wall_b_l"
+    }
+  ],
+  [
+    "26,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,8",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "29,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,7",
+      "labelText": "Integrex j-200s",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "29,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,8",
+      "labelText": "",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "29,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,6",
+      "labelText": "Integrex j-200s",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "31,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,8",
+      "labelText": "CMX 1100Vc",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "32,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,8",
+      "labelText": "CMX 1100Vc",
+      "imgName": "workstation_01"
+    }
+  ],
+  [
+    "26,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,10",
+      "imgName": "workstation_01,wall_b_r"
+    }
+  ],
+  [
+    "29,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,11",
+      "imgName": "conveyor"
+    }
+  ],
+  [
+    "30,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,11",
+      "labelText": "BySprint Fiber3015",
+      "imgName": "conveyor"
+    }
+  ],
+  [
+    "31,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,11",
+      "labelText": "BySprint Fiber3015",
+      "imgName": "conveyor"
+    }
+  ],
+  [
+    "32,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,11",
+      "imgName": "conveyor",
+      "labelText": "BySprint Fiber4020"
+    }
+  ],
+  [
+    "33,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,11",
+      "imgName": "conveyor"
+    }
+  ],
+  [
+    "25,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,10",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "24,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,10",
+      "imgName": "wall_b_r,wall_b_l"
+    }
+  ],
+  [
+    "27,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,10",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "28,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,10",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "29,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,10",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "30,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,10",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "31,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,10",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "32,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,10",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "33,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,10",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "34,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,1",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "23,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,1",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,2",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,3",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,4",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,5",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,6",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,7",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,8",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,9",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,10",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,11",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,12",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,13",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,14",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,15",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,16",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,16",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,17",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,18",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,18",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "23,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,19",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,5",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,6",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,7",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,8",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,9",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,10",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,1",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,2",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,3",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,4",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,5",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,6",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,7",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,8",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,8",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,9",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,10",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,10",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,11",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,12",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,13",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,14",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,15",
+      "imgName": "wall_b_r,wall_b_l"
+    }
+  ],
+  [
+    "0,16",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,16",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,17",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,18",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,18",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,19",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "1,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,15",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "2,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,15",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "3,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,15",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "0,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,20",
+      "imgName": "wall_b_r,wall_b_l"
+    }
+  ],
+  [
+    "1,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "2,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "3,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "4,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "5,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "6,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "7,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "8,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "9,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "10,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "11,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "12,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "13,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "14,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "15,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "16,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "17,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "18,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "19,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "20,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "21,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "22,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "23,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,20",
+      "imgName": "wall_b_r,wall_b_l"
+    }
+  ],
+  [
+    "24,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,20",
+      "imgName": "wall_b_l,wall_b_r"
+    }
+  ],
+  [
+    "25,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "26,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "27,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "28,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "29,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "30,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "31,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "32,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "33,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "34,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,20",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "35,20",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,20",
+      "imgName": "wall_u_r,wall_b_r"
+    }
+  ],
+  [
+    "24,1",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,1",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,2",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,3",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,5",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,5",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,6",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,6",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,9",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,9",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,11",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,12",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,13",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,14",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,15",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,16",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,16",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,17",
+      "imgName": "wall_b_r,wall_b_l"
+    }
+  ],
+  [
+    "25,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,17",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "26,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,17",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "27,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,17",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "28,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,17",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "29,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,17",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "30,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,17",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "31,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,17",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "32,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,17",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "33,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,17",
+      "imgName": "wall_b_r"
+    }
+  ],
+  [
+    "34,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,17",
+      "imgName": "wall_b_l,wall_b_r"
+    }
+  ],
+  [
+    "24,18",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,18",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,19",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,11",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,11",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,13",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,13",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,15",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,15",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,14",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,14",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,3",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,3",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,4",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,4",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,12",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,12",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,16",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,16",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "34,2",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,2",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "24,7",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,7",
+      "imgName": "wall_b_l"
+    }
+  ],
+  [
+    "0,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,21",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,21",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,22",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,22",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,23",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,23",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,24",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,24",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,25",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,25",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,26",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,26",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,27",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,27",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,28",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,28",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,29",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,29",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,30",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,30",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,31",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,31",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,32",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,32",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,33",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,33",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,34",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,34",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "0,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "0,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "1,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "2,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "2,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "3,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "4,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "5,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "5,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "6,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "6,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "7,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "7,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "8,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "9,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "9,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "10,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "10,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "11,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "12,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "13,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "13,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "14,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "14,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "15,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "16,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "17,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "18,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "19,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "20,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "21,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "22,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "22,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "23,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "23,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "24,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "24,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "25,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "25,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "26,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "26,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "27,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "27,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "28,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "28,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "29,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "29,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "30,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "30,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "31,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "31,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "32,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "32,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "33,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "33,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "34,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "34,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ],
+  [
+    "35,35",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "35,35",
+      "backgroundColor": "#cfcfcf"
+    }
+  ]
 ]
