@@ -203,7 +203,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "21,0",
-      "imgName": "wall_u_l"
+      "imgName": "wall_u_l,conveyor_01"
     }
   ],
   [
@@ -410,7 +410,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "35,9",
-      "imgName": "wall_u_r"
+      "imgName": "wall_u_r,warehouse_big"
     }
   ],
   [
@@ -419,7 +419,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "35,10",
-      "imgName": "wall_u_r"
+      "imgName": "wall_u_r,warehouse_big"
     }
   ],
   [
@@ -428,7 +428,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "35,11",
-      "imgName": "wall_u_r"
+      "imgName": "wall_u_r,warehouse_big"
     }
   ],
   [
@@ -1695,9 +1695,10 @@
     "8,2",
     {
       "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapSelectionPath": { "line": "U7", "workcenter": "U7020" },
       "coordinate": "8,2",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7020"
     }
   ],
   [
@@ -1706,7 +1707,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "8,3",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7030"
     }
   ],
   [
@@ -1715,7 +1717,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "8,5",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7050"
     }
   ],
   [
@@ -1724,7 +1727,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "8,4",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7040"
     }
   ],
   [
@@ -1733,7 +1737,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "8,6",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7060"
     }
   ],
   [
@@ -1742,7 +1747,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "9,2",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7020"
     }
   ],
   [
@@ -1751,7 +1757,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "9,3",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7030"
     }
   ],
   [
@@ -1760,7 +1767,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "9,4",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7040"
     }
   ],
   [
@@ -1769,7 +1777,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "9,5",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7050"
     }
   ],
   [
@@ -1778,7 +1787,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "9,6",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7060"
     }
   ],
   [
@@ -1796,7 +1806,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "9,7",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7060"
     }
   ],
   [
@@ -1859,7 +1870,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "8,10",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U7070"
     }
   ],
   [
@@ -1922,7 +1934,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "17,3",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4010"
     }
   ],
   [
@@ -1931,7 +1944,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "18,3",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4010"
     }
   ],
   [
@@ -1940,7 +1954,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "17,4",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4020"
     }
   ],
   [
@@ -1949,7 +1964,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "18,4",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4020"
     }
   ],
   [
@@ -1958,7 +1974,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "17,5",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4030"
     }
   ],
   [
@@ -1967,7 +1984,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "18,5",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4030"
     }
   ],
   [
@@ -1976,7 +1994,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "17,6",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4040"
     }
   ],
   [
@@ -1985,7 +2004,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "18,6",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4040"
     }
   ],
   [
@@ -1994,7 +2014,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "20,4",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3010"
     }
   ],
   [
@@ -2003,7 +2024,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "20,6",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3020"
     }
   ],
   [
@@ -2012,7 +2034,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "17,10",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4050"
     }
   ],
   [
@@ -2021,7 +2044,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "17,11",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4060"
     }
   ],
   [
@@ -2030,7 +2054,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "17,13",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4080"
     }
   ],
   [
@@ -2039,7 +2064,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "18,13",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4080"
     }
   ],
   [
@@ -2048,7 +2074,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "18,12",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4070"
     }
   ],
   [
@@ -2057,7 +2084,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "18,10",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4050"
     }
   ],
   [
@@ -2066,7 +2094,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "18,11",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U4060"
     }
   ],
   [
@@ -2075,7 +2104,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "20,9",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3030"
     }
   ],
   [
@@ -2084,7 +2114,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "20,10",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3040"
     }
   ],
   [
@@ -2093,7 +2124,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "20,11",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3050"
     }
   ],
   [
@@ -2102,7 +2134,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "20,12",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3060"
     }
   ],
   [
@@ -2111,7 +2144,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "20,13",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3070"
     }
   ],
   [
@@ -2120,7 +2154,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "20,14",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3080"
     }
   ],
   [
@@ -2129,7 +2164,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "21,9",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3030"
     }
   ],
   [
@@ -2138,7 +2174,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "21,11",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3050"
     }
   ],
   [
@@ -2147,7 +2184,8 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "21,14",
-      "imgName": "workcenter_01"
+      "imgName": "workcenter_01",
+      "labelText": "U3080"
     }
   ],
   [
@@ -2246,7 +2284,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "15,15",
-      "imgName": "road_up,wall_b_r"
+      "imgName": "road_crossroad_e_s_w"
     }
   ],
   [
@@ -2255,7 +2293,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "17,15",
-      "imgName": "road_up,wall_b_r"
+      "imgName": "road_crossroad_e_s_w"
     }
   ],
   [
@@ -3135,7 +3173,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "1,20",
-      "imgName": "wall_b_r"
+      "imgName": "warehouse_big,wall_b_r"
     }
   ],
   [
@@ -3234,7 +3272,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "12,20",
-      "imgName": "wall_b_r"
+      "imgName": "finished_goods_big,wall_b_r"
     }
   ],
   [
@@ -3261,7 +3299,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "15,20",
-      "imgName": "wall_b_r"
+      "imgName": "finished_goods_big,wall_b_r"
     }
   ],
   [
@@ -3270,7 +3308,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "16,20",
-      "imgName": "wall_b_r"
+      "imgName": "finished_goods_big,wall_b_r"
     }
   ],
   [
@@ -3288,7 +3326,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "18,20",
-      "imgName": "wall_b_r"
+      "imgName": "finished_goods_big,wall_b_r"
     }
   ],
   [
@@ -3297,7 +3335,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "19,20",
-      "imgName": "wall_b_r"
+      "imgName": "finished_goods_big,wall_b_r"
     }
   ],
   [
@@ -3315,7 +3353,7 @@
       "mapKpis": {},
       "mapSelectionPath": null,
       "coordinate": "21,20",
-      "imgName": "wall_b_r"
+      "imgName": "finished_goods_big,wall_b_r"
     }
   ],
   [
@@ -8617,6 +8655,182 @@
       "mapSelectionPath": null,
       "coordinate": "35,35",
       "backgroundColor": "#cfcfcf"
+    }
+  ],
+  ["17,18", { "mapKpis": {}, "mapSelectionPath": {}, "coordinate": "17,18" }],
+  [
+    "15,16",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,16",
+      "imgName": "road_crossroad_north"
+    }
+  ],
+  [
+    "17,16",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "17,16",
+      "imgName": "road_crossroad_west"
+    }
+  ],
+  [
+    "16,16",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,16",
+      "imgName": "road_up"
+    }
+  ],
+  ["15,18", { "mapKpis": {}, "mapSelectionPath": {}, "coordinate": "15,18" }],
+  [
+    "16,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,17",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "18,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,17",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "21,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,17",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "20,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "20,17",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "21,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "21,19",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  ["21,18", { "mapKpis": {}, "mapSelectionPath": {}, "coordinate": "21,18" }],
+  [
+    "19,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "19,19",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  [
+    "16,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "16,19",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  [
+    "12,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,17",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "12,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "12,19",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  [
+    "15,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "15,19",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  [
+    "18,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "18,19",
+      "imgName": "finished_goods_big"
+    }
+  ],
+  ["16,18", { "mapKpis": {}, "mapSelectionPath": {}, "coordinate": "16,18" }],
+  [
+    "8,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "8,17",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "4,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "4,17",
+      "imgName": "workcenter_01"
+    }
+  ],
+  [
+    "3,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "3,17",
+      "imgName": "workcenter_01"
+    }
+  ],
+  ["2,17", { "mapKpis": {}, "mapSelectionPath": {}, "coordinate": "2,17" }],
+  [
+    "1,17",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "1,17",
+      "imgName": "warehouse_big"
+    }
+  ],
+  [
+    "11,19",
+    {
+      "mapKpis": {},
+      "mapSelectionPath": null,
+      "coordinate": "11,19",
+      "imgName": "finished_goods_small"
     }
   ]
 ]
