@@ -19,18 +19,6 @@
       "dom"
     ],
     "paths": {
-      "isomap-viewer": [
-        "dist/isomap-viewer"
-      ],
-      "isomap-viewer/*": [
-        "dist/isomap-viewer/*"
-      ],
-      "isomap-viewer2": [
-        "dist/isomap-viewer2"
-      ],
-      "isomap-viewer2/*": [
-        "dist/isomap-viewer2/*"
-      ],
       "ng-isomap-viewer": [
         "dist/ng-isomap-viewer"
       ],

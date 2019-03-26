@@ -28,6 +28,7 @@ import { D3Service } from 'd3-ng2-service';
 // helpers
 import { EventService } from './event-service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgIsomapViewerModule } from 'projects/ng-isomap-viewer/src/public_api';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatTabsModule,
     MatSidenavModule,
     MatSlideToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    NgIsomapViewerModule
   ],
   providers: [  EventService, D3Service ],
   bootstrap: [AppComponent]

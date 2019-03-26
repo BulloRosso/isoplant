@@ -3,6 +3,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-back": "ng build ng-isomap-viewer --watch",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
