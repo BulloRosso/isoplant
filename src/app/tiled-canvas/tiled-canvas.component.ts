@@ -155,7 +155,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.zoomIdentity = this.d3.zoomIdentity.translate(0, 0).scale(1);
 
-    this.zoom = this.d3.zoom().scaleExtent([1, 8]);
+    this.zoom = this.d3.zoom().scaleExtent([1, 12]);
 
     const selCanvas = this.d3.select("canvas").call(
       this.zoom.on("zoom", () => {
@@ -510,7 +510,7 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
           tileData.labelText,
           offX + this.grid.tileColumnOffset / 3.2,
           offY + this.grid.tileRowOffset / 1.4,
-          6 * responsiveFactor
+          5 * responsiveFactor
         );
       }
 
@@ -835,12 +835,13 @@ export class TiledCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
         this.spriteCache.set(imgName, drawing);
       }
     
+      // TODO the multipliers are approximated
       this.context.drawImage(
         drawing,
         x,
-        y - this.grid.tileRowOffset * 0.6,
+        y - this.grid.tileRowOffset * 0.54,
         this.grid.tileColumnOffset,
-        this.grid.tileRowOffset * 1.6
+        this.grid.tileRowOffset * 1.58
       );
     }
   }
