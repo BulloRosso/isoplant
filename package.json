@@ -6,7 +6,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pack-isomap": "npm run build ng-isomap-viewer && cd dist/ng-isomap-viewer && npm pack",
+    "publish-isomap": "ng-isomap-0.0.7.tgz"
   },
   "private": true,
   "dependencies": {

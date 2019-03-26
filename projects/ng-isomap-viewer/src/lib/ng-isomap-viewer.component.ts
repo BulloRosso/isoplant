@@ -31,7 +31,7 @@ import {
 @Component({
   selector: 'lib-ng-isomap-viewer',
   templateUrl: 'ng-isomap-viewer.component.html',
-  styleUrls: ['ng-isomap-viewer.component.html'],
+  styleUrls: ['ng-isomap-viewer.component.css'],
   animations: [
     trigger('zoomStatus', [
       state(
@@ -82,7 +82,9 @@ export class NgIsomapViewerComponent
   };
 
   event: MouseEvent;
+
   @ViewChild('tileCanvas') canvasRef: ElementRef;
+  @ViewChild('tileCanvasCont') canvasContRef: ElementRef;
   private canvas;
   private context;
   private d3: D3;
@@ -147,6 +149,7 @@ export class NgIsomapViewerComponent
     }
   }
 
+  @HostListener('window:resize')
   ngAfterViewInit() {
     this.zoomIdentity = this.d3.zoomIdentity.translate(0, 0).scale(1);
 
@@ -155,6 +158,7 @@ export class NgIsomapViewerComponent
     const selCanvas = this.d3.select('canvas').call(
       this.zoom.on('zoom', () => {
         this.canvas = this.canvasRef.nativeElement;
+
         this.context = this.canvas.getContext('2d');
 
         // restrict free movement to boundaries
@@ -287,9 +291,15 @@ export class NgIsomapViewerComponent
   }
 
   ngOnDestroy() {
-    this.tileSubscription.unsubscribe();
-    this.ownSelectedItemSubscription.unsubscribe();
-    this.badgeSubscription.unsubscribe();
+    if(this.tileSubscription) {
+      this.tileSubscription.unsubscribe();
+    }
+    if(this.ownSelectedItemSubscription) {
+      this.ownSelectedItemSubscription.unsubscribe();
+    }
+    if(this.badgeSubscription) {
+      this.badgeSubscription.unsubscribe();
+    }
   }
 
   @HostListener('window:resize', ['$event'])

@@ -1,5 +1,5 @@
 
-<div id="tileCanvas">
+<div #tileCanvasCont id="tileCanvas" class="tileCanvas">
 
     <mat-toolbar color="primary" class="custom-toolbar">
         <mat-toolbar-row class="custom-toolbar">
@@ -25,7 +25,7 @@
         </mat-toolbar-row>
     </mat-toolbar>
 
-    <canvas #tileCanvas (click)="onClick($event)"></canvas>
+    <canvas #tileCanvas (click)="onClick($event)" class="canvas"></canvas>
 
     <mat-card [@zoomStatus]="zoomIn" class="propertiesSheet">
         <table style="width:100%">
