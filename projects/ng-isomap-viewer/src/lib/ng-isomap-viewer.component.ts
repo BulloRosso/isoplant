@@ -60,8 +60,8 @@ export class NgIsomapViewerComponent
   zoomIn = 'invisible';
 
   private grid = {
-    Xtiles: 10,
-    Ytiles: 10,
+    Xtiles: 36,
+    Ytiles: 36,
 
     tileColumnOffset: 80, // pixels
     tileRowOffset: 40, // pixels
@@ -73,7 +73,8 @@ export class NgIsomapViewerComponent
     showOutlines: false, // show borders - helps to align svgs and debug
 
     style: {
-      tileColor: '#ccc'
+      // TODO
+      tileColor: '#b3b3b3'
     },
 
     badgeGlowEffect: true, // corona effect for non-number badges
@@ -82,9 +83,7 @@ export class NgIsomapViewerComponent
   };
 
   event: MouseEvent;
-
   @ViewChild('tileCanvas') canvasRef: ElementRef;
-  @ViewChild('tileCanvasCont') canvasContRef: ElementRef;
   private canvas;
   private context;
   private d3: D3;
@@ -93,6 +92,7 @@ export class NgIsomapViewerComponent
   private zoomFactor = 1;
   private translateX = 0;
   private translateY = 0;
+  private spriteCache = new Map<string, any>();
 
   private tileSubscription;
   private badgeSubscription;
@@ -149,16 +149,14 @@ export class NgIsomapViewerComponent
     }
   }
 
-  @HostListener('window:resize')
   ngAfterViewInit() {
     this.zoomIdentity = this.d3.zoomIdentity.translate(0, 0).scale(1);
 
-    this.zoom = this.d3.zoom().scaleExtent([1, 4]);
+    this.zoom = this.d3.zoom().scaleExtent([1, 12]);
 
     const selCanvas = this.d3.select('canvas').call(
       this.zoom.on('zoom', () => {
         this.canvas = this.canvasRef.nativeElement;
-
         this.context = this.canvas.getContext('2d');
 
         // restrict free movement to boundaries
@@ -180,15 +178,45 @@ export class NgIsomapViewerComponent
         this.translateY = this.zoomIdentity.y;
         this.zoomFactor = this.zoomIdentity.k;
 
-        this.redrawTiles(
-          this.tiledCoreService.allTileData(),
-          this.zoomIdentity.x,
-          this.zoomIdentity.y
+        this.throttle(
+          this.redrawTiles(
+            this.tiledCoreService.allTileData(),
+            this.zoomIdentity.x,
+            this.zoomIdentity.y
+          ),
+          200
         );
       })
     );
 
     selCanvas.on('dblclick.zoom', null); // otherwise user zooms in quite deep with accidential double-click
+  }
+
+  throttle(callback, delay) {
+    let isThrottled = false,
+      args,
+      context;
+
+    function wrapper() {
+      if (isThrottled) {
+        args = arguments;
+        context = this;
+        return;
+      }
+
+      isThrottled = true;
+      callback.apply(this, arguments);
+
+      setTimeout(() => {
+        isThrottled = false;
+        if (args) {
+          wrapper.apply(context, args);
+          args = context = null;
+        }
+      }, delay);
+    }
+
+    return wrapper;
   }
 
   ngOnInit() {
@@ -203,16 +231,18 @@ export class NgIsomapViewerComponent
       if (evt && evt.eventName) {
         if (evt.eventName === 'mapLoaded') {
           // compile required svgs for preloader
-          (Object.values(this.tiledCoreService.allTileData()) || []).forEach(tileData => {
-            if (tileData.imgName) {
-              const tileImages = tileData.imgName.split(',') || [];
-              tileImages.forEach(svgFilename => {
-                if (this.svgImages.indexOf(svgFilename) === -1) {
-                  this.svgImages.push(svgFilename);
-                }
-              });
+          (Object.values(this.tiledCoreService.allTileData()) || []).forEach(
+            tileData => {
+              if (tileData.imgName) {
+                const tileImages = tileData.imgName.split(',') || [];
+                tileImages.forEach(svgFilename => {
+                  if (this.svgImages.indexOf(svgFilename) === -1) {
+                    this.svgImages.push(svgFilename);
+                  }
+                });
+              }
             }
-          });
+          );
         }
 
         if (evt.eventName === 'resetMap') {
@@ -248,42 +278,31 @@ export class NgIsomapViewerComponent
         if (evt instanceof EventBadgeChanged) {
           const evtT: EventBadgeChanged = evt;
 
-          (Object.values(this.tiledCoreService.allTileData()) || []).forEach((itm: any) => {
-            if (itm.mapSelectionPath) {
-              if (
-                itm.mapSelectionPath.Machine &&
-                itm.mapSelectionPath.Machine === evtT.eventTarget
-              ) {
-                if (itm.mapKpis) {
-                  itm.mapKpis[evt.eventType] = evtT.eventValue;
-                } else {
-                  itm.mapKpis = {};
-                  itm.mapKpis[evt.eventType] = evt.eventValue;
+          (Object.values(this.tiledCoreService.allTileData()) || []).forEach(
+            (itm: any) => {
+              if (itm.mapSelectionPath) {
+                if (
+                  itm.mapSelectionPath.Machine &&
+                  itm.mapSelectionPath.Machine === evtT.eventTarget
+                ) {
+                  if (itm.mapKpis) {
+                    itm.mapKpis[evt.eventType] = evtT.eventValue;
+                  } else {
+                    itm.mapKpis = {};
+                    itm.mapKpis[evt.eventType] = evt.eventValue;
+                  }
+                  this.redrawTiles(
+                    this.tiledCoreService.allTileData(),
+                    this.translateX,
+                    this.translateY
+                  );
                 }
-                this.redrawTiles(
-                  this.tiledCoreService.allTileData(),
-                  this.translateX,
-                  this.translateY
-                );
               }
             }
-          });
+          );
         } // kpi changed
       }
     });
-
-    // onchange for tile array
-    this.tileSubscription = this.tiledCoreService
-      .tileData()
-      .subscribe(retMap => {
-        if (this.canvasRef) {
-          this.redrawTiles(
-            this.tiledCoreService.allTileData(),
-            this.translateX,
-            this.translateY
-          );
-        }
-      });
 
     this.ownSelectedItemSubscription = this.selectedItem.subscribe(itm => {
       this.ownSelectedItem = itm;
@@ -291,15 +310,9 @@ export class NgIsomapViewerComponent
   }
 
   ngOnDestroy() {
-    if(this.tileSubscription) {
-      this.tileSubscription.unsubscribe();
-    }
-    if(this.ownSelectedItemSubscription) {
-      this.ownSelectedItemSubscription.unsubscribe();
-    }
-    if(this.badgeSubscription) {
-      this.badgeSubscription.unsubscribe();
-    }
+    this.tileSubscription.unsubscribe();
+    this.ownSelectedItemSubscription.unsubscribe();
+    this.badgeSubscription.unsubscribe();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -419,10 +432,11 @@ export class NgIsomapViewerComponent
     );
   }
 
-  redrawTiles(tileData: {[key: string]: TileData}, translateX, translateY) {
+  redrawTiles(tileData: { [key: string]: TileData }, translateX, translateY) {
     if (!this.canvasRef) {
       return;
     }
+    let timer: number = new Date().getMilliseconds();
 
     this.canvas = this.canvasRef.nativeElement;
     this.context = this.canvas.getContext('2d');
@@ -454,13 +468,7 @@ export class NgIsomapViewerComponent
     // first pass: Images
     for (let Xi = this.grid.Xtiles - 1; Xi >= 0; Xi--) {
       for (let Yi = 0; Yi < this.grid.Ytiles; Yi++) {
-        this.drawTile(
-          Xi,
-          Yi,
-          tileData[Xi + ',' + Yi],
-          translateX,
-          translateY
-        );
+        this.drawTile(Xi, Yi, tileData[Xi + ',' + Yi], translateX, translateY);
       }
     }
 
@@ -481,6 +489,9 @@ export class NgIsomapViewerComponent
     // this.drawText("ISOMETRIC PLANT VIEW",550,-110);
 
     this.context.restore();
+
+    let timerEnd: number = new Date().getMilliseconds();
+    console.log(timerEnd - timer + 'ms');
   }
 
   drawTileText(Xi, Yi, tileData: TileData, translateX, translateY) {
@@ -501,7 +512,7 @@ export class NgIsomapViewerComponent
           tileData.labelText,
           offX + this.grid.tileColumnOffset / 3.2,
           offY + this.grid.tileRowOffset / 1.4,
-          6 * responsiveFactor
+          5 * responsiveFactor
         );
       }
 
@@ -636,7 +647,8 @@ export class NgIsomapViewerComponent
     this.context.closePath();
 
     // Draw tile outline
-    let color = '#ccc';
+    // TODO
+    let color = '#b3b3b3';
     if (tileData && tileData.backgroundColor) {
       // avoid background bleeding through
       color = tileData.backgroundColor;
@@ -815,14 +827,23 @@ export class NgIsomapViewerComponent
       });
     } else {
       // simple single image
-      const drawing = new Image();
-      drawing.src = 'assets/tiles/' + imgName + '.svg';
+
+      let drawing;
+      if (this.spriteCache.has(imgName)) {
+        drawing = this.spriteCache.get(imgName);
+      } else {
+        drawing = new Image();
+        drawing.src = 'assets/tiles/' + imgName + '.svg';
+        this.spriteCache.set(imgName, drawing);
+      }
+
+      // TODO the multipliers are approximated
       this.context.drawImage(
         drawing,
         x,
-        y - this.grid.tileRowOffset * 0.6,
+        y - this.grid.tileRowOffset * 0.54,
         this.grid.tileColumnOffset,
-        this.grid.tileRowOffset * 1.6
+        this.grid.tileRowOffset * 1.58
       );
     }
   }

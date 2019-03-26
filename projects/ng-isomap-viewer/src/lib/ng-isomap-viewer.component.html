@@ -1,5 +1,5 @@
 
-<div #tileCanvasCont id="tileCanvas" class="tileCanvas">
+<div id="tileCanvas">
 
     <mat-toolbar color="primary" class="custom-toolbar">
         <mat-toolbar-row class="custom-toolbar">
@@ -25,7 +25,7 @@
         </mat-toolbar-row>
     </mat-toolbar>
 
-    <canvas #tileCanvas (click)="onClick($event)" class="canvas"></canvas>
+    <canvas #tileCanvas (click)="onClick($event)"></canvas>
 
     <mat-card [@zoomStatus]="zoomIn" class="propertiesSheet">
         <table style="width:100%">
@@ -44,6 +44,7 @@
             </tr>
         </table>
     </mat-card>
+
 </div>
 
 <!-- preload images before canvas is rendered, note the load event on the last image! -->
