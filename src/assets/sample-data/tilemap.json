@@ -1694,8 +1694,12 @@
   [
     "8,2",
     {
-      "mapKpis": {},
-      "mapSelectionPath": { "line": "U7", "workcenter": "U7020" },
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7020",
+        "machine": "L7020"
+      },
       "coordinate": "8,2",
       "imgName": "workcenter_01",
       "labelText": "U7020"
@@ -1704,8 +1708,12 @@
   [
     "8,3",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7030",
+        "machine": "L7030"
+      },
       "coordinate": "8,3",
       "imgName": "workcenter_01",
       "labelText": "U7030"
@@ -1724,8 +1732,12 @@
   [
     "8,4",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7040",
+        "machine": "L7040"
+      },
       "coordinate": "8,4",
       "imgName": "workcenter_01",
       "labelText": "U7040"
@@ -1734,8 +1746,12 @@
   [
     "8,6",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7060",
+        "machine": "L7060"
+      },
       "coordinate": "8,6",
       "imgName": "workcenter_01",
       "labelText": "U7060"
@@ -1744,8 +1760,12 @@
   [
     "9,2",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7020",
+        "machine": "L7020"
+      },
       "coordinate": "9,2",
       "imgName": "workcenter_01",
       "labelText": "U7020"
@@ -1754,8 +1774,12 @@
   [
     "9,3",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7030",
+        "machine": "L7030"
+      },
       "coordinate": "9,3",
       "imgName": "workcenter_01",
       "labelText": "U7030"
@@ -1764,8 +1788,12 @@
   [
     "9,4",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7040",
+        "machine": "L7040"
+      },
       "coordinate": "9,4",
       "imgName": "workcenter_01",
       "labelText": "U7040"
@@ -1774,8 +1802,12 @@
   [
     "9,5",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7050",
+        "machine": "L7050"
+      },
       "coordinate": "9,5",
       "imgName": "workcenter_01",
       "labelText": "U7050"
@@ -1784,8 +1816,12 @@
   [
     "9,6",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7060",
+        "machine": "L7060"
+      },
       "coordinate": "9,6",
       "imgName": "workcenter_01",
       "labelText": "U7060"
@@ -1803,8 +1839,12 @@
   [
     "9,7",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7060",
+        "machine": "L7060"
+      },
       "coordinate": "9,7",
       "imgName": "workcenter_01",
       "labelText": "U7060"
@@ -1867,8 +1907,12 @@
   [
     "8,10",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U7",
+        "workcenter": "U7070",
+        "machine": "L7070"
+      },
       "coordinate": "8,10",
       "imgName": "workcenter_01",
       "labelText": "U7070"
@@ -1931,8 +1975,12 @@
   [
     "17,3",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4010",
+        "machine": "L4010"
+      },
       "coordinate": "17,3",
       "imgName": "workcenter_01",
       "labelText": "U4010"
@@ -1941,8 +1989,12 @@
   [
     "18,3",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4010",
+        "machine": "L4010"
+      },
       "coordinate": "18,3",
       "imgName": "workcenter_01",
       "labelText": "U4010"
@@ -1951,8 +2003,12 @@
   [
     "17,4",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4020",
+        "machine": "L4020"
+      },
       "coordinate": "17,4",
       "imgName": "workcenter_01",
       "labelText": "U4020"
@@ -1961,8 +2017,12 @@
   [
     "18,4",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4020",
+        "machine": "L4020"
+      },
       "coordinate": "18,4",
       "imgName": "workcenter_01",
       "labelText": "U4020"
@@ -1971,8 +2031,12 @@
   [
     "17,5",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4020",
+        "machine": "L4020"
+      },
       "coordinate": "17,5",
       "imgName": "workcenter_01",
       "labelText": "U4030"
@@ -1981,8 +2045,12 @@
   [
     "18,5",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4030",
+        "machine": "L4030"
+      },
       "coordinate": "18,5",
       "imgName": "workcenter_01",
       "labelText": "U4030"
@@ -1991,8 +2059,12 @@
   [
     "17,6",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4040",
+        "machine": "L4040"
+      },
       "coordinate": "17,6",
       "imgName": "workcenter_01",
       "labelText": "U4040"
@@ -2001,8 +2073,12 @@
   [
     "18,6",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4040",
+        "machine": "L4040"
+      },
       "coordinate": "18,6",
       "imgName": "workcenter_01",
       "labelText": "U4040"
@@ -2011,8 +2087,12 @@
   [
     "20,4",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3010",
+        "machine": "L3010"
+      },
       "coordinate": "20,4",
       "imgName": "workcenter_01",
       "labelText": "U3010"
@@ -2021,8 +2101,12 @@
   [
     "20,6",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3020",
+        "machine": "L3020"
+      },
       "coordinate": "20,6",
       "imgName": "workcenter_01",
       "labelText": "U3020"
@@ -2031,8 +2115,12 @@
   [
     "17,10",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4050",
+        "machine": "L4050"
+      },
       "coordinate": "17,10",
       "imgName": "workcenter_01",
       "labelText": "U4050"
@@ -2041,8 +2129,12 @@
   [
     "17,11",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4060",
+        "machine": "L4060"
+      },
       "coordinate": "17,11",
       "imgName": "workcenter_01",
       "labelText": "U4060"
@@ -2051,8 +2143,12 @@
   [
     "17,13",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4080",
+        "machine": "L4080"
+      },
       "coordinate": "17,13",
       "imgName": "workcenter_01",
       "labelText": "U4080"
@@ -2061,8 +2157,12 @@
   [
     "18,13",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4080",
+        "machine": "L4080"
+      },
       "coordinate": "18,13",
       "imgName": "workcenter_01",
       "labelText": "U4080"
@@ -2071,8 +2171,12 @@
   [
     "18,12",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4070",
+        "machine": "L4070"
+      },
       "coordinate": "18,12",
       "imgName": "workcenter_01",
       "labelText": "U4070"
@@ -2081,8 +2185,12 @@
   [
     "18,10",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4050",
+        "machine": "L4050"
+      },
       "coordinate": "18,10",
       "imgName": "workcenter_01",
       "labelText": "U4050"
@@ -2091,8 +2199,12 @@
   [
     "18,11",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U4",
+        "workcenter": "U4060",
+        "machine": "L4060"
+      },
       "coordinate": "18,11",
       "imgName": "workcenter_01",
       "labelText": "U4060"
@@ -2101,8 +2213,12 @@
   [
     "20,9",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3030",
+        "machine": "L3030"
+      },
       "coordinate": "20,9",
       "imgName": "workcenter_01",
       "labelText": "U3030"
@@ -2111,8 +2227,12 @@
   [
     "20,10",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3040",
+        "machine": "L3040"
+      },
       "coordinate": "20,10",
       "imgName": "workcenter_01",
       "labelText": "U3040"
@@ -2121,8 +2241,12 @@
   [
     "20,11",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3050",
+        "machine": "L3050"
+      },
       "coordinate": "20,11",
       "imgName": "workcenter_01",
       "labelText": "U3050"
@@ -2131,8 +2255,12 @@
   [
     "20,12",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3060",
+        "machine": "L3060"
+      },
       "coordinate": "20,12",
       "imgName": "workcenter_01",
       "labelText": "U3060"
@@ -2141,8 +2269,12 @@
   [
     "20,13",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3070",
+        "machine": "L3070"
+      },
       "coordinate": "20,13",
       "imgName": "workcenter_01",
       "labelText": "U3070"
@@ -2151,8 +2283,12 @@
   [
     "20,14",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3080",
+        "machine": "L3080"
+      },
       "coordinate": "20,14",
       "imgName": "workcenter_01",
       "labelText": "U3080"
@@ -2161,8 +2297,12 @@
   [
     "21,9",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3030",
+        "machine": "L3030"
+      },
       "coordinate": "21,9",
       "imgName": "workcenter_01",
       "labelText": "U3030"
@@ -2171,8 +2311,12 @@
   [
     "21,11",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3050",
+        "machine": "L3050"
+      },
       "coordinate": "21,11",
       "imgName": "workcenter_01",
       "labelText": "U3050"
@@ -2181,8 +2325,12 @@
   [
     "21,14",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U3",
+        "workcenter": "U3080",
+        "machine": "L3080"
+      },
       "coordinate": "21,14",
       "imgName": "workcenter_01",
       "labelText": "U3080"
@@ -2362,8 +2510,12 @@
   [
     "24,4",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U1",
+        "workcenter": "U1010",
+        "machine": "L1010"
+      },
       "coordinate": "24,4",
       "labelText": "ME1350A",
       "imgName": "workstation_01,wall_b_l"
@@ -2372,8 +2524,12 @@
   [
     "25,4",
     {
-      "mapKpis": {},
-      "mapSelectionPath": null,
+      "mapKpis": { "andon": "green", "oee": "34" },
+      "mapSelectionPath": {
+        "line": "U1",
+        "workcenter": "U1020",
+        "machine": "L1020"
+      },
       "coordinate": "25,4",
       "labelText": "NLX 3000",
       "imgName": "workstation_01"
