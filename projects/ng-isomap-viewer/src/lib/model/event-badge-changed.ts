@@ -1,32 +1,20 @@
-export class EventBadgeChanged {
-
-    public eventName = "kpiChanged";
-
-    constructor(eventType: string, eventTarget: string, eventValue:string) {
-        this.eventType = eventType;
-        this.eventTarget = eventTarget;
-        this.eventValue = eventValue;
-    }
-
-    public eventType: string;
-    public eventTarget: string;
-    public eventValue: string;
+export interface Event {
+  eventName: 'tileEditCompleted' | 'kpiChanged' | 'cellSelected' | 'mapLoaded' | 'resetMap' | 'selectedBadgeType';
 }
 
-export class EventTileEditCompleted {
-
-    public eventName = "tileEditCompleted";
-
+export interface EventBadgeChanged extends Event {
+  eventType: string;
+  eventTarget: string;
+  eventValue: string;
 }
 
-export class EventCellSelected {
+export interface EventTileEditCompleted extends Event {
+}
 
-    public eventName = "cellSelected";
+export interface EventBadgeSelected extends Event {
+  value: string;
+}
 
-    constructor(cellIndex: string) {
-        this.cellIndex = cellIndex;
-    }
-
-    public cellIndex: string;
-   
+export interface EventCellSelected extends Event {
+  cellIndex: string;
 }

@@ -4,18 +4,18 @@ import {
   OnDestroy,
   Input,
   ChangeDetectorRef
-} from "@angular/core";
-import { TiledCoreService } from "../tiled-core.service";
-import { EventService } from "../event-service";
-import { COMMA, ENTER } from "@angular/cdk/keycodes";
-import { MatChipInputEvent } from "@angular/material/chips";
-import { stringify } from "@angular/core/src/util";
-import { EventTileEditCompleted } from "../model/event-badge-changed";
+} from '@angular/core';
+import { TiledCoreService } from '../tiled-core.service';
+import { EventService } from '../event-service';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { stringify } from '@angular/core/src/util';
+import { EventTileEditCompleted } from '../model/event-badge-changed';
 
 @Component({
-  selector: "tiled-editor",
-  templateUrl: "./tiled-editor.component.html",
-  styleUrls: ["./tiled-editor.component.css"]
+  selector: 'tiled-editor',
+  templateUrl: './tiled-editor.component.html',
+  styleUrls: ['./tiled-editor.component.css']
 })
 export class TiledEditorComponent implements OnInit, OnDestroy {
   // editor pane controls
@@ -47,38 +47,38 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
 
   // values for dropdown
   private tileTypes = [
-    "conveyor_01",
-    "workstation_01",
-    "workcenter_01",
-    "finished_goods_small",
-    "finished_goods_big",
-    "office_01",
-    "agv_e_s",
-    "agv_w_s",
-    "road_crossroad",
-    "road_crossroad_e_s_w",
-    "road_crossroad_east",
-    "road_crossroad_n_e_s",
-    "road_crossroad_north",
-    "road_crossroad_s_w_n",
-    "road_crossroad_south",
-    "road_crossroad_w_n_e",
-    "road_crossroad_west",
-    "road_up",
-    "road_down",
-    "wall_u_l",
-    "wall_u_r",
-    "wall_b_l",
-    "wall_b_r",
-    "warehouse_auto",
-    "warehouse_big"
+    'conveyor_01',
+    'workstation_01',
+    'workcenter_01',
+    'finished_goods_small',
+    'finished_goods_big',
+    'office_01',
+    'agv_e_s',
+    'agv_w_s',
+    'road_crossroad',
+    'road_crossroad_e_s_w',
+    'road_crossroad_east',
+    'road_crossroad_n_e_s',
+    'road_crossroad_north',
+    'road_crossroad_s_w_n',
+    'road_crossroad_south',
+    'road_crossroad_w_n_e',
+    'road_crossroad_west',
+    'road_up',
+    'road_down',
+    'wall_u_l',
+    'wall_u_r',
+    'wall_b_l',
+    'wall_b_r',
+    'warehouse_auto',
+    'warehouse_big'
   ];
 
   private tileSubscription;
 
   constructor(
     public tiledCoreService: TiledCoreService,
-    private eventService: EventService<any>
+    private eventService: EventService
   ) {}
 
   ngOnDestroy() {
@@ -88,38 +88,38 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // subscribe to selection of tile (global eventing)
     this.tileSubscription = this.eventService.events.subscribe(evt => {
-      if (evt && evt["eventName"] && evt["eventName"] === "cellSelected") {
-        this.cellIndex = evt["cellIndex"];
+      if (evt && evt['eventName'] && evt['eventName'] === 'cellSelected') {
+        this.cellIndex = evt['cellIndex'];
         var currentTile = this.tiledCoreService.getTileData(this.cellIndex);
         if (currentTile) {
           this.labelText = currentTile.labelText;
-          if (currentTile.imgName && currentTile.imgName.indexOf(",") > -1) {
+          if (currentTile.imgName && currentTile.imgName.indexOf(',') > -1) {
             this.layeredTileImages = currentTile.imgName;
             this.imageName = null;
           } else {
             this.imageName = currentTile.imgName;
-            this.layeredTileImages = "";
+            this.layeredTileImages = '';
           }
           this.backgroundColor = currentTile.backgroundColor;
           this.statusColor = currentTile.statusColor;
           if (currentTile.mapSelectionPath) {
-            this.selLine = currentTile.mapSelectionPath["Line"];
-            this.selWorkcenter = currentTile.mapSelectionPath["Workcenter"];
-            this.selMachine = currentTile.mapSelectionPath["Machine"];
+            this.selLine = currentTile.mapSelectionPath['Line'];
+            this.selWorkcenter = currentTile.mapSelectionPath['Workcenter'];
+            this.selMachine = currentTile.mapSelectionPath['Machine'];
           } else {
-            this.selLine = "";
-            this.selWorkcenter = "";
-            this.selMachine = "";
+            this.selLine = '';
+            this.selWorkcenter = '';
+            this.selMachine = '';
           }
           if (currentTile.mapKpis) {
             this.badges = JSON.stringify(currentTile.mapKpis);
           } else {
-            this.badges = "";
+            this.badges = '';
           }
           if (currentTile.mapKpis) {
             this.badgesChips = [];
             Object.keys(currentTile.mapKpis).forEach(prop => {
-              this.badgesChips.push(prop + ":" + currentTile.mapKpis[prop]);
+              this.badgesChips.push(prop + ':' + currentTile.mapKpis[prop]);
             });
           } else {
             this.badgesChips = [];
@@ -149,10 +149,11 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
     if (!this.selLine && !this.selWorkcenter && !this.selMachine) {
       selData.mapSelectionPath = null;
     } else {
-      let selPath = new Map<string, string>();
-      selPath.set("Line", this.selLine);
-      selPath.set("Workcenter", this.selWorkcenter);
-      selPath.set("Machine", this.selMachine);
+      let selPath = {
+        'Line': this.selLine,
+        'Workcenter': this.selWorkcenter,
+        'Machine': this.selMachine
+      };
       selData.mapSelectionPath = selPath;
     }
     if (this.layeredTileImages) {
@@ -161,9 +162,9 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
       selData.imgName = this.imageName;
     }
     if (this.badgesChips) {
-      selData.mapKpis = new Map<string, string>();
+      selData.mapKpis = {};
       this.badgesChips.forEach(itm => {
-        selData.mapKpis[itm.split(":")[0]] = itm.split(":")[1];
+        selData.mapKpis[itm.split(':')[0]] = itm.split(':')[1];
       });
     } else {
       selData.mapKpis = null;
@@ -172,9 +173,9 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
     this.tiledCoreService.setTileData(this.cellIndex, selData);
 
     // report to other components (e. g. host page)
-    this.eventService.dispatchEvent(new EventTileEditCompleted());
+    this.eventService.dispatchEvent({eventName: 'tileEditCompleted'});
     console.log(
-      "--------------- JSON with Positions: ",
+      '--------------- JSON with Positions: ',
       JSON.stringify(
         Object.values(this.tiledCoreService.allTileData()).map(_ => [
           _.coordinate,
@@ -186,9 +187,9 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
 
   clearTile() {
     this.tiledCoreService.clearTileData(this.cellIndex);
-    this.cellIndex = "";
+    this.cellIndex = '';
     // report to other components (e. g. host page)
-    this.eventService.dispatchEvent(new EventTileEditCompleted());
+    this.eventService.dispatchEvent({eventName: 'tileEditCompleted'});
   }
 
   add(event: MatChipInputEvent): void {
@@ -196,13 +197,13 @@ export class TiledEditorComponent implements OnInit, OnDestroy {
     const value = event.value;
 
     // Add our fruit
-    if ((value || "").trim()) {
+    if ((value || '').trim()) {
       this.badgesChips.push(value.trim());
     }
 
     // Reset the input value
     if (input) {
-      input.value = "";
+      input.value = '';
     }
   }
 

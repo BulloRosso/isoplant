@@ -1,37 +1,21 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  ElementRef,
-  ViewChild,
-  AfterViewInit,
-  HostListener
-} from '@angular/core';
-import { Subject } from 'rxjs';
-import { Observable } from 'rxjs';
-// animations https://www.npmjs.com/package/ng-animate
-import {
-  trigger,
-  transition,
-  useAnimation,
-  state,
-  style
-} from '@angular/animations';
+import { state, style, transition, trigger, useAnimation } from '@angular/animations';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { D3, D3Service } from 'd3-ng2-service';
+import { zoom } from 'd3-ng2-service/src/bundle-d3';
 import { flipInX, flipOutX } from 'ng-animate';
-import { D3Service, D3 } from 'd3-ng2-service';
-import { TileData } from './model/tile-data';
-import { IsoMapItem } from './model/iso-map-item';
-import { ViewerTiledCoreService } from './viewer-tiled-core.service';
-import { ViewerEventService } from './viewer-event-service';
-import {
-  EventBadgeChanged,
-  EventCellSelected
-} from './model/event-badge-changed';
+import { Observable, Subject } from 'rxjs';
 
+import { Event, EventBadgeChanged, EventBadgeSelected } from './model/event-badge-changed';
+import { IsoMapItem } from './model/iso-map-item';
+import { TileData } from './model/tile-data';
+import { ViewerEventService } from './viewer-event-service';
+import { ViewerTiledCoreService } from './viewer-tiled-core.service';
+
+// animations https://www.npmjs.com/package/ng-animate
 @Component({
   selector: 'lib-ng-isomap-viewer',
-  templateUrl: 'ng-isomap-viewer.component.html',
-  styleUrls: ['ng-isomap-viewer.component.css'],
+  templateUrl: './ng-isomap-viewer.component.html',
+  styleUrls: ['./ng-isomap-viewer.component.css'],
   animations: [
     trigger('zoomStatus', [
       state(
@@ -52,11 +36,9 @@ import {
   ]
 })
 //
-//   Simple Isometric Renderer inspired by
-//   http://nick-aschenbach.github.io/assets/2015-02-25-isometric-tile-engine/isometric02/js/isometric.js
+//   Simple Isometric Renderer inspired by http://nick-aschenbach.github.io/assets/2015-02-25-isometric-tile-engine/isometric02/js/isometric.js
 //
-export class NgIsomapViewerComponent
-  implements OnInit, AfterViewInit, OnDestroy {
+export class NgIsomapViewerComponent implements OnInit, AfterViewInit, OnDestroy {
   zoomIn = 'invisible';
 
   private grid = {
@@ -222,12 +204,11 @@ export class NgIsomapViewerComponent
   ngOnInit() {
     const d3 = this.d3;
 
-    // TODO fixed URL for demo purposes
     this.tiledCoreService.loadData(
-      'http://localhost:4200/assets/sample-data/tilemap.json'
+      '/assets/sample-data/tilemap.json'
     );
 
-    this.eventService.events.subscribe((evt: any) => {
+    this.eventService.events.subscribe((evt: Event) => {
       if (evt && evt.eventName) {
         if (evt.eventName === 'mapLoaded') {
           // compile required svgs for preloader
@@ -261,7 +242,8 @@ export class NgIsomapViewerComponent
             );
         }
         if (evt.eventName === 'selectedBadgeType') {
-          this.selectedBadgeType = evt.value;
+          const selBad = evt as EventBadgeSelected;
+          this.selectedBadgeType = selBad.value;
           if (this.selectedBadgeType === 'oee') {
             this.grid.badgeColor = 'purple';
           } else {
@@ -275,21 +257,21 @@ export class NgIsomapViewerComponent
         }
 
         // live update of overlay values
-        if (evt instanceof EventBadgeChanged) {
-          const evtT: EventBadgeChanged = evt;
+        if (evt.eventName === 'kpiChanged') {
+          const evtT: EventBadgeChanged = evt as EventBadgeChanged;
 
           (Object.values(this.tiledCoreService.allTileData()) || []).forEach(
             (itm: any) => {
               if (itm.mapSelectionPath) {
                 if (
-                  itm.mapSelectionPath.Machine &&
-                  itm.mapSelectionPath.Machine === evtT.eventTarget
+                  itm.mapSelectionPath.machine &&
+                  itm.mapSelectionPath.machine === evtT.eventTarget
                 ) {
                   if (itm.mapKpis) {
-                    itm.mapKpis[evt.eventType] = evtT.eventValue;
+                    itm.mapKpis[evtT.eventType] = evtT.eventValue;
                   } else {
                     itm.mapKpis = {};
-                    itm.mapKpis[evt.eventType] = evt.eventValue;
+                    itm.mapKpis[evtT.eventType] = evtT.eventValue;
                   }
                   this.redrawTiles(
                     this.tiledCoreService.allTileData(),
@@ -310,15 +292,9 @@ export class NgIsomapViewerComponent
   }
 
   ngOnDestroy() {
-    if(this.tileSubscription) {
-      this.tileSubscription.unsubscribe();
-    }
-    if(this.ownSelectedItemSubscription) {
-      this.ownSelectedItemSubscription.unsubscribe();
-    }
-    if(this.badgeSubscription) {
-      this.badgeSubscription.unsubscribe();
-    }
+    this.tileSubscription.unsubscribe();
+    this.ownSelectedItemSubscription.unsubscribe();
+    this.badgeSubscription.unsubscribe();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -375,8 +351,15 @@ export class NgIsomapViewerComponent
     let newTile;
 
     if (!this.tiledCoreService.getTileData(tileX + ',' + tileY)) {
-      newTile = new TileData();
-      newTile.coordinate = tileX + ',' + tileY;
+      newTile = {
+        coordinate: tileX + ',' + tileY,
+        mapKpis: {},
+        backgroundColor: '',
+        labelText: '',
+        imgName: '',
+        statusColor: '',
+        mapSelectionPath: {}
+      };
       this.tiledCoreService.setTileData(tileX + ',' + tileY, newTile);
     } else {
       newTile = this.tiledCoreService.getTileData(tileX + ',' + tileY);
@@ -399,7 +382,7 @@ export class NgIsomapViewerComponent
     this.selectedObjectName = '[' + tileX + ',' + tileY + ']';
 
     // notify editor (which may be around)
-    this.eventService.dispatchEvent(new EventCellSelected(tileX + ',' + tileY));
+    this.eventService.dispatchEvent({ cellIndex: tileX + ',' + tileY });
 
     if (selTileData.mapSelectionPath) {
       if (
@@ -414,9 +397,11 @@ export class NgIsomapViewerComponent
           this.selectedObjectType = this.selectUnitType;
 
           // notify client subscribers (e. g. host page)
-          const itm: IsoMapItem = new IsoMapItem();
-          itm.name = this.selectedObjectName;
-          itm.type = this.selectedObjectType;
+          const itm: IsoMapItem = {
+            type: this.selectedObjectType,
+            name: this.selectedObjectName,
+            id: ''
+          };
           this.selectedItemSubject.next(itm); // signal to host page
         }
       } else {

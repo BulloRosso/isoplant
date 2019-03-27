@@ -1,18 +1,10 @@
-export class TileData {
-
-    public coordinate : string; // e. g. "0,0"
-
-    public mapKpis  = new Object(); // Hashmap key/val
-
-    public backgroundColor: string;
-
-    public labelText: string;
-
-    public imgName: string;
-
-    public statusColor: string; // e. g. red
-
-    // drilldown assignment (depending on current drilldown object selector)
-    public mapSelectionPath  = new Object(); // Hashmap key/val
-
+export interface TileData {
+  coordinate: string; // e. g. "0,0"
+  mapKpis: { [key: string]: string }; // Hashmap key/val
+  backgroundColor: string;
+  labelText: string;
+  imgName: string;
+  statusColor: string; // e. g. red
+  // drilldown assignment (depending on current drilldown object selector)
+  mapSelectionPath: { [key: string]: string }; // Hashmap key/val
 }

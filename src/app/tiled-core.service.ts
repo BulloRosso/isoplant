@@ -19,7 +19,7 @@ export class TiledCoreService {
 
   constructor(
     private http: HttpClient,
-    private eventService: EventService<any>
+    private eventService: EventService
   ) {}
 
   public saveData(url: string) {
@@ -117,7 +117,7 @@ export class TiledCoreService {
 
   // init from url (JSON)
   public loadData(url: string) {
-    return this.http.get(url).subscribe((data: {[key: string]: TileData}) => {
+    return this.http.get(url).subscribe((data: any) => {
       console.log('Loaded data from ' + url);
       // loaded data
       this.clearMap();

@@ -27,7 +27,7 @@ export class TiledControlsComponent implements OnInit {
 
 
   constructor(public tiledCoreService : TiledCoreService,
-              private eventService: EventService<any>) { }
+              private eventService: EventService) { }
 
   ngOnInit() {
     
