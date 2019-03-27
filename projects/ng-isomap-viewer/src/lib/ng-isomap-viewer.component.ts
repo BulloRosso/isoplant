@@ -21,8 +21,8 @@ import { flipInX, flipOutX } from 'ng-animate';
 import { D3Service, D3 } from 'd3-ng2-service';
 import { TileData } from './model/tile-data';
 import { IsoMapItem } from './model/iso-map-item';
-import { TiledCoreService } from './tiled-core.service';
-import { EventService } from './event-service';
+import { ViewerTiledCoreService } from './viewer-tiled-core.service';
+import { ViewerEventService } from './viewer-event-service';
 import {
   EventBadgeChanged,
   EventCellSelected
@@ -131,9 +131,9 @@ export class NgIsomapViewerComponent
   private selectedObjectType = '';
 
   constructor(
-    private tiledCoreService: TiledCoreService,
+    private tiledCoreService: ViewerTiledCoreService,
     d3Service: D3Service,
-    private eventService: EventService<any>
+    private eventService: ViewerEventService
   ) {
     this.d3 = d3Service.getD3();
   }
@@ -310,9 +310,15 @@ export class NgIsomapViewerComponent
   }
 
   ngOnDestroy() {
-    this.tileSubscription.unsubscribe();
-    this.ownSelectedItemSubscription.unsubscribe();
-    this.badgeSubscription.unsubscribe();
+    if(this.tileSubscription) {
+      this.tileSubscription.unsubscribe();
+    }
+    if(this.ownSelectedItemSubscription) {
+      this.ownSelectedItemSubscription.unsubscribe();
+    }
+    if(this.badgeSubscription) {
+      this.badgeSubscription.unsubscribe();
+    }
   }
 
   @HostListener('window:resize', ['$event'])

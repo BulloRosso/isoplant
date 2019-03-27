@@ -1,7 +1,7 @@
 
 <div id="tileCanvas">
 
-    <mat-toolbar color="primary" class="custom-toolbar">
+    <!-->mat-toolbar color="primary" class="custom-toolbar">
         <mat-toolbar-row class="custom-toolbar">
                 
                 <span class="mdi mdi-eye-outline space-right"></span>
@@ -23,7 +23,7 @@
                 <span class="space-left">{{ selectedObjectName }}</span>
            
         </mat-toolbar-row>
-    </mat-toolbar>
+    </mat-toolbar-->
 
     <canvas #tileCanvas (click)="onClick($event)"></canvas>
 
@@ -35,11 +35,6 @@
                 </td>
                 <td style="text-align:right">
                     <span style="right:0" class="mdi mdi-close" (click)="zoomIn = 'invisible'"></span>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="color:#ccc;padding-top:10px;">
-                   <img src="assets/sample-charts.png" style="margin-top:40px;width:100%"/>
                 </td>
             </tr>
         </table>

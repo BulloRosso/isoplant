@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
-export class EventService<T> {
+export class ViewerEventService {
     protected eventSubject = new Subject();
 
     public events = this.eventSubject.asObservable();

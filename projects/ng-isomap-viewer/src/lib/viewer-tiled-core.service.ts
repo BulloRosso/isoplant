@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { EventService } from './event-service';
+import { ViewerEventService } from './viewer-event-service';
 import { TileData } from './model/tile-data';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TiledCoreService {
+export class ViewerTiledCoreService {
   public zoomLevel = 1;
   public selectedTile = '';
 
@@ -19,7 +19,7 @@ export class TiledCoreService {
 
   constructor(
     private http: HttpClient,
-    private eventService: EventService<any>
+    private eventService: ViewerEventService
   ) {}
 
   public saveData(url: string) {
