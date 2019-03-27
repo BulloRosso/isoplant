@@ -1,14 +1,13 @@
 import { state, style, transition, trigger, useAnimation } from '@angular/animations';
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { D3, D3Service } from 'd3-ng2-service';
-import { zoom } from 'd3-ng2-service/src/bundle-d3';
 import { flipInX, flipOutX } from 'ng-animate';
 import { Observable, Subject } from 'rxjs';
 
 import { Event, EventBadgeChanged, EventBadgeSelected } from './model/event-badge-changed';
 import { IsoMapItem } from './model/iso-map-item';
 import { TileData } from './model/tile-data';
-import { ViewerEventService } from './viewer-event-service';
+import { ViewerEventService } from './viewer-event.service';
 import { ViewerTiledCoreService } from './viewer-tiled-core.service';
 
 // animations https://www.npmjs.com/package/ng-animate

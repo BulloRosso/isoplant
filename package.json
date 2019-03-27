@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "pack-isomap": "npm run build ng-isomap-viewer && cd dist/ng-isomap-viewer && npm pack",
-    "publish-isomap": "npm publish ng-isomap-viewer-0.0.16.tgz"
+    "publish-isomap": "npm publish ng-isomap-viewer-0.0.18.tgz"
   },
   "private": true,
   "dependencies": {

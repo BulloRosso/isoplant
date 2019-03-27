@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { ViewerEventService } from './viewer-event-service';
+import { ViewerEventService } from './viewer-event.service';
 import { TileData } from './model/tile-data';
 
 @Injectable({
